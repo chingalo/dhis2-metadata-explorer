@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private CompositeDisposable compositeDisposable;
 
     private FloatingActionButton syncMetadataButton;
-    private FloatingActionButton syncDataButton;
 
     private TextView syncStatusText;
     private ProgressBar progressBar;
@@ -62,12 +61,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         inflateMainView();
         createNavigationView(user);
+        startMetadataSync();
     }
+
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateSyncDataAndButtons();
+       updateSyncDataAndButtons();
     }
 
     private User getUser() {
@@ -95,53 +97,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void inflateMainView() {
         syncMetadataButton = findViewById(R.id.syncMetadataButton);
-        syncDataButton = findViewById(R.id.syncDataButton);
-
-        syncStatusText = findViewById(R.id.notificator);
         progressBar = findViewById(R.id.syncProgressBar);
 
         syncMetadataButton.setOnClickListener(view -> {
-            setSyncing();
             Snackbar.make(view, "Syncing metadata", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-            syncStatusText.setText(R.string.syncing_metadata);
-            syncMetadata();
+           startMetadataSync();
         });
+    }
 
-        syncDataButton.setOnClickListener(view -> {
-            setSyncing();
-            Snackbar.make(view, "Syncing data", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            syncStatusText.setText(R.string.syncing_data);
-            downloadData();
-        });
+    private void startMetadataSync(){
+        syncStatusText = findViewById(R.id.notificator);
+        syncStatusText.setText(R.string.syncing_metadata);
+        setSyncing();
+        syncMetadata();
     }
 
     private void setSyncing() {
         isSyncing = true;
         progressBar.setVisibility(View.VISIBLE);
         syncStatusText.setVisibility(View.VISIBLE);
-        updateSyncDataAndButtons();
+       updateSyncDataAndButtons();
     }
 
     private void setSyncingFinished() {
         isSyncing = false;
         progressBar.setVisibility(View.GONE);
         syncStatusText.setVisibility(View.GONE);
-        updateSyncDataAndButtons();
+       updateSyncDataAndButtons();
     }
 
     private void disableAllButtons() {
         setEnabledButton(syncMetadataButton, false);
-        setEnabledButton(syncDataButton, false);
     }
 
     private void enablePossibleButtons(boolean metadataSynced) {
         if (!isSyncing) {
             setEnabledButton(syncMetadataButton, true);
-            if (metadataSynced) {
-                setEnabledButton(syncDataButton, true);
-            }
         }
     }
 
@@ -155,22 +147,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int programCount = SyncStatusHelper.programCount();
         int dataSetCount = SyncStatusHelper.dataSetCount();
-        int trackedEntityInstanceCount = SyncStatusHelper.trackedEntityInstanceCount();
-        int singleEventCount = SyncStatusHelper.singleEventCount();
-        int dataValueCount = SyncStatusHelper.dataValueCount();
 
         enablePossibleButtons(programCount + dataSetCount > 0);
 
         TextView downloadedProgramsText = findViewById(R.id.programsDownloadedText);
         TextView downloadedDataSetsText = findViewById(R.id.dataSetsDownloadedText);
-        TextView downloadedTeisText = findViewById(R.id.trackedEntityInstancesDownloadedText);
-        TextView singleEventsDownloadedText = findViewById(R.id.singleEventsDownloadedText);
-        TextView downloadedDataValuesText = findViewById(R.id.dataValuesDownloadedText);
         downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
         downloadedDataSetsText.setText(MessageFormat.format("{0}", dataSetCount));
-        downloadedTeisText.setText(MessageFormat.format("{0}", trackedEntityInstanceCount));
-        singleEventsDownloadedText.setText(MessageFormat.format("{0}", singleEventCount));
-        downloadedDataValuesText.setText(MessageFormat.format("{0}", dataValueCount));
     }
 
     private void createNavigationView(User user) {
@@ -204,39 +187,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return Sdk.d2().metadataModule().download();
     }
 
-    private void downloadData() {
-        compositeDisposable.add(
-                Observable.merge(
-                        downloadTrackedEntityInstances(),
-                        downloadAggregatedData()
-                )
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doOnComplete(this::setSyncingFinished)
-                        .doOnError(Throwable::printStackTrace)
-                        .subscribe());
-    }
-
-    private Observable<D2Progress> downloadTrackedEntityInstances() {
-        return Sdk.d2().trackedEntityModule().trackedEntityInstanceDownloader()
-                .limit(10).limitByOrgunit(false).limitByProgram(false).download();
-    }
-
-    private Observable<D2Progress> downloadAggregatedData() {
-        return Sdk.d2().aggregatedModule().data().download();
-    }
-
-    private void uploadData() {
-        compositeDisposable.add(
-                Sdk.d2().trackedEntityModule().trackedEntityInstances().upload()
-                        .concatWith(Sdk.d2().dataValueModule().dataValues().upload())
-                        .concatWith(Sdk.d2().eventModule().events().upload())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doOnComplete(this::setSyncingFinished)
-                        .doOnError(Throwable::printStackTrace)
-                        .subscribe());
-    }
 
     private void wipeData() {
         compositeDisposable.add(

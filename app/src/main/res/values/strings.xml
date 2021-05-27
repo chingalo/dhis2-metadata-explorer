@@ -15,9 +15,7 @@
     <string name="welcome">"Welcome!"</string>
     <string name="lorem_ipsum">"Lorem ipsum dolor sit amet"</string>
     <string name="syncing_metadata">Syncing metadata…</string>
-    <string name="syncing_data">Syncing data…</string>
     <string name="sync_metadata">Sync metadata</string>
-    <string name="sync_data">Sync data</string>
     <string name="wiping_data">Wiping data…</string>
     <string name="log_out">Log out</string>
     <string name="wipe_data">Wipe data</string>
