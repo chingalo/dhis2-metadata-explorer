@@ -142,7 +142,7 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
             <TextView
                 android:id="@+id/notificator"
                 android:layout_marginStart="50dp"
@@ -151,7 +151,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/lorem_ipsum"
                 android:textSize="20sp"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
         </RelativeLayout>
     </LinearLayout>
 

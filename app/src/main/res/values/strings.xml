@@ -31,4 +31,8 @@
     <string name="zero">0</string>
     <string name="metadata_list">Metadata list</string>
     <string name="welcome_user">Welcome Joseph</string>
+    <!-- String data set list-->
+    <string name="title_activity_data_set_home">Data set list</string>
+    <!-- String program list-->
+    <string name="title_activity_program_home">Program list</string>
 </resources>

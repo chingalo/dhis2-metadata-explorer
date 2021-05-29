@@ -17,7 +17,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.android.androidskeletonapp.R;
 import com.example.android.androidskeletonapp.data.Sdk;
+import com.example.android.androidskeletonapp.data.service.ActivityStarter;
 import com.example.android.androidskeletonapp.data.service.SyncStatusHelper;
+import com.example.android.androidskeletonapp.ui.dataSet.DataSetHomeActivity;
+import com.example.android.androidskeletonapp.ui.program.ProgramHomeActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -105,14 +108,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dataSetCardView = findViewById(R.id.dataSetLisCard);
         programCardView = findViewById(R.id.programListCard);
 
-        programCardView.setOnClickListener(view->{
 
-            System.out.println("On click view card for program list");
+
+
+        programCardView.setOnClickListener(view->{
+            if(!isSyncing ){
+                int programCount = SyncStatusHelper.programCount();
+                if(programCount > 0){
+                    ActivityStarter.startActivity(this, ProgramHomeActivity.getProgramHomeActivityIntent(this),false);
+                }else{
+                    Snackbar.make(view, "You have no program at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+
+            }
         });
 
         dataSetCardView.setOnClickListener(view->{
+            if(!isSyncing){
+                int dataSetCount = SyncStatusHelper.dataSetCount();
+                if(dataSetCount > 0){
+                    ActivityStarter.startActivity(this, DataSetHomeActivity.getDataSetHomeActivityIntent(this),false);
+                }else{
+                    Snackbar.make(view, "You have no data set at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
 
-            System.out.println("On click view card for program list");
+            }
         });
 
         syncMetadataButton.setOnClickListener(view -> {
