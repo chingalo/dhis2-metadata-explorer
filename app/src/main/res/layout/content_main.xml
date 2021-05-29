@@ -17,20 +17,22 @@
         tools:layout_editor_absoluteY="112dp">
         <TextView
             android:id="@+id/welcomeNote"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:paddingTop="3dp"
+            android:layout_marginHorizontal="10dp"
             android:textSize="20sp"
-            android:text="Welcome Joseph" />
+            android:text="@string/welcome_user" />
 
         <TextView
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
             android:paddingTop="3dp"
             android:textSize="24sp"
-            android:text="Metadata list" />
+            android:text="@string/metadata_list" />
 
 
         <androidx.cardview.widget.CardView
@@ -57,7 +59,7 @@
                     android:layout_height="40dp"
                     android:paddingTop="3dp"
                     android:textSize="24sp"
-                    android:text="Programs" />
+                    android:text="@string/programs" />
 
                 <TextView
                     android:id="@+id/programListCount"
@@ -106,7 +108,7 @@
                     android:layout_height="40dp"
                     android:paddingTop="3dp"
                     android:textSize="24sp"
-                    android:text="Datasets" />
+                    android:text="@string/data_sets" />
 
                 <TextView
                     android:id="@+id/dataSetListCount"
@@ -131,31 +133,29 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <ProgressBar
+                android:id="@+id/syncProgressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:visibility="visible" />
+            <TextView
+                android:id="@+id/notificator"
+                android:layout_marginStart="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/lorem_ipsum"
+                android:textSize="20sp"
+                android:visibility="visible"/>
+        </RelativeLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/notificator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:text="@string/lorem_ipsum"
-        android:textSize="20sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/metadataListContainer" />
 
-    <ProgressBar
-        android:id="@+id/syncProgressBar"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="12dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/notificator"
-        app:layout_constraintTop_toBottomOf="@+id/metadataListContainer" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"

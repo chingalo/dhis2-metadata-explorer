@@ -11,7 +11,7 @@
     <string name="invalid_password">Password must have more than 5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <!-- Strings related to main -->
-    <string name="title_activity_main">Home</string>
+    <string name="title_activity_main">Metadata List</string>
     <string name="welcome">"Welcome!"</string>
     <string name="lorem_ipsum">"Lorem ipsum dolor sit amet"</string>
     <string name="syncing_metadata">Syncing metadata…</string>
@@ -28,8 +28,7 @@
     <!-- Strings related to main activity -->
     <string name="programs">Programs</string>
     <string name="data_sets">Data sets</string>
-    <string name="tracked_entity_instances">Tracked entity instances</string>
-    <string name="events_without_registration">Events without registration</string>
-    <string name="data_values">Data values</string>
     <string name="zero">0</string>
+    <string name="metadata_list">Metadata list</string>
+    <string name="welcome_user">Welcome Joseph</string>
 </resources>

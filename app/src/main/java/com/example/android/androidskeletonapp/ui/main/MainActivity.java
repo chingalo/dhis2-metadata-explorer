@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private FloatingActionButton syncMetadataButton;
 
+    private CardView programCardView;
+    private CardView dataSetCardView;
+
     private TextView syncStatusText;
     private ProgressBar progressBar;
 
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         compositeDisposable = new CompositeDisposable();
 
         User user = getUser();
-        TextView greeting = findViewById(R.id.greeting);
+        TextView greeting = findViewById(R.id.welcomeNote);
         greeting.setText(String.format("Hi %s!", user.displayName()));
 
         inflateMainView();
@@ -98,6 +102,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void inflateMainView() {
         syncMetadataButton = findViewById(R.id.syncMetadataButton);
         progressBar = findViewById(R.id.syncProgressBar);
+        dataSetCardView = findViewById(R.id.dataSetLisCard);
+        programCardView = findViewById(R.id.programListCard);
+
+        programCardView.setOnClickListener(view->{
+
+            System.out.println("On click view card for program list");
+        });
+
+        dataSetCardView.setOnClickListener(view->{
+
+            System.out.println("On click view card for program list");
+        });
 
         syncMetadataButton.setOnClickListener(view -> {
             Snackbar.make(view, "Syncing metadata", Snackbar.LENGTH_LONG)
@@ -122,8 +138,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setSyncingFinished() {
         isSyncing = false;
-        progressBar.setVisibility(View.GONE);
-        syncStatusText.setVisibility(View.GONE);
+        progressBar.setVisibility(View.INVISIBLE);
+        syncStatusText.setVisibility(View.INVISIBLE);
        updateSyncDataAndButtons();
     }
 
@@ -150,8 +166,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         enablePossibleButtons(programCount + dataSetCount > 0);
 
-        TextView downloadedProgramsText = findViewById(R.id.programsDownloadedText);
-        TextView downloadedDataSetsText = findViewById(R.id.dataSetsDownloadedText);
+        TextView downloadedProgramsText = findViewById(R.id.programListCount);
+        TextView downloadedDataSetsText = findViewById(R.id.dataSetListCount);
         downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
         downloadedDataSetsText.setText(MessageFormat.format("{0}", dataSetCount));
     }
@@ -202,10 +218,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.navWipeData) {
-            syncStatusText.setText(R.string.wiping_data);
-            wipeData();
-        } else if (id == R.id.navExit) {
+        if (id == R.id.navExit) {
             compositeDisposable.add(logOut(this));
         }
 
