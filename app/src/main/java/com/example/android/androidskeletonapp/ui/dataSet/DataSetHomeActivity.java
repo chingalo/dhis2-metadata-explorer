@@ -7,9 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.android.androidskeletonapp.R;
+import com.example.android.androidskeletonapp.ui.base.ListActivity;
 import com.example.android.androidskeletonapp.ui.main.MainActivity;
 
-public class DataSetHomeActivity extends AppCompatActivity {
+public class DataSetHomeActivity extends ListActivity {
 
     public static Intent getDataSetHomeActivityIntent(Context context) {
         return new Intent(context, DataSetHomeActivity.class);
@@ -18,6 +19,6 @@ public class DataSetHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_set_home);
+        setUp(R.layout.activity_data_set_home, R.id.dataSetHomeToolbar);
     }
 }

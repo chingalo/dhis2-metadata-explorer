@@ -1,14 +1,16 @@
 package com.example.android.androidskeletonapp.ui.base;
-
-import android.widget.Toolbar;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class ListActivity extends AppCompatActivity {
+public abstract class ListActivity extends AppCompatActivity {
 
-    protected  void setUp(int contentViewId, int toolBarId){
+    protected RecyclerView recyclerView;
+
+    protected void setUp(int contentViewId, int toolbarId) {
         setContentView(contentViewId);
-        //@TODO set toold bar
+        Toolbar toolbar = findViewById(toolbarId);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
