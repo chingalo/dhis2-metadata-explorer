@@ -19,7 +19,7 @@
             android:id="@+id/welcomeNote"
             android:textAlignment="textStart"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:paddingTop="3dp"
             android:layout_marginHorizontal="10dp"
             android:textSize="20sp"
@@ -28,7 +28,7 @@
         <TextView
             android:textAlignment="center"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:paddingTop="3dp"
             android:textSize="24sp"
@@ -42,18 +42,17 @@
             android:focusable="true"
             android:layout_margin="10dp"
             android:elevation="10dp"
-            android:layout_height="50dp" >
-
+            android:layout_height="wrap_content" >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="5dp"
+                android:layout_marginVertical="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
                 <TextView
                     android:layout_marginStart="50dp"
                     android:layout_width="wrap_content"
@@ -61,48 +60,35 @@
                     android:paddingTop="3dp"
                     android:textSize="20sp"
                     android:text="@string/programs" />
-
                 <TextView
                     android:id="@+id/programListCount"
                     android:paddingTop="3dp"
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
                     android:text="@string/zero" />
-
-                <ImageButton
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingStart="0dp"
-                    android:paddingEnd="10dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorWhite"
-                    android:layout_alignParentEnd="true"
-                    app:srcCompat="@drawable/ic_next_action" />
-
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/dataSetLisCard"
+            android:id="@+id/dataSetListCard"
             android:layout_width="match_parent"
             android:clickable="true"
             android:layout_margin="10dp"
             android:elevation="10dp"
-            android:layout_height="50dp" >
-
+            android:layout_height="wrap_content" >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="5dp"
+                android:layout_marginVertical="10dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
                 <TextView
                     android:layout_marginStart="50dp"
                     android:layout_width="wrap_content"
@@ -110,30 +96,17 @@
                     android:paddingTop="3dp"
                     android:textSize="20sp"
                     android:text="@string/data_sets" />
-
                 <TextView
                     android:id="@+id/dataSetListCount"
                     android:paddingTop="3dp"
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
                     android:text="@string/zero" />
-
-                <ImageButton
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingStart="0dp"
-                    android:paddingEnd="10dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorWhite"
-                    android:layout_alignParentEnd="true"
-                    app:srcCompat="@drawable/ic_next_action" />
-
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp">
@@ -156,8 +129,6 @@
         </RelativeLayout>
     </LinearLayout>
 
-
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
@@ -165,7 +136,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:context=".ui.main.MainActivity"
         tools:layout_editor_absoluteX="204dp">
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/syncMetadataButton"
             android:layout_width="wrap_content"
@@ -177,7 +147,6 @@
             app:backgroundTint="#2196F3"
             app:fabSize="normal"
             app:srcCompat="@drawable/ic_sync_icon" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

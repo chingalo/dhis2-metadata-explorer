@@ -35,4 +35,8 @@
     <string name="title_activity_data_set_home">Data set list</string>
     <!-- String program list-->
     <string name="title_activity_program_home">Program list</string>
+    <string name="item_subtitle">item subtitle</string>
+    <string name="item_title">item title</string>
+    <string name="data_set_info">Data Set info</string>
+    <string name="program_info">Program info</string>
 </resources>

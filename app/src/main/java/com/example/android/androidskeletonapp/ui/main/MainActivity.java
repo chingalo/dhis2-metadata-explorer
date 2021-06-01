@@ -104,11 +104,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void inflateMainView() {
         syncMetadataButton = findViewById(R.id.syncMetadataButton);
         progressBar = findViewById(R.id.syncProgressBar);
-        dataSetCardView = findViewById(R.id.dataSetLisCard);
+        dataSetCardView = findViewById(R.id.dataSetListCard);
         programCardView = findViewById(R.id.programListCard);
-
-
-
 
         programCardView.setOnClickListener(view->{
             if(!isSyncing ){

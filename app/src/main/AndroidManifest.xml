@@ -12,15 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.program.ProgramHomeActivity"
+        <activity
+            android:name=".ui.dataSet.DataSetInfoActivity"
+            android:label="@string/data_sets"
+            android:parentActivityName=".ui.dataSet.DataSetHomeActivity"
+            />
+        <activity android:name=".ui.program.ProgramWithOutRegistrationActivity"
+            android:label="@string/program_info"
+            android:parentActivityName=".ui.program.ProgramHomeActivity" />
+        <activity android:name=".ui.program.ProgramWithRegistrationActivity"
+            android:label="@string/program_info"
+            android:parentActivityName=".ui.program.ProgramHomeActivity"  />
+        <activity
+            android:name=".ui.program.ProgramHomeActivity"
             android:label="@string/title_activity_program_home"
-            android:parentActivityName=".ui.main.MainActivity">
-        </activity>
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
             android:name=".ui.dataSet.DataSetHomeActivity"
             android:label="@string/title_activity_data_set_home"
-            android:parentActivityName=".ui.main.MainActivity" >
-        </activity>
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.program.ProgramHomeActivity">
+    tools:context=".ui.dataSet.DataSetHomeActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,11 +21,15 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dataSetListRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title_activity_data_set_home"
-            ></TextView>
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/content_list_item_card"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 
