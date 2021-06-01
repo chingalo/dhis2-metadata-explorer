@@ -1,16 +1,15 @@
 package com.example.android.androidskeletonapp.ui.program;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.android.androidskeletonapp.R;
+import com.example.android.androidskeletonapp.ui.base.DefaultActivity;
 
 import static android.text.TextUtils.isEmpty;
 
-public class ProgramWithRegistrationActivity extends AppCompatActivity {
+public class ProgramWithRegistrationActivity extends DefaultActivity {
 
     private String selectedProgram;
     private enum IntentExtra {
@@ -29,7 +28,8 @@ public class ProgramWithRegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program_with_registration);
+        setUp(R.layout.activity_program_with_registration, R.id.programWithRegistrationToolbar);
         selectedProgram = getIntent().getStringExtra(IntentExtra.PROGRAM.name());
+        System.out.println(selectedProgram);
     }
 }

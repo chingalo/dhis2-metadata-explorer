@@ -41,5 +41,6 @@ public class DataSetHomeActivity extends ListActivity implements OnDataSetSelect
 
     @Override
     public void onDataSetSelected(String dataSetId) {
+        ActivityStarter.startActivity(this,DataSetInfoActivity.getActivityIntent(this,dataSetId),false);
     }
 }

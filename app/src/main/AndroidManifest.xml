@@ -14,7 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.dataSet.DataSetInfoActivity"
-            android:label="@string/data_sets"
+            android:label="@string/data_set_info"
             android:parentActivityName=".ui.dataSet.DataSetHomeActivity"
             />
         <activity android:name=".ui.program.ProgramWithOutRegistrationActivity"

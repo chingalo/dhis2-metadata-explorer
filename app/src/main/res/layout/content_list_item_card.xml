@@ -20,7 +20,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:srcCompat="@drawable/ic_assignment_black_24dp" />
+                app:srcCompat="@drawable/ic_4x4_negative" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
