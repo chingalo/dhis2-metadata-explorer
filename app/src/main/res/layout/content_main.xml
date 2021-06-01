@@ -39,14 +39,15 @@
             android:id="@+id/programListCard"
             android:layout_width="match_parent"
             android:clickable="true"
+            android:focusable="true"
             android:layout_margin="10dp"
             android:elevation="10dp"
-            android:layout_height="60dp" >
+            android:layout_height="50dp" >
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="45dp"
@@ -58,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:paddingTop="3dp"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:text="@string/programs" />
 
                 <TextView
@@ -67,16 +68,16 @@
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_alignParentEnd="true"
                     android:text="@string/zero" />
 
                 <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:paddingStart="0dp"
-                    android:paddingEnd="0dp"
-                    android:layout_marginTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="8dp"
                     android:background="@color/colorWhite"
                     android:layout_alignParentEnd="true"
                     app:srcCompat="@drawable/ic_next_action" />
@@ -90,12 +91,12 @@
             android:clickable="true"
             android:layout_margin="10dp"
             android:elevation="10dp"
-            android:layout_height="60dp" >
+            android:layout_height="50dp" >
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="45dp"
@@ -107,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:paddingTop="3dp"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:text="@string/data_sets" />
 
                 <TextView
@@ -116,16 +117,16 @@
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_alignParentEnd="true"
                     android:text="@string/zero" />
 
                 <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:paddingStart="0dp"
-                    android:paddingEnd="0dp"
-                    android:layout_marginTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="8dp"
                     android:background="@color/colorWhite"
                     android:layout_alignParentEnd="true"
                     app:srcCompat="@drawable/ic_next_action" />
@@ -135,11 +136,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="50dp">
             <ProgressBar
                 android:id="@+id/syncProgressBar"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:visibility="invisible" />
@@ -174,7 +175,7 @@
             android:layout_marginBottom="@dimen/fab_margin_with_text"
             android:tint="@color/colorWhite"
             app:backgroundTint="#2196F3"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@drawable/ic_sync_icon" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
