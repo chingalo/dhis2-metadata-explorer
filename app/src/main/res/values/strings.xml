@@ -39,4 +39,11 @@
     <string name="item_title">item title</string>
     <string name="data_set_info">Data Set info</string>
     <string name="program_info">Program info</string>
+    <string name="data_set_id">UID</string>
+    <string name="data_set_name">Name</string>
+    <string name="data_set_period_type">Period type</string>
+    <string name="data_set_description">Description</string>
+    <string name="data_element">Data element</string>
+    <string name="indicators">Indicators</string>
+    <string name="data_set_section">Data set section</string>
 </resources>
