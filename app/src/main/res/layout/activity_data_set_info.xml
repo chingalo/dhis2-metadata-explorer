@@ -20,10 +20,12 @@
     <LinearLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
-       <androidx.cardview.widget.CardView
+        android:layout_height="match_parent"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+           android:elevation="0dp"
            android:layout_marginVertical="5dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
@@ -37,13 +39,15 @@
                    android:layout_height="wrap_content"
                    android:layout_marginVertical="5dp">
                    <TextView
+                       android:textSize="18sp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/data_set_name">
                    </TextView>
                    <TextView
                        android:id="@+id/dataSetName"
-                       android:paddingStart="80dp"
+                       android:paddingStart="100dp"
+                       android:textSize="18sp"
                        android:textColor="@color/colorPrimary"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -55,13 +59,15 @@
                    android:layout_height="wrap_content"
                    android:layout_marginVertical="5dp">
                    <TextView
+                       android:textSize="18sp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/data_set_id">
                    </TextView>
                    <TextView
+                       android:textSize="18sp"
                        android:id="@+id/dataSetId"
-                       android:paddingStart="80dp"
+                       android:paddingStart="100dp"
                        android:textColor="@color/colorPrimary"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -74,13 +80,15 @@
                    android:layout_height="wrap_content"
                    android:layout_marginVertical="5dp">
                    <TextView
+                       android:textSize="18sp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/data_set_period_type">
                    </TextView>
                    <TextView
+                       android:textSize="18sp"
                        android:id="@+id/dataSetPeriodType"
-                       android:paddingStart="80dp"
+                       android:paddingStart="100dp"
                        android:textColor="@color/colorPrimary"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -92,13 +100,15 @@
                    android:layout_height="wrap_content"
                    android:layout_marginVertical="5dp">
                    <TextView
+                       android:textSize="18sp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/data_set_description">
                    </TextView>
                    <TextView
+                       android:textSize="18sp"
                        android:id="@+id/dataSetDescription"
-                       android:paddingStart="80dp"
+                       android:paddingStart="100dp"
                        android:textColor="@color/colorPrimary"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -107,8 +117,9 @@
                </RelativeLayout>
            </LinearLayout>
        </androidx.cardview.widget.CardView>
-
+        <include layout="@layout/content_metadata_related_header"/>
         <androidx.cardview.widget.CardView
+            android:elevation="5dp"
             android:id="@+id/dataSetDataElementCard"
             android:layout_width="match_parent"
             android:layout_marginVertical="5dp"
@@ -116,15 +127,18 @@
             android:focusable="true"
             android:layout_height="wrap_content">
             <RelativeLayout
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:text="@string/data_element"
                     android:layout_height="wrap_content">
                 </TextView>
                 <TextView
+                    android:textSize="18sp"
                     android:id="@+id/dataSetDataElementCount"
                     android:textColor="@color/colorPrimary"
                     android:layout_marginEnd="10dp"
@@ -137,23 +151,27 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/dataSetSectionCard"
+            android:elevation="5dp"
+            android:id="@+id/dataSetIndicatorCard"
             android:layout_width="match_parent"
             android:layout_marginVertical="5dp"
             android:clickable="true"
             android:focusable="true"
             android:layout_height="wrap_content">
             <RelativeLayout
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textSize="18sp"
                     android:layout_width="wrap_content"
-                    android:text="@string/data_set_section"
+                    android:text="@string/indicators"
                     android:layout_height="wrap_content">
                 </TextView>
                 <TextView
-                    android:id="@+id/dataSetSectionCount"
+                    android:textSize="18sp"
+                    android:id="@+id/dataSetIndicatorCount"
                     android:textColor="@color/colorPrimary"
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
@@ -165,23 +183,27 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/dataSetIndicatorCard"
+            android:elevation="5dp"
+            android:id="@+id/dataSetSectionCard"
             android:layout_width="match_parent"
             android:layout_marginVertical="5dp"
             android:clickable="true"
             android:focusable="true"
             android:layout_height="wrap_content">
             <RelativeLayout
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:textSize="18sp"
                     android:layout_width="wrap_content"
-                    android:text="@string/indicators"
+                    android:text="@string/data_set_section"
                     android:layout_height="wrap_content">
                 </TextView>
                 <TextView
-                    android:id="@+id/dataSetIndicatorCount"
+                    android:textSize="18sp"
+                    android:id="@+id/dataSetSectionCount"
                     android:textColor="@color/colorPrimary"
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"

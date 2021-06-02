@@ -46,4 +46,15 @@
     <string name="data_element">Data element</string>
     <string name="indicators">Indicators</string>
     <string name="data_set_section">Data set section</string>
+    <string name="program_id">UID</string>
+    <string name="program_name">Name</string>
+    <string name="program_description">Description</string>
+    <string name="program_incident_date">Incident date</string>
+    <string name="program_enrollment_date">Enrollment date</string>
+    <string name="program_tracked_entity_type">Tracked entity type</string>
+    <string name="program_can_capture_coordinate">Capture coordinate</string>
+    <string name="program_attributes">Program Attributes</string>
+    <string name="program_sections">Program sections</string>
+    <string name="program_indicators">Program indicators</string>
+    <string name="related_metadata_list">Related Metadata List</string>
 </resources>
