@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.paging.PagedListAdapter;
 
 import com.example.android.androidskeletonapp.R;
+import com.example.android.androidskeletonapp.data.service.StyleBinderHelper;
 import com.example.android.androidskeletonapp.ui.base.DiffByIdItemCallback;
 import com.example.android.androidskeletonapp.ui.base.ListItemCardHolder;
 
@@ -32,6 +33,7 @@ public class DataSetHomeAdapter extends PagedListAdapter<DataSet, ListItemCardHo
         DataSet  dataSet = getItem(position);
         holder.title.setText(dataSet.displayName());
         holder.subtitle.setText(dataSet.periodType().name());
+        StyleBinderHelper.bindStyle(holder,dataSet.style());
         holder.cardView.setOnClickListener(view-> dataSetSelectionListener.onDataSetSelected(dataSet.uid()));
     }
 }

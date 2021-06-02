@@ -48,12 +48,8 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
         super.onCreate(savedInstanceState);
         setUp(R.layout.activity_program_with_registration, R.id.programWithRegistrationToolbar);
         selectedProgramId = getIntent().getStringExtra(IntentExtra.PROGRAM.name());
-        try {
-            setProgramInfoView();
-            setCardViewListener();
-        }catch (Exception e){
-            System.out.println(e.toString());
-        }
+        setProgramInfoView();
+        setCardViewListener();
     }
 
     private void setCardViewListener(){
