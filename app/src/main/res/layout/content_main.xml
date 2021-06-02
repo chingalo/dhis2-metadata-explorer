@@ -24,7 +24,6 @@
             android:layout_marginHorizontal="10dp"
             android:textSize="20sp"
             android:text="@string/welcome_user" />
-
         <TextView
             android:textAlignment="center"
             android:layout_width="match_parent"
@@ -33,7 +32,6 @@
             android:paddingTop="3dp"
             android:textSize="24sp"
             android:text="@string/metadata_list" />
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/programListCard"
@@ -134,10 +132,10 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:context=".ui.main.MainActivity"
-        tools:layout_editor_absoluteX="204dp">
+        tools:layout_editor_absoluteX="0dp">
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/syncMetadataButton"
             android:layout_width="wrap_content"

@@ -54,7 +54,7 @@ public class DataSetInfoActivity extends DefaultActivity {
 
         dataElementCard.setOnClickListener(view->{
             if(dataSetDataElementCount == 0){
-                Snackbar.make(view, "There is no support to view data elements for " + dataSetName , Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, "There is no data elements for " + dataSetName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
                 System.out.println(selectedDataSet.dataSetElements());
@@ -63,7 +63,7 @@ public class DataSetInfoActivity extends DefaultActivity {
 
         indicatorCard.setOnClickListener(view->{
             if(dataSetIndicatorCount == 0){
-                Snackbar.make(view, "There is no support to view indicator for " + dataSetName , Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, "There is no indicators for " + dataSetName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
                 System.out.println(selectedDataSet.indicators());
@@ -71,7 +71,7 @@ public class DataSetInfoActivity extends DefaultActivity {
         });
 
         sectionCard.setOnClickListener(view->{
-            Snackbar.make(view, "There is no support to view sections for " + dataSetName , Snackbar.LENGTH_SHORT)
+            Snackbar.make(view, "There is no sections for " + dataSetName , Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
         });
     }

@@ -1,6 +1,7 @@
 package com.example.android.androidskeletonapp.ui.program;
 
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.paging.PagedListAdapter;
 
 import com.example.android.androidskeletonapp.R;
 import com.example.android.androidskeletonapp.data.service.ActivityStarter;
+import com.example.android.androidskeletonapp.data.service.StyleBinderHelper;
 import com.example.android.androidskeletonapp.ui.base.DiffByIdItemCallback;
 import com.example.android.androidskeletonapp.ui.base.ListItemCardHolder;
 
@@ -38,8 +40,7 @@ public class ProgramHomeAdapter extends PagedListAdapter<Program, ListItemCardHo
         String programStatus = program.programType() == ProgramType.WITH_REGISTRATION ? "Program with registration" : "Program without registration";
         holder.title.setText(program.displayName());
         holder.subtitle.setText(programStatus);
-        holder.cardView.setOnClickListener(view->{
-            programSelectionListener.onProgramSelected(program.uid(), program.programType());
-        });
+        StyleBinderHelper.bindStyle(holder,program.style());
+        holder.cardView.setOnClickListener(view->programSelectionListener.onProgramSelected(program.uid(), program.programType()));
     }
 }

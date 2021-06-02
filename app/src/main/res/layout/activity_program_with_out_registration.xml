@@ -20,15 +20,63 @@
     <LinearLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="match_parent">
-
-        <TextView
+        android:layout_height="match_parent"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="10dp"
+        android:orientation="vertical">
+        <include layout="@layout/content_program_detailed_info"></include>
+        <include layout="@layout/content_metadata_related_header"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/programStageCard"
             android:layout_width="match_parent"
-            android:text="@string/program_info"
+            android:elevation="5dp"
             android:layout_height="wrap_content">
-        </TextView>
-
+            <RelativeLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:text="@string/program_stages"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/programStageCount"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="18sp"
+                    android:text="@string/zero"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/programIndicatorCard"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:elevation="5dp"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:text="@string/program_indicators"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/programIndicatorCount"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="18sp"
+                    android:text="@string/zero"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
