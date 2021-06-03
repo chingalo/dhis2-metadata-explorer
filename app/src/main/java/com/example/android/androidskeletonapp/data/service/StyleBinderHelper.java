@@ -29,6 +29,8 @@ public class StyleBinderHelper {
                 holder.title.setTextColor(programColor);
                 holder.subtitle.setTextColor(programColor);
             }
+        }else{
+            holder.icon.setImageResource(0);
         }
     }
 
