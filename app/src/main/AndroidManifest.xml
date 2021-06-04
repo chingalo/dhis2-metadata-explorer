@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.androidskeletonapp">
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_dhis_launcher"
@@ -12,38 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ui.dataSet.DataSetInfoActivity"
-            android:label="@string/data_set_info"
-            android:parentActivityName=".ui.dataSet.DataSetHomeActivity"
-            />
-        <activity android:name=".ui.program.ProgramWithOutRegistrationActivity"
-            android:label="@string/program_info"
-            android:parentActivityName=".ui.program.ProgramHomeActivity" />
-        <activity android:name=".ui.program.ProgramWithRegistrationActivity"
-            android:label="@string/program_info"
-            android:parentActivityName=".ui.program.ProgramHomeActivity"  />
-        <activity
-            android:name=".ui.program.ProgramHomeActivity"
-            android:label="@string/title_activity_program_home"
-            android:parentActivityName=".ui.main.MainActivity" />
-        <activity
-            android:name=".ui.dataSet.DataSetHomeActivity"
-            android:label="@string/title_activity_data_set_home"
-            android:parentActivityName=".ui.main.MainActivity" />
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="play.dhis2.org"
                     android:scheme="https" />
@@ -57,6 +32,59 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.dataSet.DataSetHomeActivity"
+            android:label="@string/title_activity_data_set_home"
+            android:parentActivityName=".ui.main.MainActivity" />
+        <activity
+            android:name=".ui.program.ProgramHomeActivity"
+            android:label="@string/title_activity_program_home"
+            android:parentActivityName=".ui.main.MainActivity" />
+        <activity
+            android:name=".ui.program.ProgramWithOutRegistrationActivity"
+            android:label="@string/program_info"
+            android:parentActivityName=".ui.program.ProgramHomeActivity" />
+        <activity
+            android:name=".ui.program.ProgramWithRegistrationActivity"
+            android:label="@string/program_info"
+            android:parentActivityName=".ui.program.ProgramHomeActivity" />
+        <activity
+            android:name=".ui.program.ProgramProgramStageDataElementActivity"
+            android:label="@string/data_element_info"
+            android:parentActivityName=".ui.program.ProgramProgramStageInfoActivity" />
+        <activity
+            android:name=".ui.program.ProgramProgramStageInfoActivity"
+            android:label="@string/program_stage_info" />
+        <activity android:name=".ui.program.ProgramProgramStageListActivity"
+            android:label="@string/program_stage_list"
+            android:parentActivityName=".ui.program.ProgramWithRegistrationActivity"/>
+        <activity android:name=".ui.program.ProgramProgramIndicatorInfoActivity"
+            android:label="@string/program_indicator_info"
+            android:parentActivityName=".ui.program.ProgramProgramIndicatorListActivity"/>
+        <activity android:name=".ui.program.ProgramProgramIndicatorListActivity"
+            android:label="@string/program_indicator_list" />
+        <activity android:name=".ui.program.ProgramAttributeInfoActivity"
+            android:label="@string/program_attribute_info"
+            android:parentActivityName=".ui.program.ProgramAttributeListActivity" />
+        <activity android:name=".ui.program.ProgramAttributeListActivity"
+            android:label="@string/program_attribute_list"
+            android:parentActivityName=".ui.program.ProgramWithRegistrationActivity" />
+        <activity
+            android:name=".ui.dataSet.DataSetInfoActivity"
+            android:label="@string/data_set_info"
+            android:parentActivityName=".ui.dataSet.DataSetHomeActivity" />
+        <activity android:name=".ui.dataSet.DataSetIndicatorInfoActivity"
+            android:label="@string/indicator_info"
+            android:parentActivityName=".ui.dataSet.DataSetIndicatorListActivity"  />
+        <activity android:name=".ui.dataSet.DataSetIndicatorListActivity"
+            android:label="@string/indicator_list"
+            android:parentActivityName=".ui.dataSet.DataSetIndicatorInfoActivity"/>
+        <activity android:name=".ui.dataSet.DataSetDataElementInfoActivity"
+            android:label="@string/data_element_info"
+            android:parentActivityName=".ui.dataSet.DataSetDataElementListActivity" />
+        <activity android:name=".ui.dataSet.DataSetDataElementListActivity"
+            android:label="data element list"
+            android:parentActivityName=".ui.dataSet.DataSetIndicatorInfoActivity" />
         <activity
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true" />
