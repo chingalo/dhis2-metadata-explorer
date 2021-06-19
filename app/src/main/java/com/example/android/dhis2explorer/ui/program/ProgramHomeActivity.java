@@ -11,11 +11,15 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
+import com.example.android.dhis2explorer.ui.program.adapters.ProgramHomeAdapter;
+import com.example.android.dhis2explorer.ui.program.listeners.OnProgramSelectionListener;
+import com.example.android.dhis2explorer.ui.program.pages.ProgramWithOutRegistrationActivity;
+import com.example.android.dhis2explorer.ui.program.pages.ProgramWithRegistrationActivity;
 
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramType;
 
-public class ProgramHomeActivity extends ListActivity implements  OnProgramSelectionListener{
+public class ProgramHomeActivity extends ListActivity implements OnProgramSelectionListener {
 
     public static Intent getProgramHomeActivityIntent(Context context) {
         return new Intent(context, ProgramHomeActivity.class);

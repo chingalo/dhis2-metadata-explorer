@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.program;
+package com.example.android.dhis2explorer.ui.program.pages;
 
 import android.os.Bundle;
 

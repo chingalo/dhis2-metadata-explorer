@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.dataSet;
+package com.example.android.dhis2explorer.ui.dataSet.pages;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.DefaultActivity;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -56,7 +57,7 @@ public class DataSetInfoActivity extends DefaultActivity {
                 Snackbar.make(view, "There is no data elements for " + dataSetName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
-                System.out.println(selectedDataSet.dataSetElements());
+                ActivityStarter.startActivity(this, DataSetDataElementListActivity.getActivityIntent(this,selectedDataSetId),false);
             }
         });
 
@@ -65,7 +66,7 @@ public class DataSetInfoActivity extends DefaultActivity {
                 Snackbar.make(view, "There is no indicators for " + dataSetName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
-                System.out.println(selectedDataSet.indicators());
+                ActivityStarter.startActivity(this, DataSetIndicatorListActivity.getActivityIntent(this,selectedDataSetId),false);
             }
         });
     }

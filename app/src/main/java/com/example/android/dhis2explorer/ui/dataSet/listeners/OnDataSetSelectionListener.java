@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.dataSet;
+package com.example.android.dhis2explorer.ui.dataSet.listeners;
 
 public interface OnDataSetSelectionListener {
     void onDataSetSelected(String dataSetId);

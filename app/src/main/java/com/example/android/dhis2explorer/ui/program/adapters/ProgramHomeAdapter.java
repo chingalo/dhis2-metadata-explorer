@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.program;
+package com.example.android.dhis2explorer.ui.program.adapters;
 
 
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.service.StyleBinderHelper;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
+import com.example.android.dhis2explorer.ui.program.listeners.OnProgramSelectionListener;
 
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramType;
@@ -20,7 +21,7 @@ public class ProgramHomeAdapter extends PagedListAdapter<Program, ListItemCardHo
 
     private final OnProgramSelectionListener programSelectionListener;
 
-    protected ProgramHomeAdapter(OnProgramSelectionListener programSelectionListener) {
+    public ProgramHomeAdapter(OnProgramSelectionListener programSelectionListener) {
         super(new DiffByIdItemCallback<>());
         this.programSelectionListener = programSelectionListener;
     }

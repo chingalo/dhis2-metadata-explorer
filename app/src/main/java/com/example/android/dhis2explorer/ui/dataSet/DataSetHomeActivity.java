@@ -11,6 +11,9 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
+import com.example.android.dhis2explorer.ui.dataSet.adapters.DataSetHomeAdapter;
+import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataSetSelectionListener;
+import com.example.android.dhis2explorer.ui.dataSet.pages.DataSetInfoActivity;
 
 import org.hisp.dhis.android.core.dataset.DataSet;
 
@@ -41,6 +44,6 @@ public class DataSetHomeActivity extends ListActivity implements OnDataSetSelect
 
     @Override
     public void onDataSetSelected(String dataSetId) {
-        ActivityStarter.startActivity(this,DataSetInfoActivity.getActivityIntent(this,dataSetId),false);
+        ActivityStarter.startActivity(this, DataSetInfoActivity.getActivityIntent(this,dataSetId),false);
     }
 }

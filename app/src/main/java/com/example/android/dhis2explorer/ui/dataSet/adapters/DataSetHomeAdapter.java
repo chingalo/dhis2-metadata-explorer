@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.dataSet;
+package com.example.android.dhis2explorer.ui.dataSet.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +11,13 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.service.StyleBinderHelper;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
+import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataSetSelectionListener;
 
 import org.hisp.dhis.android.core.dataset.DataSet;
 
 public class DataSetHomeAdapter extends PagedListAdapter<DataSet, ListItemCardHolder> {
     private final OnDataSetSelectionListener dataSetSelectionListener;
-    protected DataSetHomeAdapter(OnDataSetSelectionListener dataSetSelectionListener) {
+    public DataSetHomeAdapter(OnDataSetSelectionListener dataSetSelectionListener) {
         super(new DiffByIdItemCallback<>());
         this.dataSetSelectionListener = dataSetSelectionListener;
     }
