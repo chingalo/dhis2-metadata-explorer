@@ -97,15 +97,19 @@
                     android:text="@string/program_enrollment_date"/>
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_margin="3dp"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/programTrackedEntityTypeLabel"
+                    android:visibility="visible"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/program_tracked_entity_type"/>
                 <TextView
+                    android:visibility="visible"
                     android:id="@+id/programTrackedEntityType"
                     android:paddingStart="125dp"
                     android:textColor="@color/colorPrimary"
