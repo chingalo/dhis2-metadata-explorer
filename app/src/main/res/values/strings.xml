@@ -67,4 +67,10 @@
     <string name="program_attribute_list">Program attribute list</string>
     <string name="indicator_info">Indicator info</string>
     <string name="indicator_list">Indicator list</string>
+    <string name="data_element_count">Data element count</string>
+    <string name="indicator_count">Indicator count</string>
+    <string name="indicator_name">Name</string>
+    <string name="option_list">List of options</string>
+    <string name="data_element_name">Name</string>
+    <string name="program_attribute_name">Name</string>
 </resources>

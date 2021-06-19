@@ -22,6 +22,8 @@ public class StyleBinderHelper {
                 holder.icon.setBackgroundColor(darkColor);
                 int colorWhite = ContextCompat.getColor(holder.itemView.getContext(), R.color.colorWhite);
                 holder.icon.setColorFilter(colorWhite);
+            }else{
+                holder.icon.setImageResource(0);
             }
             if(style.color() != null){
                 String color = style.color().startsWith("#") ? style.color() : "#" + style.color();

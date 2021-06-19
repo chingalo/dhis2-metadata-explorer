@@ -3,6 +3,7 @@ package com.example.android.dhis2explorer.ui.program;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -85,9 +86,14 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
         TextView incidentDate = findViewById(R.id.programIncidentDate);
         TextView enrollmentDate = findViewById(R.id.programEnrollmentDate);
         TextView canCaptureCoordinate = findViewById(R.id.programCanCaptureCoordinate);
-        TextView trackedEntityType = findViewById(R.id.programTrackedEntityType);
+
         TextView ProgramStageCount = findViewById(R.id.programStageCount);
         TextView programIndicatorCount = findViewById(R.id.programIndicatorCount);
+
+        TextView trackedEntityType = findViewById(R.id.programTrackedEntityType);
+        TextView trackedEntityTypeLabel = findViewById(R.id.programTrackedEntityTypeLabel);
+        trackedEntityType.setVisibility(View.GONE);
+        trackedEntityTypeLabel.setVisibility(View.GONE);
 
         uid.setText(selectedProgramId);
         name.setText(selectedProgram.displayName());
@@ -95,7 +101,6 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
         incidentDate.setText(selectedProgram.incidentDateLabel());
         enrollmentDate.setText(selectedProgram.enrollmentDateLabel());
         canCaptureCoordinate.setText(selectedProgram.featureType() == FeatureType.NONE ? "No" : "Yes");
-        trackedEntityType.setText("");
         programIndicatorCount.setText(""+programIndicatorListCount);
         ProgramStageCount.setText(""+ProgramStageListCount);
     }

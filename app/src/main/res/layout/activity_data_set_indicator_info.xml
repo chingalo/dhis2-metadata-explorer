@@ -23,11 +23,31 @@
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
         android:orientation="vertical">
-
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:text="Hello DataSetIndicatorInfoActivity"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/dataSetInfoName"
+                        android:layout_width="wrap_content"
+                        android:text="@string/indicator_name"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/indicatorName"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

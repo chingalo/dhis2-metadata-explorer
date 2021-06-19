@@ -48,7 +48,6 @@ public class DataSetInfoActivity extends DefaultActivity {
     private void  setCardClickListener(){
         CardView dataElementCard = findViewById(R.id.dataSetDataElementCard);
         CardView indicatorCard = findViewById(R.id.dataSetIndicatorCard);
-        CardView sectionCard = findViewById(R.id.dataSetSectionCard);
 
         String dataSetName  = selectedDataSet.displayName();
 
@@ -69,11 +68,6 @@ public class DataSetInfoActivity extends DefaultActivity {
                 System.out.println(selectedDataSet.indicators());
             }
         });
-
-        sectionCard.setOnClickListener(view->{
-            Snackbar.make(view, "There is no sections for " + dataSetName , Snackbar.LENGTH_SHORT)
-                    .setAction("Action", null).show();
-        });
     }
 
     private void setUpView(){
@@ -85,7 +79,6 @@ public class DataSetInfoActivity extends DefaultActivity {
         TextView description = findViewById(R.id.dataSetDescription);
         TextView periodType = findViewById(R.id.dataSetPeriodType);
         TextView dataElementCount = findViewById(R.id.dataSetDataElementCount);
-        TextView sectionCount = findViewById(R.id.dataSetSectionCount);
         TextView indicatorCount = findViewById(R.id.dataSetIndicatorCount);
 
         uid.setText(selectedDataSet.uid());
@@ -94,7 +87,6 @@ public class DataSetInfoActivity extends DefaultActivity {
         periodType.setText(selectedDataSet.periodType().name());
         dataElementCount.setText(""+dataSetDataElementCount);
         indicatorCount.setText(""+dataSetIndicatorCount);
-        sectionCount.setText("0");
     }
 
     private DataSet getSelectedDataSet(){
