@@ -11,6 +11,7 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.dataSet.adapters.DataSetIndicatorAdapter;
 import com.example.android.dhis2explorer.ui.dataSet.listeners.OnIndicatorSelectionListener;
@@ -28,8 +29,7 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
 
     @Override
     public void onIndicatorSelection( String indicatorId) {
-        //@TODO handling rendering of view for indicator info
-        System.out.println("dataSet " + selectedDataSetId + " with data element " + indicatorId);
+        ActivityStarter.startActivity(this, DataSetIndicatorInfoActivity.getActivityIntent(this,indicatorId),false);
     }
 
     private enum IntentExtra {

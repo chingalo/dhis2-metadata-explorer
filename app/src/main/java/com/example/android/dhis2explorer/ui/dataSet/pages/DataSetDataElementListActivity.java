@@ -11,6 +11,7 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.dataSet.adapters.DataSetDataElementListAdapter;
 import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataElementSelectionListener;
@@ -31,8 +32,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
 
     @Override
     public void onDataElementSelection( String dataElementId) {
-        //@TODO handling rendering of view for data element info
-        System.out.println("dataSet " + selectedDataSetId + " with data element " + dataElementId);
+        ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this,dataElementId),false);
     }
 
     private enum IntentExtra {
