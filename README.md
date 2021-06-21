@@ -32,6 +32,8 @@ This app has been developed ontop of [DHIS2 Android Skeleton App](https://github
 
 ## App demo
 
+Demo for the app can be found [here](https://drive.google.com/file/d/1ptFaRK7dpGy38t55m6lCvHqU3aTK5p1C/view)
+
 ## App screnshot
 
 <img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/metadata-home.jpg?raw=true" height="500">
