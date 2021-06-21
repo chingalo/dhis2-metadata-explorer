@@ -79,4 +79,10 @@
     <string name="data_element_value_type">Value type</string>
     <string name="data_element_category_combo_uid">Category Combo Uid</string>
     <string name="data_element_description">Description</string>
+    <string name="indicator_uid">UID</string>
+    <string name="indicator_description">Description</string>
+    <string name="indicator_numerator_description">Description</string>
+    <string name="indicator_numerator">Numerator</string>
+    <string name="indicator_denominator">Denominator</string>
+    <string name="indicator_denominator_description">Denominator Description</string>
 </resources>

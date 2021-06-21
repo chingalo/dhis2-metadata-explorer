@@ -40,11 +40,21 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
 
     private void setUpView() {
         selectedIndicator = getSelectedIndicator();
-
-        //@TODO display other indicator properties
         TextView indicatorName = findViewById(R.id.indicatorName);
+        TextView indicatorUid = findViewById(R.id.indicatorUid);
+        TextView indicatorDescription = findViewById(R.id.indicatorDescription);
+        TextView indicatorNumeratorDescription = findViewById(R.id.indicatorNumeratorDescription);
+        TextView indicatorNumerator = findViewById(R.id.indicatorNumerator);
+        TextView indicatorDenominator = findViewById(R.id.indicatorDenominator);
+        TextView indicatorDenominatorDescription = findViewById(R.id.indicatorDenominatorDescription);
 
         indicatorName.setText(selectedIndicator.displayName());
+        indicatorUid.setText(selectedIndicator.uid());
+        indicatorDescription.setText(selectedIndicator.displayDescription());
+        indicatorNumeratorDescription.setText(selectedIndicator.numeratorDescription());
+        indicatorNumerator.setText(selectedIndicator.numerator());
+        indicatorDenominator.setText(selectedIndicator.denominator());
+        indicatorDenominatorDescription.setText(selectedIndicator.denominatorDescription());
     }
 
     Indicator getSelectedIndicator(){
