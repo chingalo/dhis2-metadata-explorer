@@ -72,8 +72,7 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
                 Snackbar.make(view, "There is no program stages for " + programName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
-                List<ProgramStage> programStageList = Sdk.d2().programModule().programStages().byProgramUid().eq(selectedProgramId).blockingGet();
-                System.out.println(programStageList);
+                ActivityStarter.startActivity(this, ProgramProgramStageListActivity.getActivityIntent(this,selectedProgramId),false);
             }
         });
         programIndicatorCard.setOnClickListener(view->{

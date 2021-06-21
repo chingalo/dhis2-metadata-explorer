@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.DefaultActivity;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -61,8 +62,7 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
                 Snackbar.make(view, "There is no program stages for " + programName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
-                List<ProgramStage> programStageList = Sdk.d2().programModule().programStages().byProgramUid().eq(selectedProgramId).blockingGet();
-                System.out.println(programStageList);
+                ActivityStarter.startActivity(this, ProgramProgramStageListActivity.getActivityIntent(this,selectedProgramId),false);
             }
         });
         programIndicatorCard.setOnClickListener(view->{
