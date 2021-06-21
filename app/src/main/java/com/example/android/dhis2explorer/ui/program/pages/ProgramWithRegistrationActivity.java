@@ -9,14 +9,15 @@ import androidx.cardview.widget.CardView;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.DefaultActivity;
+import com.example.android.dhis2explorer.ui.dataSet.pages.DataSetInfoActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.hisp.dhis.android.core.common.FeatureType;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramIndicator;
 import org.hisp.dhis.android.core.program.ProgramStage;
-import org.hisp.dhis.android.core.program.ProgramTrackedEntityAttribute;
 
 import java.util.List;
 
@@ -63,8 +64,7 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
                 Snackbar.make(view, "There is no support to view program attributes for " + programName , Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }else{
-                List<ProgramTrackedEntityAttribute> programTrackedEntityAttributeList = Sdk.d2().programModule().programTrackedEntityAttributes().byProgram().eq(selectedProgramId).blockingGet();
-                System.out.println(programTrackedEntityAttributeList);
+                ActivityStarter.startActivity(this, ProgramAttributeListActivity.getActivityIntent(this,selectedProgramId),false);
             }
         });
         ProgramStageCard.setOnClickListener(view->{

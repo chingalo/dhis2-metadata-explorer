@@ -85,4 +85,6 @@
     <string name="indicator_numerator">Numerator</string>
     <string name="indicator_denominator">Denominator</string>
     <string name="indicator_denominator_description">Denominator Description</string>
+    <string name="program_program_attribute_name">Program name</string>
+    <string name="program_program_attribute_count">Count</string>
 </resources>
