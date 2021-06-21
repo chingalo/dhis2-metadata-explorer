@@ -31,14 +31,16 @@
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
                 <RelativeLayout
-                    android:padding="10dp"
+                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:textSize="15sp"
                         android:layout_width="wrap_content"
                         android:text="@string/indicator_name"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textSize="15sp"
                         android:id="@+id/indicatorName"
                         android:paddingStart="140dp"
                         android:text="Name"

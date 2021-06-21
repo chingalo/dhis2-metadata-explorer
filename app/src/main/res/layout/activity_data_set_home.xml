@@ -28,9 +28,7 @@
             android:padding="10dp"
             android:clipToPadding="false"
             tools:listitem="@layout/content_list_item_card"
-            >
-        </androidx.recyclerview.widget.RecyclerView>
-
+            />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

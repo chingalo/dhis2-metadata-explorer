@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dataSet.pages.DataSetDataElementInfoActivity">
+    tools:context=".ui.common.pages.DataElementInfoActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,15 +31,125 @@
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
                 <RelativeLayout
-                    android:padding="10dp"
+                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/data_element_uid"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/dataSetDataElementUid"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="15sp"
                         android:layout_width="wrap_content"
                         android:text="@string/data_element_name"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textSize="15sp"
                         android:id="@+id/dataSetDataElementName"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/data_element_form_name"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/dataSetDataElementFormName"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/data_element_description"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/dataSetDataElementDescription"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/data_element_aggregation_type"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/dataSetDataElementAggregationType"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/data_element_value_type"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/dataSetDataElementValueType"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/data_element_category_combo_uid"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/dataSetDataElementCategoryComboUid"
                         android:paddingStart="140dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
@@ -63,12 +173,10 @@
                     android:text="@string/option_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/dataElementOptionSetListView"
-                    android:layout_margin="10dp"
-                    android:paddingVertical="10dp"
-                    android:text="@string/option_list"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dataElementOptionSetRecyclerView"
                     android:layout_width="match_parent"
+                    tools:listitem="@layout/content_list_item_card"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

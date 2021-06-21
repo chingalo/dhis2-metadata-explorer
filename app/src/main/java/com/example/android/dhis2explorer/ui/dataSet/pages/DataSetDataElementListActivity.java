@@ -13,8 +13,9 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.dataSet.adapters.DataSetDataElementListAdapter;
-import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataElementSelectionListener;
+import com.example.android.dhis2explorer.ui.common.pages.DataElementInfoActivity;
+import com.example.android.dhis2explorer.ui.common.adapters.DataElementListAdapter;
+import com.example.android.dhis2explorer.ui.common.listeners.OnDataElementSelectionListener;
 
 import org.hisp.dhis.android.core.dataelement.DataElement;
 import org.hisp.dhis.android.core.dataset.DataSet;
@@ -32,7 +33,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
 
     @Override
     public void onDataElementSelection( String dataElementId) {
-        ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this,dataElementId),false);
+        ActivityStarter.startActivity(this, DataElementInfoActivity.getActivityIntent(this,dataElementId),false);
     }
 
     private enum IntentExtra {
@@ -72,7 +73,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
     }
 
     private void setDataSetDataElementListAdapter() {
-        DataSetDataElementListAdapter adapter = new DataSetDataElementListAdapter(this);
+        DataElementListAdapter adapter = new DataElementListAdapter(this);
         recyclerView.setAdapter(adapter);
         List<String> dataElementIds = getDataElementIds();
         LiveData<PagedList<DataElement>> liveData = Sdk.d2().dataElementModule().dataElements().byUid().in(dataElementIds).getPaged(5);
