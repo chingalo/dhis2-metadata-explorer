@@ -30,16 +30,13 @@ This app has been developed ontop of [DHIS2 Android Skeleton App](https://github
 
 # How the app looks
 
-![Metadata home][metadatahome]
-![program list][programlist]
-![Program info ][programinfo]
-![Data set list][datasetlist]
-![Data set idnicator list][datasetindicatorlist]
-![data set data element list][datasetdataelementlist]
+## App demo
 
-[metadatahome]: https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/metadata-home.jpg?raw=true 'Metadata home'
-[datasetlist]: https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/data-set-list.jpg?raw=true 'Dataset list'
-[programlist]: https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/metadata-home.jpg?raw=true 'Program list'
-[programinfo]: https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/program-info.jpg?raw=true 'Program info'
-[datasetindicatorlist]: https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/indicator-list-dataset.jpg?raw=true 'Dataset indicator list'
-[datasetdataelementlist]: https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/data-set-data-element-list.jpg?raw=true 'Dataset data element list'
+## App screnshot
+
+<img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/metadata-home.jpg?raw=true" height="500">
+<img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/program-listing.jpg?raw=true" height="500">
+<img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/program-info.jpg?raw=true" height="500">
+<img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/data-set-list.jpg?raw=true" height="500">
+<img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/indicator-list-dataset.jpg?raw=true" height="500">
+<img src="https://github.com/chingalo/dhis2-metadata-explorer/blob/master/assets/data-set-data-element-list.jpg?raw=true" height="500">
