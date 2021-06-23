@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.common.adapters;
+package com.example.android.dhis2explorer.ui.dataSet.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,7 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.service.StyleBinderHelper;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
-import com.example.android.dhis2explorer.ui.common.listeners.OnDataElementSelectionListener;
+import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataElementSelectionListener;
 
 import org.hisp.dhis.android.core.dataelement.DataElement;
 
@@ -27,7 +27,7 @@ public class DataElementListAdapter extends PagedListAdapter<DataElement, ListIt
     @NonNull
     @Override
     public ListItemCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card, parent, false);
         return new ListItemCardHolder(itemView);
     }
 
@@ -36,7 +36,7 @@ public class DataElementListAdapter extends PagedListAdapter<DataElement, ListIt
         DataElement dataElement = getItem(position);
         holder.title.setText(dataElement.displayName());
         holder.subtitle.setText(dataElement.valueType().name());
-        StyleBinderHelper.bindStyle(holder,dataElement.style());
-        holder.cardView.setOnClickListener(view-> dataElementSelectionListener.onDataElementSelection(dataElement.uid()));
+        StyleBinderHelper.bindStyle(holder, dataElement.style());
+        holder.cardView.setOnClickListener(view -> dataElementSelectionListener.onDataElementSelection(dataElement.uid()));
     }
 }

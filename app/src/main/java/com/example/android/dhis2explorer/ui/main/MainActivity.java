@@ -71,11 +71,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
-       updateSyncDataAndButtons();
+        updateSyncDataAndButtons();
     }
 
     private User getUser() {
@@ -107,12 +106,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dataSetCardView = findViewById(R.id.dataSetListCard);
         programCardView = findViewById(R.id.programListCard);
 
-        programCardView.setOnClickListener(view->{
-            if(!isSyncing ){
+        programCardView.setOnClickListener(view -> {
+            if (!isSyncing) {
                 int programCount = SyncStatusHelper.programCount();
-                if(programCount > 0){
-                    ActivityStarter.startActivity(this, ProgramHomeActivity.getProgramHomeActivityIntent(this),false);
-                }else{
+                if (programCount > 0) {
+                    ActivityStarter.startActivity(this, ProgramHomeActivity.getProgramHomeActivityIntent(this), false);
+                } else {
                     Snackbar.make(view, "You have no program at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }
@@ -120,12 +119,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        dataSetCardView.setOnClickListener(view->{
-            if(!isSyncing){
+        dataSetCardView.setOnClickListener(view -> {
+            if (!isSyncing) {
                 int dataSetCount = SyncStatusHelper.dataSetCount();
-                if(dataSetCount > 0){
-                    ActivityStarter.startActivity(this, DataSetHomeActivity.getDataSetHomeActivityIntent(this),false);
-                }else{
+                if (dataSetCount > 0) {
+                    ActivityStarter.startActivity(this, DataSetHomeActivity.getDataSetHomeActivityIntent(this), false);
+                } else {
                     Snackbar.make(view, "You have no data set at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }
@@ -136,11 +135,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         syncMetadataButton.setOnClickListener(view -> {
             Snackbar.make(view, "Syncing metadata", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-           startMetadataSync();
+            startMetadataSync();
         });
     }
 
-    private void startMetadataSync(){
+    private void startMetadataSync() {
         syncStatusText = findViewById(R.id.notificator);
         syncStatusText.setText(R.string.syncing_metadata);
         setSyncing();
@@ -151,14 +150,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         isSyncing = true;
         progressBar.setVisibility(View.VISIBLE);
         syncStatusText.setVisibility(View.VISIBLE);
-       updateSyncDataAndButtons();
+        updateSyncDataAndButtons();
     }
 
     private void setSyncingFinished() {
         isSyncing = false;
         progressBar.setVisibility(View.INVISIBLE);
         syncStatusText.setVisibility(View.INVISIBLE);
-       updateSyncDataAndButtons();
+        updateSyncDataAndButtons();
     }
 
     private void disableAllButtons() {

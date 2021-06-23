@@ -29,7 +29,7 @@ public class ProgramHomeAdapter extends PagedListAdapter<Program, ListItemCardHo
     @NonNull
     @Override
     public ListItemCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card, parent, false);
         return new ListItemCardHolder(itemView);
     }
 
@@ -39,7 +39,7 @@ public class ProgramHomeAdapter extends PagedListAdapter<Program, ListItemCardHo
         String programStatus = program.programType() == ProgramType.WITH_REGISTRATION ? "Program with registration" : "Program without registration";
         holder.title.setText(program.displayName());
         holder.subtitle.setText(programStatus);
-        StyleBinderHelper.bindStyle(holder,program.style());
-        holder.cardView.setOnClickListener(view->programSelectionListener.onProgramSelected(program.uid(), program.programType()));
+        StyleBinderHelper.bindStyle(holder, program.style());
+        holder.cardView.setOnClickListener(view -> programSelectionListener.onProgramSelected(program.uid(), program.programType()));
     }
 }

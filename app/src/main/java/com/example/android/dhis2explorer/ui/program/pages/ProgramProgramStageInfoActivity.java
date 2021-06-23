@@ -1,16 +1,93 @@
 package com.example.android.dhis2explorer.ui.program.pages;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+
+import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
+import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
+import com.example.android.dhis2explorer.ui.program.adapters.ProgramStageDataElementListAdapter;
+import com.example.android.dhis2explorer.ui.program.listeners.OnProgramStageDataElementListener;
 
-public class ProgramProgramStageInfoActivity extends ListActivity {
+import org.hisp.dhis.android.core.program.ProgramStage;
+import org.hisp.dhis.android.core.program.ProgramStageDataElement;
+
+import static android.text.TextUtils.isEmpty;
+
+public class ProgramProgramStageInfoActivity extends ListActivity implements OnProgramStageDataElementListener {
+
+    private ProgramStage selectedProgramStage;
+    private String selectedProgramStageId;
+
+
+    @Override
+    public void onProgramStageDataElementSelected(String programStageDataElementId) {
+        System.out.println("programStageDataElementId " + programStageDataElementId);
+    }
+
+    private enum IntentExtra {
+        PROGRAM_STAGE
+    }
+
+    public static Intent getActivityIntent(Context context, String programStageId) {
+        Bundle bundle = new Bundle();
+        if (!isEmpty(programStageId))
+            bundle.putString(ProgramProgramStageInfoActivity.IntentExtra.PROGRAM_STAGE.name(), programStageId);
+        Intent intent = new Intent(context, ProgramProgramStageInfoActivity.class);
+        intent.putExtras(bundle);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program_program_stage_info);
+        setUp(R.layout.activity_program_program_stage_info, R.id.programProgramStageInfoToolbar, R.id.programProgramStageInfoDataElementListRecyclerView);
+        selectedProgramStageId = getIntent().getStringExtra(ProgramProgramStageInfoActivity.IntentExtra.PROGRAM_STAGE.name());
+        setView();
+    }
+
+    private void setView() {
+        selectedProgramStage = getSelectedProgramStage();
+        int dataElementCount = Sdk.d2().programModule().programStageDataElements().byProgramStage().eq(selectedProgramStageId).blockingCount();
+
+        TextView programProgramStageInfoName = findViewById(R.id.programProgramStageInfoName);
+        TextView programProgramStageInfoCount = findViewById(R.id.programProgramStageInfoCount);
+
+//        selectedProgramStage.uid();
+//        selectedProgramStage.allowGenerateNextVisit();
+//        selectedProgramStage.displayDescription();
+//        selectedProgramStage.executionDateLabel();
+//        selectedProgramStage.repeatable();
+//        selectedProgramStage.autoGenerateEvent();
+//        selectedProgramStage.generatedByEnrollmentDate();
+
+        programProgramStageInfoName.setText(selectedProgramStage.displayName());
+        programProgramStageInfoCount.setText("" + dataElementCount);
+
+        setDataElementListAdapter();
+    }
+
+    private void setDataElementListAdapter() {
+        ProgramStageDataElementListAdapter adapter = new ProgramStageDataElementListAdapter(this);
+        recyclerView.setAdapter(adapter);
+
+        LiveData<PagedList<ProgramStageDataElement>> liveData = Sdk.d2().programModule()
+                .programStageDataElements()
+                .byProgramStage().eq(selectedProgramStageId)
+                .getPaged(10);
+        liveData.observe(this, programStageDataElements -> adapter.submitList(programStageDataElements));
+    }
+
+    ProgramStage getSelectedProgramStage() {
+        return Sdk.d2().programModule()
+                .programStages()
+                .byUid().eq(selectedProgramStageId)
+                .blockingGet().get(0);
     }
 }

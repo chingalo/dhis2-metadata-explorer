@@ -17,7 +17,6 @@ import com.google.android.material.snackbar.Snackbar;
 import org.hisp.dhis.android.core.common.FeatureType;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramIndicator;
-import org.hisp.dhis.android.core.program.ProgramStage;
 
 import java.util.List;
 
@@ -30,6 +29,7 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
 
     private Program selectedProgram;
     private String selectedProgramId;
+
     private enum IntentExtra {
         PROGRAM
     }
@@ -52,31 +52,37 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
         setCardViewListener();
     }
 
-    private void setCardViewListener(){
+    private void setCardViewListener() {
         CardView programIndicatorCard = findViewById(R.id.programIndicatorCard);
         CardView ProgramStageCard = findViewById(R.id.programStageCard);
         String programName = selectedProgram.name();
 
-        ProgramStageCard.setOnClickListener(view->{
-            if(ProgramStageListCount == 0){
-                Snackbar.make(view, "There is no program stages for " + programName , Snackbar.LENGTH_SHORT)
+        ProgramStageCard.setOnClickListener(view -> {
+            if (ProgramStageListCount == 0) {
+                Snackbar.make(view, "There is no program stages for " + programName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
-                ActivityStarter.startActivity(this, ProgramProgramStageListActivity.getActivityIntent(this,selectedProgramId),false);
+            } else if (ProgramStageListCount == 1) {
+                String programStageId = Sdk.d2().programModule()
+                        .programStages()
+                        .byProgramUid()
+                        .eq(selectedProgramId).blockingGetUids().get(0);
+                ActivityStarter.startActivity(this, ProgramProgramStageInfoActivity.getActivityIntent(this, programStageId), false);
+            } else {
+                ActivityStarter.startActivity(this, ProgramProgramStageListActivity.getActivityIntent(this, selectedProgramId), false);
             }
         });
-        programIndicatorCard.setOnClickListener(view->{
-            if(programIndicatorListCount == 0){
-                Snackbar.make(view, "There is no program indicators for " + programName , Snackbar.LENGTH_SHORT)
+        programIndicatorCard.setOnClickListener(view -> {
+            if (programIndicatorListCount == 0) {
+                Snackbar.make(view, "There is no program indicators for " + programName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
+            } else {
                 List<ProgramIndicator> programIndicatorList = Sdk.d2().programModule().programIndicators().byProgramUid().eq(selectedProgramId).blockingGet();
                 System.out.println(programIndicatorList);
             }
         });
     }
 
-    private void setProgramInfoView(){
+    private void setProgramInfoView() {
         selectedProgram = getSelectedProgram();
         ProgramStageListCount = getProgramStageListCount();
         programIndicatorListCount = getProgramIndicatorListCount();
@@ -101,26 +107,26 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
         incidentDate.setText(selectedProgram.incidentDateLabel());
         enrollmentDate.setText(selectedProgram.enrollmentDateLabel());
         canCaptureCoordinate.setText(selectedProgram.featureType() == FeatureType.NONE ? "No" : "Yes");
-        programIndicatorCount.setText(""+programIndicatorListCount);
-        ProgramStageCount.setText(""+ProgramStageListCount);
+        programIndicatorCount.setText("" + programIndicatorListCount);
+        ProgramStageCount.setText("" + ProgramStageListCount);
     }
 
-    private  int getProgramStageListCount(){
-        return  Sdk.d2().programModule()
+    private int getProgramStageListCount() {
+        return Sdk.d2().programModule()
                 .programStages()
                 .byProgramUid()
                 .eq(selectedProgramId)
                 .blockingCount();
     }
 
-    private int getProgramIndicatorListCount(){
+    private int getProgramIndicatorListCount() {
         return Sdk.d2().programModule()
                 .programIndicators()
                 .byProgramUid().eq(selectedProgramId)
                 .blockingCount();
     }
 
-    private Program getSelectedProgram(){
+    private Program getSelectedProgram() {
         return Sdk.d2().programModule()
                 .programs()
                 .withTrackedEntityType()

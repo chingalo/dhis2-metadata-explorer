@@ -18,8 +18,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class LoginViewModel extends ViewModel {
 
-    private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
-    private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
+    private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
+    private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
 
     LoginViewModel() {
     }
@@ -58,7 +58,8 @@ public class LoginViewModel extends ViewModel {
     void loginDataChanged(String serverUrl, String username, String password) {
         if (!isServerUrlValid(serverUrl)) {
             loginFormState.setValue(new LoginFormState(R.string.invalid_server_url, null, null));
-        } if (!isUserNameValid(username)) {
+        }
+        if (!isUserNameValid(username)) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_username, null));
         } else if (!isPasswordValid(password)) {
             loginFormState.setValue(new LoginFormState(null, null, R.string.invalid_password));

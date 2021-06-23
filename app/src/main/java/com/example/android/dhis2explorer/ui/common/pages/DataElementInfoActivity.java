@@ -75,8 +75,8 @@ public class DataElementInfoActivity extends ListActivity {
             LiveData<PagedList<Option>> liveData = Sdk.d2().optionModule().options()
                     .byOptionSetUid().eq(optionSetId)
                     .getPaged(5);
-            liveData.observe(this,options -> adapter.submitList(options));
-        }else{
+            liveData.observe(this, options -> adapter.submitList(options));
+        } else {
             dataElementOptionSetCard.setVisibility(View.GONE);
         }
     }

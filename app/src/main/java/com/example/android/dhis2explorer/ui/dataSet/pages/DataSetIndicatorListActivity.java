@@ -28,8 +28,8 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
     private String selectedDataSetId;
 
     @Override
-    public void onIndicatorSelection( String indicatorId) {
-        ActivityStarter.startActivity(this, DataSetIndicatorInfoActivity.getActivityIntent(this,indicatorId),false);
+    public void onIndicatorSelection(String indicatorId) {
+        ActivityStarter.startActivity(this, DataSetIndicatorInfoActivity.getActivityIntent(this, indicatorId), false);
     }
 
     private enum IntentExtra {
@@ -48,7 +48,7 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUp(R.layout.activity_data_set_indicator_list, R.id.dataSetIndicatorListToolbar,R.id.dataSetIndicatorListRecyclerView );
+        setUp(R.layout.activity_data_set_indicator_list, R.id.dataSetIndicatorListToolbar, R.id.dataSetIndicatorListRecyclerView);
         selectedDataSetId = getIntent().getStringExtra(DataSetIndicatorListActivity.IntentExtra.DATA_SET.name());
         setDataSetIndicatorListView();
     }
@@ -61,7 +61,7 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
         TextView indicatorListCount = findViewById(R.id.indicatorListCount);
 
         dataSetInfoName.setText(selectedDataSet.displayName());
-        indicatorListCount.setText(""+dataSetIndicatorCount);
+        indicatorListCount.setText("" + dataSetIndicatorCount);
 
         setIndicatorListAdaptor();
     }
@@ -69,11 +69,11 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
     private void setIndicatorListAdaptor() {
         DataSetIndicatorAdapter adapter = new DataSetIndicatorAdapter(this);
         recyclerView.setAdapter(adapter);
-        LiveData<PagedList<Indicator>> liveData  = Sdk.d2().indicatorModule().indicators().byDataSetUid(selectedDataSetId).getPaged(5);
-        liveData.observe(this,indicators -> adapter.submitList(indicators));
+        LiveData<PagedList<Indicator>> liveData = Sdk.d2().indicatorModule().indicators().byDataSetUid(selectedDataSetId).getPaged(5);
+        liveData.observe(this, indicators -> adapter.submitList(indicators));
     }
 
-    private DataSet getSelectedDataSet(){
+    private DataSet getSelectedDataSet() {
         return Sdk.d2().dataSetModule().dataSets()
                 .byUid().eq(selectedDataSetId)
                 .withIndicators()

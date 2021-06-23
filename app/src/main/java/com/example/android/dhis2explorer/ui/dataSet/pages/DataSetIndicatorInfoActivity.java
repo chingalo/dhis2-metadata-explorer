@@ -18,6 +18,7 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
     private Indicator selectedIndicator;
 
     private String selectedIndicatorId;
+
     private enum IntentExtra {
         INDICATOR
     }
@@ -30,10 +31,11 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
         intent.putExtras(bundle);
         return intent;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUp(R.layout.activity_data_set_indicator_info,R.id.dataSetIndicatorInfoToolbar);
+        setUp(R.layout.activity_data_set_indicator_info, R.id.dataSetIndicatorInfoToolbar);
         selectedIndicatorId = getIntent().getStringExtra(IntentExtra.INDICATOR.name());
         setUpView();
     }
@@ -57,7 +59,7 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
         indicatorDenominatorDescription.setText(selectedIndicator.denominatorDescription());
     }
 
-    Indicator getSelectedIndicator(){
+    Indicator getSelectedIndicator() {
         return Sdk.d2().indicatorModule().indicators()
                 .byUid().eq(selectedIndicatorId)
                 .blockingGet().get(0);

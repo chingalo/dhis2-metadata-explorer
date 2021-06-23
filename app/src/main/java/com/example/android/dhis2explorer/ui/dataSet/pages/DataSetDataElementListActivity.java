@@ -14,8 +14,8 @@ import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.common.pages.DataElementInfoActivity;
-import com.example.android.dhis2explorer.ui.common.adapters.DataElementListAdapter;
-import com.example.android.dhis2explorer.ui.common.listeners.OnDataElementSelectionListener;
+import com.example.android.dhis2explorer.ui.dataSet.adapters.DataElementListAdapter;
+import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataElementSelectionListener;
 
 import org.hisp.dhis.android.core.dataelement.DataElement;
 import org.hisp.dhis.android.core.dataset.DataSet;
@@ -32,8 +32,8 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
     private String selectedDataSetId;
 
     @Override
-    public void onDataElementSelection( String dataElementId) {
-        ActivityStarter.startActivity(this, DataElementInfoActivity.getActivityIntent(this,dataElementId),false);
+    public void onDataElementSelection(String dataElementId) {
+        ActivityStarter.startActivity(this, DataElementInfoActivity.getActivityIntent(this, dataElementId), false);
     }
 
     private enum IntentExtra {
@@ -52,7 +52,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUp(R.layout.activity_data_set_data_element_list, R.id.dataSetDataElementListToolbar,R.id.dataSetDataElementListRecyclerView );
+        setUp(R.layout.activity_data_set_data_element_list, R.id.dataSetDataElementListToolbar, R.id.dataSetDataElementListRecyclerView);
         selectedDataSetId = getIntent().getStringExtra(DataSetDataElementListActivity.IntentExtra.DATA_SET.name());
         setDataSetDataElementListView();
 
@@ -67,7 +67,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
         TextView dataElementListCount = findViewById(R.id.dataElementListCount);
 
         dataSetInfoName.setText(selectedDataSet.displayName());
-        dataElementListCount.setText(""+dataSetDataElementCount);
+        dataElementListCount.setText("" + dataSetDataElementCount);
 
         setDataSetDataElementListAdapter();
     }
@@ -77,19 +77,19 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
         recyclerView.setAdapter(adapter);
         List<String> dataElementIds = getDataElementIds();
         LiveData<PagedList<DataElement>> liveData = Sdk.d2().dataElementModule().dataElements().byUid().in(dataElementIds).getPaged(5);
-        liveData.observe(this,dataElements -> adapter.submitList(dataElements));
+        liveData.observe(this, dataElements -> adapter.submitList(dataElements));
     }
 
-    List<String> getDataElementIds(){
+    List<String> getDataElementIds() {
         List<String> dataElementIds = new ArrayList<String>();
-        for(DataSetElement dataSetElement : selectedDataSet.dataSetElements()){
+        for (DataSetElement dataSetElement : selectedDataSet.dataSetElements()) {
             dataElementIds.add(dataSetElement.dataElement().uid());
         }
         return dataElementIds;
     }
 
 
-    private DataSet getSelectedDataSet(){
+    private DataSet getSelectedDataSet() {
         return Sdk.d2().dataSetModule().dataSets()
                 .byUid().eq(selectedDataSetId)
                 .withIndicators()

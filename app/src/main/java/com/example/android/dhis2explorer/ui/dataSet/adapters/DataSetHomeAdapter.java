@@ -17,6 +17,7 @@ import org.hisp.dhis.android.core.dataset.DataSet;
 
 public class DataSetHomeAdapter extends PagedListAdapter<DataSet, ListItemCardHolder> {
     private final OnDataSetSelectionListener dataSetSelectionListener;
+
     public DataSetHomeAdapter(OnDataSetSelectionListener dataSetSelectionListener) {
         super(new DiffByIdItemCallback<>());
         this.dataSetSelectionListener = dataSetSelectionListener;
@@ -25,16 +26,16 @@ public class DataSetHomeAdapter extends PagedListAdapter<DataSet, ListItemCardHo
     @NonNull
     @Override
     public ListItemCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card, parent, false);
         return new ListItemCardHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ListItemCardHolder holder, int position) {
-        DataSet  dataSet = getItem(position);
+        DataSet dataSet = getItem(position);
         holder.title.setText(dataSet.displayName());
         holder.subtitle.setText(dataSet.periodType().name());
-        StyleBinderHelper.bindStyle(holder,dataSet.style());
-        holder.cardView.setOnClickListener(view-> dataSetSelectionListener.onDataSetSelected(dataSet.uid()));
+        StyleBinderHelper.bindStyle(holder, dataSet.style());
+        holder.cardView.setOnClickListener(view -> dataSetSelectionListener.onDataSetSelected(dataSet.uid()));
     }
 }

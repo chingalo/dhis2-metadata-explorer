@@ -24,6 +24,7 @@ public class DataSetInfoActivity extends DefaultActivity {
     private DataSet selectedDataSet;
 
     private String selectedDataSetId;
+
     private enum IntentExtra {
         DATA_SET
     }
@@ -40,38 +41,38 @@ public class DataSetInfoActivity extends DefaultActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUp(R.layout.activity_data_set_info,R.id.dataSetInfoToolbar);
+        setUp(R.layout.activity_data_set_info, R.id.dataSetInfoToolbar);
         selectedDataSetId = getIntent().getStringExtra(IntentExtra.DATA_SET.name());
         setUpView();
         setCardClickListener();
     }
 
-    private void  setCardClickListener(){
+    private void setCardClickListener() {
         CardView dataElementCard = findViewById(R.id.dataSetDataElementCard);
         CardView indicatorCard = findViewById(R.id.dataSetIndicatorCard);
 
-        String dataSetName  = selectedDataSet.displayName();
+        String dataSetName = selectedDataSet.displayName();
 
-        dataElementCard.setOnClickListener(view->{
-            if(dataSetDataElementCount == 0){
-                Snackbar.make(view, "There is no data elements for " + dataSetName , Snackbar.LENGTH_SHORT)
+        dataElementCard.setOnClickListener(view -> {
+            if (dataSetDataElementCount == 0) {
+                Snackbar.make(view, "There is no data elements for " + dataSetName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
-                ActivityStarter.startActivity(this, DataSetDataElementListActivity.getActivityIntent(this,selectedDataSetId),false);
+            } else {
+                ActivityStarter.startActivity(this, DataSetDataElementListActivity.getActivityIntent(this, selectedDataSetId), false);
             }
         });
 
-        indicatorCard.setOnClickListener(view->{
-            if(dataSetIndicatorCount == 0){
-                Snackbar.make(view, "There is no indicators for " + dataSetName , Snackbar.LENGTH_SHORT)
+        indicatorCard.setOnClickListener(view -> {
+            if (dataSetIndicatorCount == 0) {
+                Snackbar.make(view, "There is no indicators for " + dataSetName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
-                ActivityStarter.startActivity(this, DataSetIndicatorListActivity.getActivityIntent(this,selectedDataSetId),false);
+            } else {
+                ActivityStarter.startActivity(this, DataSetIndicatorListActivity.getActivityIntent(this, selectedDataSetId), false);
             }
         });
     }
 
-    private void setUpView(){
+    private void setUpView() {
         selectedDataSet = getSelectedDataSet();
         dataSetIndicatorCount = selectedDataSet.indicators().size();
         dataSetDataElementCount = selectedDataSet.dataSetElements().size();
@@ -86,11 +87,11 @@ public class DataSetInfoActivity extends DefaultActivity {
         name.setText(selectedDataSet.displayName());
         description.setText(selectedDataSet.displayDescription());
         periodType.setText(selectedDataSet.periodType().name());
-        dataElementCount.setText(""+dataSetDataElementCount);
-        indicatorCount.setText(""+dataSetIndicatorCount);
+        dataElementCount.setText("" + dataSetDataElementCount);
+        indicatorCount.setText("" + dataSetIndicatorCount);
     }
 
-    private DataSet getSelectedDataSet(){
+    private DataSet getSelectedDataSet() {
         return Sdk.d2().dataSetModule().dataSets()
                 .byUid().eq(selectedDataSetId)
                 .withIndicators()

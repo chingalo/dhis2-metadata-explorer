@@ -23,6 +23,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
 
     private String selectedProgramId;
     private Program selectedProgram;
+
     private enum IntentExtra {
         PROGRAM
     }
@@ -30,7 +31,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
     @Override
     public void onProgramAttributeSelected(String programTrackedEntityAttributeId) {
         //TODO direct to view page of attribute
-        System.out.println("programTrackedEntityAttributeId :" +programTrackedEntityAttributeId);
+        System.out.println("programTrackedEntityAttributeId :" + programTrackedEntityAttributeId);
     }
 
     public static Intent getActivityIntent(Context context, String programId) {
@@ -45,12 +46,12 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUp(R.layout.activity_program_attribute_list, R.id.programAttributeListToolbar,R.id.programProgramAttributeListRecyclerView );
+        setUp(R.layout.activity_program_attribute_list, R.id.programAttributeListToolbar, R.id.programProgramAttributeListRecyclerView);
         selectedProgramId = getIntent().getStringExtra(IntentExtra.PROGRAM.name());
         setView();
     }
 
-    void setView(){
+    void setView() {
         selectedProgram = getSelectedProgram();
         int attributeCount = getProgramAttributeListCount();
 
@@ -58,7 +59,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
         TextView programProgramAttributeCount = findViewById(R.id.programProgramAttributeCount);
 
         programProgramAttributeName.setText(selectedProgram.displayName());
-        programProgramAttributeCount.setText(""+attributeCount);
+        programProgramAttributeCount.setText("" + attributeCount);
 
         setListAdapterForAttribute();
     }
@@ -69,18 +70,18 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
         LiveData<PagedList<ProgramTrackedEntityAttribute>> liveData = Sdk.d2().programModule().programTrackedEntityAttributes()
                 .byProgram().eq(selectedProgramId)
                 .getPaged(10);
-        liveData.observe(this,programTrackedEntityAttributes -> adapter.submitList(programTrackedEntityAttributes));
+        liveData.observe(this, programTrackedEntityAttributes -> adapter.submitList(programTrackedEntityAttributes));
     }
 
 
-    private int getProgramAttributeListCount(){
-        return  Sdk.d2().programModule()
+    private int getProgramAttributeListCount() {
+        return Sdk.d2().programModule()
                 .programTrackedEntityAttributes()
                 .byProgram().eq(selectedProgramId)
                 .blockingCount();
     }
 
-    Program getSelectedProgram(){
+    Program getSelectedProgram() {
         return Sdk.d2().programModule()
                 .programs()
                 .byUid().eq(selectedProgramId)

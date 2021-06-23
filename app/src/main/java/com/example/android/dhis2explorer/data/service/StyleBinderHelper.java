@@ -23,13 +23,13 @@ public class StyleBinderHelper {
                 int colorWhite = ContextCompat.getColor(holder.itemView.getContext(), R.color.colorWhite);
                 holder.icon.setColorFilter(colorWhite);
             }
-            if(style.color() != null){
+            if (style.color() != null) {
                 String color = style.color().startsWith("#") ? style.color() : "#" + style.color();
                 int programColor = Color.parseColor(color);
                 holder.title.setTextColor(programColor);
                 holder.subtitle.setTextColor(programColor);
             }
-        }else{
+        } else {
             holder.icon.setImageResource(0);
         }
     }

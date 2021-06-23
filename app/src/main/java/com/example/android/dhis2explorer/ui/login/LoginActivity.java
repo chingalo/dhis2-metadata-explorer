@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar loadingProgressBar;
 
     public static Intent getLoginActivityIntent(Context context) {
-        return new Intent(context,LoginActivity.class);
+        return new Intent(context, LoginActivity.class);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                 showLoginFailed(loginResult.getError());
             }
             if (loginResult.getSuccess() != null) {
-                ActivityStarter.startActivity(this, MainActivity.getMainActivityIntent(this),true);
+                ActivityStarter.startActivity(this, MainActivity.getMainActivityIntent(this), true);
             }
             setResult(Activity.RESULT_OK);
         });
@@ -122,7 +122,9 @@ public class LoginActivity extends AppCompatActivity {
         disposable = loginViewModel
                 .login(username, password, serverUrl)
                 .doOnTerminate(() -> loginButton.setVisibility(View.VISIBLE))
-                .subscribe(u -> {}, t -> {});
+                .subscribe(u -> {
+                }, t -> {
+                });
     }
 
     @Override

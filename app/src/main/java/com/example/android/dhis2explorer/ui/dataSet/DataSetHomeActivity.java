@@ -1,11 +1,11 @@
 package com.example.android.dhis2explorer.ui.dataSet;
 
-import androidx.lifecycle.LiveData;
-import androidx.paging.PagedList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
@@ -26,24 +26,23 @@ public class DataSetHomeActivity extends ListActivity implements OnDataSetSelect
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUp(R.layout.activity_data_set_home, R.id.dataSetHomeToolbar,R.id.dataSetListRecyclerView );
+        setUp(R.layout.activity_data_set_home, R.id.dataSetHomeToolbar, R.id.dataSetListRecyclerView);
         discoveringDataSet();
     }
 
-    private void discoveringDataSet(){
+    private void discoveringDataSet() {
         DataSetHomeAdapter adapter = new DataSetHomeAdapter(this);
         recyclerView.setAdapter(adapter);
 
         LiveData<PagedList<DataSet>> liveData = Sdk.d2().dataSetModule().dataSets()
                 .getPaged(5);
-        liveData.observe(this,dataSetPagedList-> adapter.submitList(dataSetPagedList));
-
+        liveData.observe(this, dataSetPagedList -> adapter.submitList(dataSetPagedList));
 
 
     }
 
     @Override
     public void onDataSetSelected(String dataSetId) {
-        ActivityStarter.startActivity(this, DataSetInfoActivity.getActivityIntent(this,dataSetId),false);
+        ActivityStarter.startActivity(this, DataSetInfoActivity.getActivityIntent(this, dataSetId), false);
     }
 }

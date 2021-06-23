@@ -11,13 +11,11 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.DefaultActivity;
-import com.example.android.dhis2explorer.ui.dataSet.pages.DataSetInfoActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.hisp.dhis.android.core.common.FeatureType;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramIndicator;
-import org.hisp.dhis.android.core.program.ProgramStage;
 
 import java.util.List;
 
@@ -31,6 +29,7 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
 
     private Program selectedProgram;
     private String selectedProgramId;
+
     private enum IntentExtra {
         PROGRAM
     }
@@ -53,40 +52,40 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
         setCardViewListener();
     }
 
-    private void setCardViewListener(){
+    private void setCardViewListener() {
         CardView programIndicatorCard = findViewById(R.id.programIndicatorCard);
         CardView ProgramStageCard = findViewById(R.id.programStageCard);
         CardView programAttributeCard = findViewById(R.id.programAttributeCard);
         String programName = selectedProgram.name();
 
-        programAttributeCard.setOnClickListener(view->{
-            if(programAttributeListCount == 0){
-                Snackbar.make(view, "There is no support to view program attributes for " + programName , Snackbar.LENGTH_SHORT)
+        programAttributeCard.setOnClickListener(view -> {
+            if (programAttributeListCount == 0) {
+                Snackbar.make(view, "There is no support to view program attributes for " + programName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
-                ActivityStarter.startActivity(this, ProgramAttributeListActivity.getActivityIntent(this,selectedProgramId),false);
+            } else {
+                ActivityStarter.startActivity(this, ProgramAttributeListActivity.getActivityIntent(this, selectedProgramId), false);
             }
         });
-        ProgramStageCard.setOnClickListener(view->{
-            if(ProgramStageListCount == 0){
-                Snackbar.make(view, "There is no program stages for " + programName , Snackbar.LENGTH_SHORT)
+        ProgramStageCard.setOnClickListener(view -> {
+            if (ProgramStageListCount == 0) {
+                Snackbar.make(view, "There is no program stages for " + programName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
-                ActivityStarter.startActivity(this, ProgramProgramStageListActivity.getActivityIntent(this,selectedProgramId),false);
+            } else {
+                ActivityStarter.startActivity(this, ProgramProgramStageListActivity.getActivityIntent(this, selectedProgramId), false);
             }
         });
-        programIndicatorCard.setOnClickListener(view->{
-            if(programIndicatorListCount == 0){
-                Snackbar.make(view, "There is no program indicators for " + programName , Snackbar.LENGTH_SHORT)
+        programIndicatorCard.setOnClickListener(view -> {
+            if (programIndicatorListCount == 0) {
+                Snackbar.make(view, "There is no program indicators for " + programName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
-            }else{
+            } else {
                 List<ProgramIndicator> programIndicatorList = Sdk.d2().programModule().programIndicators().byProgramUid().eq(selectedProgramId).blockingGet();
                 System.out.println(programIndicatorList);
             }
         });
     }
 
-    private void setProgramInfoView(){
+    private void setProgramInfoView() {
         selectedProgram = getSelectedProgram();
         programAttributeListCount = getProgramAttributeListCount();
         ProgramStageListCount = getProgramStageListCount();
@@ -109,34 +108,34 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
         enrollmentDate.setText(selectedProgram.enrollmentDateLabel());
         canCaptureCoordinate.setText(selectedProgram.featureType() == FeatureType.NONE ? "No" : "Yes");
         trackedEntityType.setText(selectedProgram.trackedEntityType().displayName());
-        programAttributeCount.setText(""+programAttributeListCount);
-        programIndicatorCount.setText(""+programIndicatorListCount);
-        ProgramStageCount.setText(""+ProgramStageListCount);
+        programAttributeCount.setText("" + programAttributeListCount);
+        programIndicatorCount.setText("" + programIndicatorListCount);
+        ProgramStageCount.setText("" + ProgramStageListCount);
     }
 
-     private int getProgramAttributeListCount(){
-        return  Sdk.d2().programModule()
+    private int getProgramAttributeListCount() {
+        return Sdk.d2().programModule()
                 .programTrackedEntityAttributes()
                 .byProgram().eq(selectedProgramId)
                 .blockingCount();
-     }
+    }
 
-     private  int getProgramStageListCount(){
-         return  Sdk.d2().programModule()
-                 .programStages()
-                 .byProgramUid()
-                 .eq(selectedProgramId)
-                 .blockingCount();
-     }
+    private int getProgramStageListCount() {
+        return Sdk.d2().programModule()
+                .programStages()
+                .byProgramUid()
+                .eq(selectedProgramId)
+                .blockingCount();
+    }
 
-     private int getProgramIndicatorListCount(){
+    private int getProgramIndicatorListCount() {
         return Sdk.d2().programModule()
                 .programIndicators()
                 .byProgramUid().eq(selectedProgramId)
                 .blockingCount();
-     }
+    }
 
-    private Program getSelectedProgram(){
+    private Program getSelectedProgram() {
         return Sdk.d2().programModule()
                 .programs()
                 .withTrackedEntityType()

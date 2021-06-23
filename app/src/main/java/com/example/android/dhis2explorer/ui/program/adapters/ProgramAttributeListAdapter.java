@@ -18,7 +18,7 @@ public class ProgramAttributeListAdapter extends PagedListAdapter<ProgramTracked
 
     final OnProgramAttributeSelectionListener programAttributeSelectionListener;
 
-    public ProgramAttributeListAdapter( OnProgramAttributeSelectionListener programAttributeSelectionListener) {
+    public ProgramAttributeListAdapter(OnProgramAttributeSelectionListener programAttributeSelectionListener) {
         super(new DiffByIdItemCallback<>());
         this.programAttributeSelectionListener = programAttributeSelectionListener;
     }
@@ -26,7 +26,7 @@ public class ProgramAttributeListAdapter extends PagedListAdapter<ProgramTracked
     @NonNull
     @Override
     public ListItemCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_item_card, parent, false);
         return new ListItemCardHolder(itemView);
     }
 
@@ -35,7 +35,7 @@ public class ProgramAttributeListAdapter extends PagedListAdapter<ProgramTracked
         ProgramTrackedEntityAttribute programTrackedEntityAttribute = getItem(position);
         holder.title.setText(programTrackedEntityAttribute.displayName());
         holder.subtitle.setText(programTrackedEntityAttribute.mandatory() ? "Mandatory field" : "Optional field");
-        holder.cardView.setOnClickListener(view->programAttributeSelectionListener.onProgramAttributeSelected(programTrackedEntityAttribute.uid()));
+        holder.cardView.setOnClickListener(view -> programAttributeSelectionListener.onProgramAttributeSelected(programTrackedEntityAttribute.uid()));
 
     }
 }
