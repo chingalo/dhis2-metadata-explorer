@@ -13,7 +13,6 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.common.pages.DataElementInfoActivity;
 import com.example.android.dhis2explorer.ui.dataSet.adapters.DataElementListAdapter;
 import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataElementSelectionListener;
 
@@ -33,7 +32,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
 
     @Override
     public void onDataElementSelection(String dataElementId) {
-        ActivityStarter.startActivity(this, DataElementInfoActivity.getActivityIntent(this, dataElementId), false);
+        ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this, dataElementId), false);
     }
 
     private enum IntentExtra {

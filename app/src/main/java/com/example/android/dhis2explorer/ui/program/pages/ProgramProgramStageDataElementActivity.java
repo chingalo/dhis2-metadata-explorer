@@ -5,7 +5,16 @@ import android.os.Bundle;
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 
-public class ProgramProgramStageDataElementActivity extends ListActivity {
+import org.hisp.dhis.android.core.program.ProgramStageDataElement;
+
+public class ProgramProgramStageDataElementActivity extends ListActivity   {
+
+    private String programStageDataElementId;
+    private ProgramStageDataElement selectedProgramStageDataElement;
+
+    private enum IntentExtra {
+        PROGRAM_STAGE_DATA_ELEMENT
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

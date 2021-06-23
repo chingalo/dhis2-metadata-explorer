@@ -79,7 +79,7 @@
         <activity android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorListActivity"
             android:label="@string/indicator_list"
             android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorInfoActivity"/>
-        <activity android:name="com.example.android.dhis2explorer.ui.common.pages.DataElementInfoActivity"
+        <activity android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementInfoActivity"
             android:label="@string/data_element_info"
             android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementListActivity" />
         <activity android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementListActivity"

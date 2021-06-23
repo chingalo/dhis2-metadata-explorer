@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.common.pages;
+package com.example.android.dhis2explorer.ui.dataSet.pages;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import org.hisp.dhis.android.core.option.Option;
 
 import static android.text.TextUtils.isEmpty;
 
-public class DataElementInfoActivity extends ListActivity {
+public class DataSetDataElementInfoActivity extends ListActivity {
 
     private DataElement selectedDataElement;
 
@@ -33,8 +33,8 @@ public class DataElementInfoActivity extends ListActivity {
     public static Intent getActivityIntent(Context context, String dataElementId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(dataElementId))
-            bundle.putString(DataElementInfoActivity.IntentExtra.DATA_ELEMENT.name(), dataElementId);
-        Intent intent = new Intent(context, DataElementInfoActivity.class);
+            bundle.putString(DataSetDataElementInfoActivity.IntentExtra.DATA_ELEMENT.name(), dataElementId);
+        Intent intent = new Intent(context, DataSetDataElementInfoActivity.class);
         intent.putExtras(bundle);
         return intent;
     }

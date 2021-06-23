@@ -58,17 +58,19 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
 
         TextView programProgramStageInfoName = findViewById(R.id.programProgramStageInfoName);
         TextView programProgramStageInfoCount = findViewById(R.id.programProgramStageInfoCount);
-
-//        selectedProgramStage.uid();
-//        selectedProgramStage.allowGenerateNextVisit();
-//        selectedProgramStage.displayDescription();
-//        selectedProgramStage.executionDateLabel();
-//        selectedProgramStage.repeatable();
-//        selectedProgramStage.autoGenerateEvent();
-//        selectedProgramStage.generatedByEnrollmentDate();
+        TextView programProgramStageInfoUid = findViewById(R.id.programProgramStageInfoUid);
+        TextView programProgramStageInfoDescription = findViewById(R.id.programProgramStageInfoDescription);
+        TextView programProgramStageInfoEventLabel = findViewById(R.id.programProgramStageInfoEventLabel);
+        TextView programProgramStageInfoRepeatable = findViewById(R.id.programProgramStageInfoRepeatable);
+        TextView programProgramStageInfoAutoGenerateEvent = findViewById(R.id.programProgramStageInfoAutoGenerateEvent);
 
         programProgramStageInfoName.setText(selectedProgramStage.displayName());
         programProgramStageInfoCount.setText("" + dataElementCount);
+        programProgramStageInfoUid.setText(selectedProgramStage.uid());
+        programProgramStageInfoDescription.setText(selectedProgramStage.displayDescription());
+        programProgramStageInfoEventLabel.setText(selectedProgramStage.executionDateLabel());
+        programProgramStageInfoRepeatable.setText(selectedProgramStage.repeatable() ? "Yes" : "No");
+        programProgramStageInfoAutoGenerateEvent.setText(selectedProgramStage.autoGenerateEvent() ? "Yes":"No");
 
         setDataElementListAdapter();
     }
@@ -81,6 +83,7 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
                 .programStageDataElements()
                 .byProgramStage().eq(selectedProgramStageId)
                 .getPaged(10);
+
         liveData.observe(this, programStageDataElements -> adapter.submitList(programStageDataElements));
     }
 
