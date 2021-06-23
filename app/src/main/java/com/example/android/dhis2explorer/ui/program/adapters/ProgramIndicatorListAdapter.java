@@ -14,7 +14,7 @@ import com.example.android.dhis2explorer.ui.program.listeners.OnProgramIndicator
 
 import org.hisp.dhis.android.core.program.ProgramIndicator;
 
-public class ProgramIndicatorListAdapter extends PagedListAdapter<ProgramIndicator, ListItemCardHolder>  {
+public class ProgramIndicatorListAdapter extends PagedListAdapter<ProgramIndicator, ListItemCardHolder> {
     final private OnProgramIndicatorSelectionListener programIndicatorSelectionListener;
 
     public ProgramIndicatorListAdapter(OnProgramIndicatorSelectionListener programIndicatorSelectionListener) {
@@ -34,6 +34,6 @@ public class ProgramIndicatorListAdapter extends PagedListAdapter<ProgramIndicat
         ProgramIndicator programIndicator = getItem(position);
         holder.title.setText(programIndicator.displayName());
         holder.subtitle.setText(programIndicator.displayDescription());
-        holder.cardView.setOnClickListener(view-> programIndicatorSelectionListener.onProgramIndicatorSelection(programIndicator.uid()));
+        holder.cardView.setOnClickListener(view -> programIndicatorSelectionListener.onProgramIndicatorSelection(programIndicator.uid()));
     }
 }

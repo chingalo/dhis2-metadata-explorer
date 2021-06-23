@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LiveData;
 import androidx.paging.PagedList;
 
@@ -49,10 +48,7 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
 
     private void setUpView() {
         ProgramStageDataElement selectedProgramStageDataElement = getSelectedProgramStageDataElement();
-        DataElement dataElement = Sdk.d2().dataElementModule()
-                .dataElements()
-                .byUid().eq(selectedProgramStageDataElement.dataElement().uid())
-                .blockingGet().get(0);
+        DataElement dataElement = getDataElement(selectedProgramStageDataElement);
         String optionSetId = dataElement.optionSetUid();
 
         //@TODO displaying missing fields
@@ -61,19 +57,20 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
 
         programProgramStageDataElementName.setText(dataElement.displayName());
 
-        System.out.println(dataElement);
-        System.out.println("\n\n");
-        System.out.println(selectedProgramStageDataElement);
-        System.out.println("\n\n");
-        System.out.println("\n\n");
-
-        if (optionSetId !=null) {
+        if (optionSetId != null) {
             programProgramStageDataElementOptionSetCard.setVisibility(View.VISIBLE);
             setOptionListAdapter(optionSetId);
         } else {
             programProgramStageDataElementOptionSetCard.setVisibility(View.INVISIBLE);
         }
 
+    }
+
+    private DataElement getDataElement(ProgramStageDataElement selectedProgramStageDataElement) {
+        return Sdk.d2().dataElementModule()
+                .dataElements()
+                .byUid().eq(selectedProgramStageDataElement.dataElement().uid())
+                .blockingGet().get(0);
     }
 
     private void setOptionListAdapter(String optionSetId) {

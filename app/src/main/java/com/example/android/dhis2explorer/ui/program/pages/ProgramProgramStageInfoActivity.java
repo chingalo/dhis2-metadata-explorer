@@ -31,7 +31,7 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
     public void onProgramStageDataElementSelected(String programStageDataElementId) {
         try {
             ActivityStarter.startActivity(this, ProgramProgramStageDataElementActivity.getActivityIntent(this, programStageDataElementId), false);
-        }catch (Exception d){
+        } catch (Exception d) {
             System.out.println(d.toString());
         }
     }

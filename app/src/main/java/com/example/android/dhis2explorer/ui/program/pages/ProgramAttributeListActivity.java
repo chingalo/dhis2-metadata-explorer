@@ -10,6 +10,7 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.program.adapters.ProgramAttributeListAdapter;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramAttributeSelectionListener;
@@ -30,8 +31,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
 
     @Override
     public void onProgramAttributeSelected(String programTrackedEntityAttributeId) {
-        //@TODO direct to view page of attribute
-        System.out.println("programTrackedEntityAttributeId :" + programTrackedEntityAttributeId);
+        ActivityStarter.startActivity(this, ProgramAttributeInfoActivity.getActivityIntent(this, programTrackedEntityAttributeId), false);
     }
 
     public static Intent getActivityIntent(Context context, String programId) {
@@ -67,7 +67,8 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
     private void setListAdapterForAttribute() {
         ProgramAttributeListAdapter adapter = new ProgramAttributeListAdapter(this);
         recyclerView.setAdapter(adapter);
-        LiveData<PagedList<ProgramTrackedEntityAttribute>> liveData = Sdk.d2().programModule().programTrackedEntityAttributes()
+        LiveData<PagedList<ProgramTrackedEntityAttribute>> liveData = Sdk.d2().programModule()
+                .programTrackedEntityAttributes()
                 .byProgram().eq(selectedProgramId)
                 .getPaged(10);
         liveData.observe(this, programTrackedEntityAttributes -> adapter.submitList(programTrackedEntityAttributes));

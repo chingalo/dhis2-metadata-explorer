@@ -27,7 +27,7 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
 
     @Override
     public void onProgramIndicatorSelection(String programIndicatorId) {
-        System.out.println("programIndicatorId : "+programIndicatorId);
+        System.out.println("programIndicatorId : " + programIndicatorId);
     }
 
     private enum IntentExtra {
@@ -55,14 +55,14 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
         selectedProgram = getSelectedProgram();
         int indicatorCount = getProgramIndicatorListCount();
 
-        TextView programProgramIndicatorProgramName= findViewById(R.id.programProgramIndicatorProgramName);
+        TextView programProgramIndicatorProgramName = findViewById(R.id.programProgramIndicatorProgramName);
         TextView programProgramIndicatorCount = findViewById(R.id.programProgramIndicatorCount);
 
         programProgramIndicatorProgramName.setText(selectedProgram.displayName());
-        programProgramIndicatorCount.setText(""+indicatorCount);
-        
+        programProgramIndicatorCount.setText("" + indicatorCount);
+
         setProgramIndicatorListAdapter();
-        
+
     }
 
     private void setProgramIndicatorListAdapter() {
@@ -74,7 +74,7 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
                 .byProgramUid().eq(selectedProgramId)
                 .getPaged(10);
 
-        liveData.observe(this,programIndicators -> adapter.submitList(programIndicators));
+        liveData.observe(this, programIndicators -> adapter.submitList(programIndicators));
     }
 
     private int getProgramIndicatorListCount() {
