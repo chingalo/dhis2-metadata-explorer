@@ -11,6 +11,7 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.program.adapters.ProgramStageDataElementListAdapter;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramStageDataElementListener;
@@ -28,7 +29,11 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
 
     @Override
     public void onProgramStageDataElementSelected(String programStageDataElementId) {
-        System.out.println("programStageDataElementId " + programStageDataElementId);
+        try {
+            ActivityStarter.startActivity(this, ProgramProgramStageDataElementActivity.getActivityIntent(this, programStageDataElementId), false);
+        }catch (Exception d){
+            System.out.println(d.toString());
+        }
     }
 
     private enum IntentExtra {
@@ -70,7 +75,7 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
         programProgramStageInfoDescription.setText(selectedProgramStage.displayDescription());
         programProgramStageInfoEventLabel.setText(selectedProgramStage.executionDateLabel());
         programProgramStageInfoRepeatable.setText(selectedProgramStage.repeatable() ? "Yes" : "No");
-        programProgramStageInfoAutoGenerateEvent.setText(selectedProgramStage.autoGenerateEvent() ? "Yes":"No");
+        programProgramStageInfoAutoGenerateEvent.setText(selectedProgramStage.autoGenerateEvent() ? "Yes" : "No");
 
         setDataElementListAdapter();
     }

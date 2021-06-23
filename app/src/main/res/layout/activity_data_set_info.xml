@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dataSet.pages.DataSetInfoActivity">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/dataSetInfoToolbar"
             android:layout_width="match_parent"
@@ -24,100 +26,107 @@
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-           android:elevation="0dp"
-           android:layout_marginVertical="5dp"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_margin="10dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="vertical">
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginVertical="5dp">
-                   <TextView
-                       android:textSize="18sp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="@string/data_set_name">
-                   </TextView>
-                   <TextView
-                       android:id="@+id/dataSetName"
-                       android:paddingStart="100dp"
-                       android:textSize="18sp"
-                       android:textColor="@color/colorPrimary"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="name">
-                   </TextView>
-               </RelativeLayout>
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginVertical="5dp">
-                   <TextView
-                       android:textSize="18sp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="@string/data_set_id">
-                   </TextView>
-                   <TextView
-                       android:textSize="18sp"
-                       android:id="@+id/dataSetId"
-                       android:paddingStart="100dp"
-                       android:textColor="@color/colorPrimary"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="id">
-                   </TextView>
-               </RelativeLayout>
 
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginVertical="5dp">
-                   <TextView
-                       android:textSize="18sp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="@string/data_set_period_type">
-                   </TextView>
-                   <TextView
-                       android:textSize="18sp"
-                       android:id="@+id/dataSetPeriodType"
-                       android:paddingStart="100dp"
-                       android:textColor="@color/colorPrimary"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Period type">
-                   </TextView>
-               </RelativeLayout>
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginVertical="5dp">
-                   <TextView
-                       android:textSize="18sp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="@string/data_set_description">
-                   </TextView>
-                   <TextView
-                       android:textSize="18sp"
-                       android:id="@+id/dataSetDescription"
-                       android:paddingStart="100dp"
-                       android:textColor="@color/colorPrimary"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Description">
-                   </TextView>
-               </RelativeLayout>
-           </LinearLayout>
-       </androidx.cardview.widget.CardView>
-        <include layout="@layout/content_metadata_related_header"/>
+        <androidx.cardview.widget.CardView
+            android:elevation="0dp"
+            android:layout_marginVertical="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp">
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data_set_name"></TextView>
+
+                    <TextView
+                        android:id="@+id/dataSetName"
+                        android:paddingStart="100dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp">
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data_set_id"></TextView>
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:id="@+id/dataSetId"
+                        android:paddingStart="100dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="id"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp">
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data_set_period_type"></TextView>
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:id="@+id/dataSetPeriodType"
+                        android:paddingStart="100dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Period type"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp">
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data_set_description"></TextView>
+
+                    <TextView
+                        android:textSize="18sp"
+                        android:id="@+id/dataSetDescription"
+                        android:paddingStart="100dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description"></TextView>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <include layout="@layout/content_metadata_related_header" />
+
         <androidx.cardview.widget.CardView
             android:elevation="5dp"
             android:id="@+id/dataSetDataElementCard"
@@ -126,17 +135,19 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_height="wrap_content">
+
             <RelativeLayout
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:text="@string/data_element"
-                    android:layout_height="wrap_content">
-                </TextView>
+                    android:layout_height="wrap_content"></TextView>
+
                 <TextView
                     android:textSize="18sp"
                     android:id="@+id/dataSetDataElementCount"
@@ -144,9 +155,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
-                    android:text ="@string/zero"
-                    android:layout_height="wrap_content">
-                </TextView>
+                    android:text="@string/zero"
+                    android:layout_height="wrap_content"></TextView>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -158,17 +168,19 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_height="wrap_content">
+
             <RelativeLayout
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:text="@string/indicators"
-                    android:layout_height="wrap_content">
-                </TextView>
+                    android:layout_height="wrap_content"></TextView>
+
                 <TextView
                     android:textSize="18sp"
                     android:id="@+id/dataSetIndicatorCount"
@@ -176,9 +188,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
-                    android:text ="@string/zero"
-                    android:layout_height="wrap_content">
-                </TextView>
+                    android:text="@string/zero"
+                    android:layout_height="wrap_content"></TextView>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 

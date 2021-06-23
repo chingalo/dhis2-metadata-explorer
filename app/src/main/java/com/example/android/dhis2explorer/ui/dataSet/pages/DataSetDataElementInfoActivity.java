@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -58,7 +59,7 @@ public class DataSetDataElementInfoActivity extends ListActivity {
         TextView dataSetDataElementValueType = findViewById(R.id.dataSetDataElementValueType);
         TextView dataSetDataElementCategoryComboUid = findViewById(R.id.dataSetDataElementCategoryComboUid);
         TextView dataSetDataElementDescription = findViewById(R.id.dataSetDataElementDescription);
-        CardView dataElementOptionSetCard = findViewById(R.id.dataElementOptionSetCard);
+        LinearLayout dataElementOptionSetCard = findViewById(R.id.dataElementOptionSetCard);
 
         dataSetDataElementName.setText(selectedDataElement.displayName());
         dataSetDataElementUid.setText(selectedDataElement.uid());
