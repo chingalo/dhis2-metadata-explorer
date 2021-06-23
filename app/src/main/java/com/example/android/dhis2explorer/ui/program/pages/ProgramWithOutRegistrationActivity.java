@@ -16,9 +16,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.hisp.dhis.android.core.common.FeatureType;
 import org.hisp.dhis.android.core.program.Program;
-import org.hisp.dhis.android.core.program.ProgramIndicator;
-
-import java.util.List;
 
 import static android.text.TextUtils.isEmpty;
 
@@ -76,8 +73,7 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
                 Snackbar.make(view, "There is no program indicators for " + programName, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             } else {
-                List<ProgramIndicator> programIndicatorList = Sdk.d2().programModule().programIndicators().byProgramUid().eq(selectedProgramId).blockingGet();
-                System.out.println(programIndicatorList);
+                ActivityStarter.startActivity(this, ProgramProgramIndicatorListActivity.getActivityIntent(this, selectedProgramId), false);
             }
         });
     }

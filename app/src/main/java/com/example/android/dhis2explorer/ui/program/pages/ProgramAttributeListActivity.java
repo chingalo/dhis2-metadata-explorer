@@ -30,7 +30,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
 
     @Override
     public void onProgramAttributeSelected(String programTrackedEntityAttributeId) {
-        //TODO direct to view page of attribute
+        //@TODO direct to view page of attribute
         System.out.println("programTrackedEntityAttributeId :" + programTrackedEntityAttributeId);
     }
 
