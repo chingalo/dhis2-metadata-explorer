@@ -15,7 +15,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class ProgramProgramIndicatorInfoActivity extends DefaultActivity {
 
-    private ProgramIndicator selectedProgramIndicator;
     private String selectedProgramIndicatorId;
 
     public static Intent getActivityIntent(Context context, String programIndicatorId) {
@@ -36,7 +35,7 @@ public class ProgramProgramIndicatorInfoActivity extends DefaultActivity {
     }
 
     private void setView() {
-        selectedProgramIndicator = getSelectedProgramIndicator();
+        ProgramIndicator selectedProgramIndicator = getSelectedProgramIndicator();
 
         TextView ProgramProgramIndicatorInfoUid = findViewById(R.id.ProgramProgramIndicatorInfoUid);
         TextView ProgramProgramIndicatorInfoName = findViewById(R.id.ProgramProgramIndicatorInfoName);

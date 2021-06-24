@@ -23,8 +23,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class DataSetIndicatorListActivity extends ListActivity implements OnIndicatorSelectionListener {
 
-    private DataSet selectedDataSet;
-
     private String selectedDataSetId;
 
     public static Intent getActivityIntent(Context context, String dataSetId) {
@@ -50,7 +48,7 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
     }
 
     private void setDataSetIndicatorListView() {
-        selectedDataSet = getSelectedDataSet();
+        DataSet selectedDataSet = getSelectedDataSet();
         int dataSetIndicatorCount = selectedDataSet.indicators().size();
 
         TextView dataSetInfoName = findViewById(R.id.indicatorDataSetInfoName);

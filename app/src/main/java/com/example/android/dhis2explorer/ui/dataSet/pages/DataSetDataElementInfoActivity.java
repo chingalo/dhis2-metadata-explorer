@@ -22,8 +22,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class DataSetDataElementInfoActivity extends ListActivity {
 
-    private DataElement selectedDataElement;
-
     private String selectedDataElementId;
 
     public static Intent getActivityIntent(Context context, String dataElementId) {
@@ -44,7 +42,7 @@ public class DataSetDataElementInfoActivity extends ListActivity {
     }
 
     private void setUpView() {
-        selectedDataElement = getSelectedDataElement();
+        DataElement selectedDataElement = getSelectedDataElement();
         String optionSetId = selectedDataElement.optionSetUid();
 
         TextView dataSetDataElementName = findViewById(R.id.dataSetDataElementName);

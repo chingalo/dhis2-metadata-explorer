@@ -15,8 +15,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class DataSetIndicatorInfoActivity extends DefaultActivity {
 
-    private Indicator selectedIndicator;
-
     private String selectedIndicatorId;
 
     public static Intent getActivityIntent(Context context, String indicatorId) {
@@ -37,7 +35,7 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
     }
 
     private void setUpView() {
-        selectedIndicator = getSelectedIndicator();
+        Indicator selectedIndicator = getSelectedIndicator();
         TextView indicatorName = findViewById(R.id.indicatorName);
         TextView indicatorUid = findViewById(R.id.indicatorUid);
         TextView indicatorDescription = findViewById(R.id.indicatorDescription);

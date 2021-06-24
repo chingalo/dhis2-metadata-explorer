@@ -21,7 +21,7 @@ import org.hisp.dhis.android.core.program.ProgramType;
 
 public class ProgramHomeActivity extends ListActivity implements OnProgramSelectionListener {
 
-    public static Intent getProgramHomeActivityIntent(Context context) {
+    public static Intent getActivityIntent(Context context) {
         return new Intent(context, ProgramHomeActivity.class);
     }
 

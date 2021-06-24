@@ -63,8 +63,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         compositeDisposable = new CompositeDisposable();
 
         User user = getUser();
+
         TextView greeting = findViewById(R.id.welcomeNote);
-        greeting.setText(String.format("Hi %s!", user.displayName()));
+        greeting.setText(String.format("Hello %s", user.displayName()));
 
         inflateMainView();
         createNavigationView(user);
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (!isSyncing) {
                 int programCount = SyncStatusHelper.programCount();
                 if (programCount > 0) {
-                    ActivityStarter.startActivity(this, ProgramHomeActivity.getProgramHomeActivityIntent(this), false);
+                    ActivityStarter.startActivity(this, ProgramHomeActivity.getActivityIntent(this), false);
                 } else {
                     Snackbar.make(view, "You have no program at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (!isSyncing) {
                 int dataSetCount = SyncStatusHelper.dataSetCount();
                 if (dataSetCount > 0) {
-                    ActivityStarter.startActivity(this, DataSetHomeActivity.getDataSetHomeActivityIntent(this), false);
+                    ActivityStarter.startActivity(this, DataSetHomeActivity.getActivityIntent(this), false);
                 } else {
                     Snackbar.make(view, "You have no data set at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
@@ -178,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void updateSyncDataAndButtons() {
         disableAllButtons();
 
+        //@TODO add more metadata
         int programCount = SyncStatusHelper.programCount();
         int dataSetCount = SyncStatusHelper.dataSetCount();
 
@@ -203,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         TextView firstName = headerView.findViewById(R.id.firstName);
         TextView email = headerView.findViewById(R.id.email);
-        firstName.setText(user.firstName());
+        firstName.setText(user.displayName());
         email.setText(user.email());
     }
 
@@ -218,17 +220,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private Observable<D2Progress> downloadMetadata() {
         return Sdk.d2().metadataModule().download();
-    }
-
-
-    private void wipeData() {
-        compositeDisposable.add(
-                Observable.fromCallable(() -> Sdk.d2().wipeModule().wipeData())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doOnError(Throwable::printStackTrace)
-                        .doOnComplete(this::setSyncingFinished)
-                        .subscribe());
     }
 
     @Override

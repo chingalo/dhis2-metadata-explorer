@@ -23,7 +23,6 @@ import static android.text.TextUtils.isEmpty;
 public class ProgramAttributeListActivity extends ListActivity implements OnProgramAttributeSelectionListener {
 
     private String selectedProgramId;
-    private Program selectedProgram;
 
     public static Intent getActivityIntent(Context context, String programId) {
         Bundle bundle = new Bundle();
@@ -48,7 +47,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
     }
 
     void setView() {
-        selectedProgram = getSelectedProgram();
+        Program selectedProgram = getSelectedProgram();
         int attributeCount = getProgramAttributeListCount();
 
         TextView programProgramAttributeName = findViewById(R.id.programProgramAttributeName);

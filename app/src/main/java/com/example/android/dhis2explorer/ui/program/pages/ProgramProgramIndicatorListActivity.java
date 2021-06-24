@@ -24,7 +24,6 @@ import static android.text.TextUtils.isEmpty;
 public class ProgramProgramIndicatorListActivity extends ListActivity implements OnProgramIndicatorSelectionListener {
 
     private String selectedProgramId;
-    private Program selectedProgram;
 
     public static Intent getActivityIntent(Context context, String programId) {
         Bundle bundle = new Bundle();
@@ -49,7 +48,7 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
     }
 
     private void setView() {
-        selectedProgram = getSelectedProgram();
+        Program selectedProgram = getSelectedProgram();
         int indicatorCount = getProgramIndicatorListCount();
 
         TextView programProgramIndicatorProgramName = findViewById(R.id.programProgramIndicatorProgramName);

@@ -19,7 +19,7 @@ import org.hisp.dhis.android.core.dataset.DataSet;
 
 public class DataSetHomeActivity extends ListActivity implements OnDataSetSelectionListener {
 
-    public static Intent getDataSetHomeActivityIntent(Context context) {
+    public static Intent getActivityIntent(Context context) {
         return new Intent(context, DataSetHomeActivity.class);
     }
 

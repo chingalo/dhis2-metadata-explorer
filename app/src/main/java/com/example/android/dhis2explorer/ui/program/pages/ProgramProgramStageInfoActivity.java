@@ -23,7 +23,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class ProgramProgramStageInfoActivity extends ListActivity implements OnProgramStageDataElementListener {
 
-    private ProgramStage selectedProgramStage;
     private String selectedProgramStageId;
 
     public static Intent getActivityIntent(Context context, String programStageId) {
@@ -53,7 +52,7 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
     }
 
     private void setView() {
-        selectedProgramStage = getSelectedProgramStage();
+        ProgramStage selectedProgramStage = getSelectedProgramStage();
         int dataElementCount = Sdk.d2().programModule().programStageDataElements().byProgramStage().eq(selectedProgramStageId).blockingCount();
 
         TextView programProgramStageInfoName = findViewById(R.id.programProgramStageInfoName);

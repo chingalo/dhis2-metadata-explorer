@@ -24,7 +24,6 @@ import static android.text.TextUtils.isEmpty;
 public class ProgramAttributeInfoActivity extends ListActivity {
 
     private String selectedProgramTrackedEntityAttributeId;
-    private ProgramTrackedEntityAttribute selectedProgramTrackedEntityAttribute;
 
     public static Intent getActivityIntent(Context context, String programTrackedEntityAttributeId) {
         Bundle bundle = new Bundle();
@@ -44,7 +43,7 @@ public class ProgramAttributeInfoActivity extends ListActivity {
     }
 
     private void setView() {
-        selectedProgramTrackedEntityAttribute = getSelectedProgramTrackedEntityAttribute();
+        ProgramTrackedEntityAttribute selectedProgramTrackedEntityAttribute = getSelectedProgramTrackedEntityAttribute();
         String attributeId = selectedProgramTrackedEntityAttribute.trackedEntityAttribute().uid();
         TrackedEntityAttribute trackedEntityAttribute = getTrackedEntityAttribute(attributeId);
 
