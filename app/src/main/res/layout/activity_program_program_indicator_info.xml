@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="130dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="130dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="130dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -117,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="130dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -138,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="130dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
 
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="130dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
 

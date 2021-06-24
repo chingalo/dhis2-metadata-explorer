@@ -93,7 +93,7 @@
             android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementListActivity" />
         <activity
             android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementListActivity"
-            android:label="data element list"
+            android:label="Data element list"
             android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorInfoActivity" />
         <activity
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"

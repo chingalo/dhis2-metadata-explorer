@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_name"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimaryDark" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_id"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimaryDark" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_description"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimaryDark" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_incident_date"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimaryDark" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_enrollment_date"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimaryDark" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_tracked_entity_type"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:visibility="visible" />
             </RelativeLayout>
 
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="125dp"
                     android:text="@string/program_can_capture_coordinate"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/colorPrimaryDark" />
             </RelativeLayout>
         </LinearLayout>
 

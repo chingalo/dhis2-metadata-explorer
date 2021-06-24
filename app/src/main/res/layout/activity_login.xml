@@ -28,6 +28,7 @@
             android:id="@+id/urlText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="@string/prompt_server_url"
             android:inputType="textUri" />
 
@@ -89,7 +90,7 @@
         android:layout_marginBottom="64dp"
         android:text="@string/action_sign_in_short"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-        app:backgroundTint="#2196F3"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
