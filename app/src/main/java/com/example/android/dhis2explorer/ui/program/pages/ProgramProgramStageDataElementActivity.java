@@ -25,10 +25,6 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
 
     private String selectedProgramStageDataElementId;
 
-    private enum IntentExtra {
-        PROGRAM_STAGE_DATA_ELEMENT
-    }
-
     public static Intent getActivityIntent(Context context, String selectedProgramStageDataElementId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(selectedProgramStageDataElementId))
@@ -51,11 +47,20 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
         DataElement dataElement = getDataElement(selectedProgramStageDataElement);
         String optionSetId = dataElement.optionSetUid();
 
-        //@TODO displaying missing fields
-        LinearLayout programProgramStageDataElementOptionSetCard = findViewById(R.id.programProgramStageDataElementOptionSetCard);
         TextView programProgramStageDataElementName = findViewById(R.id.programProgramStageDataElementName);
+        TextView programProgramStageDataElementUid = findViewById(R.id.programProgramStageDataElementUid);
+        TextView programProgramStageDataElementFormName = findViewById(R.id.programProgramStageDataElementFormName);
+        TextView programProgramStageDataElementDescription = findViewById(R.id.programProgramStageDataElementDescription);
+        TextView programProgramStageDataElementValueType = findViewById(R.id.programProgramStageDataElementValueType);
+        TextView programProgramStageDataElementIsMandatory = findViewById(R.id.programProgramStageDataElementIsMandatory);
+        LinearLayout programProgramStageDataElementOptionSetCard = findViewById(R.id.programProgramStageDataElementOptionSetCard);
 
+        programProgramStageDataElementUid.setText(dataElement.uid());
         programProgramStageDataElementName.setText(dataElement.displayName());
+        programProgramStageDataElementFormName.setText(dataElement.displayFormName());
+        programProgramStageDataElementDescription.setText(dataElement.displayDescription());
+        programProgramStageDataElementValueType.setText(dataElement.valueType().name());
+        programProgramStageDataElementIsMandatory.setText(selectedProgramStageDataElement.compulsory() ? "Yes" : "No");
 
         if (optionSetId != null) {
             programProgramStageDataElementOptionSetCard.setVisibility(View.VISIBLE);
@@ -87,5 +92,9 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
                 .programStageDataElements()
                 .byUid().eq(selectedProgramStageDataElementId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM_STAGE_DATA_ELEMENT
     }
 }
