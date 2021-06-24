@@ -11,4 +11,8 @@ public class SyncStatusHelper {
     public static int dataSetCount() {
         return Sdk.d2().dataSetModule().dataSets().blockingCount();
     }
+
+    public static int dataElementCount() {
+        return Sdk.d2().dataElementModule().dataElements().blockingCount();
+    }
 }

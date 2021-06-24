@@ -13,8 +13,8 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.dataSet.adapters.DataElementListAdapter;
-import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataElementSelectionListener;
+import com.example.android.dhis2explorer.ui.dataElement.adapters.DataElementListAdapter;
+import com.example.android.dhis2explorer.ui.dataElement.listeners.OnDataElementSelectionListener;
 
 import org.hisp.dhis.android.core.dataelement.DataElement;
 import org.hisp.dhis.android.core.dataset.DataSet;
@@ -68,10 +68,13 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
     }
 
     private void setDataSetDataElementListAdapter() {
-        DataElementListAdapter adapter = new DataElementListAdapter(this);
+        DataElementListAdapter adapter = new DataElementListAdapter(this, false);
         recyclerView.setAdapter(adapter);
         List<String> dataElementIds = getDataElementIds();
-        LiveData<PagedList<DataElement>> liveData = Sdk.d2().dataElementModule().dataElements().byUid().in(dataElementIds).getPaged(5);
+        LiveData<PagedList<DataElement>> liveData = Sdk.d2().dataElementModule()
+                .dataElements()
+                .byUid().in(dataElementIds)
+                .getPaged(5);
         liveData.observe(this, dataElements -> adapter.submitList(dataElements));
     }
 

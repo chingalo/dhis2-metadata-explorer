@@ -3,6 +3,7 @@
     package="com.example.android.dhis2explorer">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_dhis_launcher"
@@ -11,90 +12,98 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.android.dhis2explorer.ui.splash.SplashActivity">
+
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="play.dhis2.org"
                     android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.android.dhis2explorer.ui.login.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.dataElement.DataElementHomeActivity"
+            android:label="Data element list"
+            />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.dataSet.DataSetHomeActivity"
+            android:name=".ui.dataSet.DataSetHomeActivity"
             android:label="@string/title_activity_data_set_home"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.main.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.ProgramHomeActivity"
+            android:name=".ui.program.ProgramHomeActivity"
             android:label="@string/title_activity_program_home"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.main.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramWithOutRegistrationActivity"
+            android:name=".ui.program.pages.ProgramWithOutRegistrationActivity"
             android:label="@string/program_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.ProgramHomeActivity" />
+            android:parentActivityName=".ui.program.ProgramHomeActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramWithRegistrationActivity"
+            android:name=".ui.program.pages.ProgramWithRegistrationActivity"
             android:label="@string/program_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.ProgramHomeActivity" />
+            android:parentActivityName=".ui.program.ProgramHomeActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramStageDataElementActivity"
+            android:name=".ui.program.pages.ProgramProgramStageDataElementActivity"
             android:label="@string/data_element_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramStageInfoActivity" />
+            android:parentActivityName=".ui.program.pages.ProgramProgramStageInfoActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramStageInfoActivity"
+            android:name=".ui.program.pages.ProgramProgramStageInfoActivity"
             android:label="@string/program_stage_info" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramStageListActivity"
+            android:name=".ui.program.pages.ProgramProgramStageListActivity"
             android:label="@string/program_stage_list"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.pages.ProgramWithRegistrationActivity" />
+            android:parentActivityName=".ui.program.pages.ProgramWithRegistrationActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramIndicatorInfoActivity"
+            android:name=".ui.program.pages.ProgramProgramIndicatorInfoActivity"
             android:label="@string/program_indicator_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramIndicatorListActivity" />
+            android:parentActivityName=".ui.program.pages.ProgramProgramIndicatorListActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramProgramIndicatorListActivity"
+            android:name=".ui.program.pages.ProgramProgramIndicatorListActivity"
             android:label="@string/program_indicator_list" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramAttributeInfoActivity"
+            android:name=".ui.program.pages.ProgramAttributeInfoActivity"
             android:label="@string/program_attribute_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.pages.ProgramAttributeListActivity" />
+            android:parentActivityName=".ui.program.pages.ProgramAttributeListActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.program.pages.ProgramAttributeListActivity"
+            android:name=".ui.program.pages.ProgramAttributeListActivity"
             android:label="@string/program_attribute_list"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.program.pages.ProgramWithRegistrationActivity" />
+            android:parentActivityName=".ui.program.pages.ProgramWithRegistrationActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetInfoActivity"
+            android:name=".ui.dataSet.pages.DataSetInfoActivity"
             android:label="@string/data_set_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.DataSetHomeActivity" />
+            android:parentActivityName=".ui.dataSet.DataSetHomeActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorInfoActivity"
+            android:name=".ui.dataSet.pages.DataSetIndicatorInfoActivity"
             android:label="@string/indicator_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorListActivity" />
+            android:parentActivityName=".ui.dataSet.pages.DataSetIndicatorListActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorListActivity"
+            android:name=".ui.dataSet.pages.DataSetIndicatorListActivity"
             android:label="@string/indicator_list"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorInfoActivity" />
+            android:parentActivityName=".ui.dataSet.pages.DataSetIndicatorInfoActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementInfoActivity"
+            android:name=".ui.dataSet.pages.DataSetDataElementInfoActivity"
             android:label="@string/data_element_info"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementListActivity" />
+            android:parentActivityName=".ui.dataSet.pages.DataSetDataElementListActivity" />
         <activity
-            android:name="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementListActivity"
+            android:name=".ui.dataSet.pages.DataSetDataElementListActivity"
             android:label="Data element list"
-            android:parentActivityName="com.example.android.dhis2explorer.ui.dataSet.pages.DataSetIndicatorInfoActivity" />
+            android:parentActivityName=".ui.dataSet.pages.DataSetIndicatorInfoActivity" />
         <activity
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true" />

@@ -47,7 +47,7 @@ public class DataSetDataElementInfoActivity extends ListActivity {
         String optionSetId = selectedDataElement.optionSetUid();
         String categoryComboUid = selectedDataElement.categoryComboUid();
         CategoryCombo categoryCombo = getCategoryCombo(categoryComboUid);
-        
+
         TextView dataSetDataElementName = findViewById(R.id.dataSetDataElementName);
         TextView dataSetDataElementUid = findViewById(R.id.dataSetDataElementUid);
         TextView dataSetDataElementFormName = findViewById(R.id.dataSetDataElementFormName);
