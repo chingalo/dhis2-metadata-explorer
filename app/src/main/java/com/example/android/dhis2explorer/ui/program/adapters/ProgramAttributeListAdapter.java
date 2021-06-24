@@ -8,11 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.paging.PagedListAdapter;
 
 import com.example.android.dhis2explorer.R;
+import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramAttributeSelectionListener;
 
 import org.hisp.dhis.android.core.program.ProgramTrackedEntityAttribute;
+import org.hisp.dhis.android.core.trackedentity.TrackedEntityAttribute;
 
 public class ProgramAttributeListAdapter extends PagedListAdapter<ProgramTrackedEntityAttribute, ListItemCardHolder> {
 
@@ -33,9 +35,18 @@ public class ProgramAttributeListAdapter extends PagedListAdapter<ProgramTracked
     @Override
     public void onBindViewHolder(@NonNull ListItemCardHolder holder, int position) {
         ProgramTrackedEntityAttribute programTrackedEntityAttribute = getItem(position);
-        holder.title.setText(programTrackedEntityAttribute.displayName());
-        holder.subtitle.setText(programTrackedEntityAttribute.mandatory() ? "Mandatory field" : "Optional field");
+        String attributeId = programTrackedEntityAttribute.trackedEntityAttribute().uid();
+        TrackedEntityAttribute trackedEntityAttribute = getTrackedEntityAttribute(attributeId);
+        holder.title.setText(trackedEntityAttribute.displayName());
+        holder.subtitle.setText(trackedEntityAttribute.valueType().name());
         holder.cardView.setOnClickListener(view -> programAttributeSelectionListener.onProgramAttributeSelected(programTrackedEntityAttribute.uid()));
 
+    }
+
+    private TrackedEntityAttribute getTrackedEntityAttribute(String attributeId) {
+        return Sdk.d2().trackedEntityModule()
+                .trackedEntityAttributes()
+                .byUid().eq(attributeId)
+                .blockingGet().get(0);
     }
 }

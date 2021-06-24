@@ -89,7 +89,10 @@ public class ProgramAttributeInfoActivity extends ListActivity {
     }
 
     private TrackedEntityAttribute getTrackedEntityAttribute(String attributeId) {
-        return Sdk.d2().trackedEntityModule().trackedEntityAttributes().byUid().eq(attributeId).blockingGet().get(0);
+        return Sdk.d2().trackedEntityModule()
+                .trackedEntityAttributes()
+                .byUid().eq(attributeId)
+                .blockingGet().get(0);
     }
 
     ProgramTrackedEntityAttribute getSelectedProgramTrackedEntityAttribute() {
