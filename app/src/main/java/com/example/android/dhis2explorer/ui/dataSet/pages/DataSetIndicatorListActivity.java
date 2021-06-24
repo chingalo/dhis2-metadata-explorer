@@ -15,6 +15,7 @@ import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.indicator.adapters.IndicatorAdapter;
 import com.example.android.dhis2explorer.ui.indicator.listeners.OnIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.indicator.pages.IndicatorInfoActivity;
 
 import org.hisp.dhis.android.core.dataset.DataSet;
 import org.hisp.dhis.android.core.indicator.Indicator;
@@ -36,7 +37,7 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
 
     @Override
     public void onIndicatorSelection(String indicatorId) {
-        ActivityStarter.startActivity(this, DataSetIndicatorInfoActivity.getActivityIntent(this, indicatorId), false);
+        ActivityStarter.startActivity(this, IndicatorInfoActivity.getActivityIntent(this, indicatorId), false);
     }
 
     @Override

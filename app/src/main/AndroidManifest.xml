@@ -89,13 +89,13 @@
             android:label="@string/data_set_info"
             android:parentActivityName=".ui.dataSet.DataSetHomeActivity" />
         <activity
-            android:name=".ui.dataSet.pages.DataSetIndicatorInfoActivity"
+            android:name=".ui.indicator.pages.IndicatorInfoActivity"
             android:label="@string/indicator_info"
             android:parentActivityName=".ui.dataSet.pages.DataSetIndicatorListActivity" />
         <activity
             android:name=".ui.dataSet.pages.DataSetIndicatorListActivity"
             android:label="@string/indicator_list"
-            android:parentActivityName=".ui.dataSet.pages.DataSetIndicatorInfoActivity" />
+            android:parentActivityName=".ui.indicator.pages.IndicatorInfoActivity" />
         <activity
             android:name=".ui.dataSet.pages.DataSetDataElementInfoActivity"
             android:label="@string/data_element_info"
@@ -103,7 +103,7 @@
         <activity
             android:name=".ui.dataSet.pages.DataSetDataElementListActivity"
             android:label="Data element list"
-            android:parentActivityName=".ui.dataSet.pages.DataSetIndicatorInfoActivity" />
+            android:parentActivityName=".ui.indicator.pages.IndicatorInfoActivity" />
         <activity
             android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
             android:exported="true" />

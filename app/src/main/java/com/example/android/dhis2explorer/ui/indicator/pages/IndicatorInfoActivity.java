@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.dataSet.pages;
+package com.example.android.dhis2explorer.ui.indicator.pages;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,15 +13,15 @@ import org.hisp.dhis.android.core.indicator.Indicator;
 
 import static android.text.TextUtils.isEmpty;
 
-public class DataSetIndicatorInfoActivity extends DefaultActivity {
+public class IndicatorInfoActivity extends DefaultActivity {
 
     private String selectedIndicatorId;
 
     public static Intent getActivityIntent(Context context, String indicatorId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(indicatorId))
-            bundle.putString(DataSetIndicatorInfoActivity.IntentExtra.INDICATOR.name(), indicatorId);
-        Intent intent = new Intent(context, DataSetIndicatorInfoActivity.class);
+            bundle.putString(IndicatorInfoActivity.IntentExtra.INDICATOR.name(), indicatorId);
+        Intent intent = new Intent(context, IndicatorInfoActivity.class);
         intent.putExtras(bundle);
         return intent;
     }

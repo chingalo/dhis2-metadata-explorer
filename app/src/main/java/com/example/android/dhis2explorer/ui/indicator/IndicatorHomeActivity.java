@@ -9,9 +9,11 @@ import android.os.Bundle;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.indicator.adapters.IndicatorAdapter;
 import com.example.android.dhis2explorer.ui.indicator.listeners.OnIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.indicator.pages.IndicatorInfoActivity;
 
 import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.indicator.Indicator;
@@ -24,7 +26,7 @@ public class IndicatorHomeActivity extends ListActivity implements OnIndicatorSe
 
     @Override
     public void onIndicatorSelection(String indicatorId) {
-        System.out.println("indicatorId : " +indicatorId);
+        ActivityStarter.startActivity(this, IndicatorInfoActivity.getActivityIntent(this,indicatorId), false);
     }
 
     @Override
@@ -44,6 +46,4 @@ public class IndicatorHomeActivity extends ListActivity implements OnIndicatorSe
                 .getPaged(5);
         liveData.observe(this,indicators -> adapter.submitList(indicators));
     }
-
-
 }
