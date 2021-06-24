@@ -43,11 +43,155 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:text="UID"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeId"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:text="@string/program_attribute_name"
                         android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/programAttributeName"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Form name"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeFormName"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Description"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeDescription"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Value Type"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeValueType"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Is mandatory"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeIsMandatory"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Is unique"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeIsUnique"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Is auto generated"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeIsAutoGenerated"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Is searchable"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/programAttributeIsSearchable"
                         android:paddingStart="140dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
