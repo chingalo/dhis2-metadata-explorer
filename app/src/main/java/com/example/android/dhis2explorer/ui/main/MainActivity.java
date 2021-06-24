@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FloatingActionButton syncMetadataButton;
 
     private TextView syncStatusText;
-    private ProgressBar progressBar;
+    private RelativeLayout syncContainer;
 
     private boolean isSyncing = false;
 
@@ -103,14 +103,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void inflateMainView() {
+        syncStatusText = findViewById(R.id.notificator);
+        syncContainer = findViewById(R.id.syncContainer);
         syncMetadataButton = findViewById(R.id.syncMetadataButton);
-        progressBar = findViewById(R.id.syncProgressBar);
         CardView dataSetCardView = findViewById(R.id.dataSetListCard);
         CardView programCardView = findViewById(R.id.programListCard);
         CardView dataElementListCard = findViewById(R.id.dataElementListCard);
         CardView indicatorListCard = findViewById(R.id.indicatorListCard);
         CardView optionListCard = findViewById(R.id.optionListCard);
         CardView programIndicatorListCard = findViewById(R.id.programIndicatorListCard);
+        CardView optionSetListCard = findViewById(R.id.optionSetListCard);
+        CardView optionGroupListCard = findViewById(R.id.optionGroupListCard);
 
         programCardView.setOnClickListener(view -> {
             if (!isSyncing) {
@@ -161,6 +164,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+
+        optionSetListCard.setOnClickListener(view -> {
+            if (!isSyncing) {
+                int optionSetListCount = SyncStatusHelper.optionSetCount();
+                if (optionSetListCount > 0) {
+                    // ActivityStarter.startActivity(this, OptionHomeActivity.getActivityIntent(this), false);
+                } else {
+                    Snackbar.make(view, "You have no option sets at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+
+            }
+        });
+
+        optionGroupListCard.setOnClickListener(view -> {
+            if (!isSyncing) {
+                int optionGroupListCount = SyncStatusHelper.optionGroupCount();
+                if (optionGroupListCount > 0) {
+                    // ActivityStarter.startActivity(this, OptionHomeActivity.getActivityIntent(this), false);
+                } else {
+                    Snackbar.make(view, "You have no option groups at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+
+            }
+        });
+
         dataElementListCard.setOnClickListener(view -> {
             if (!isSyncing) {
                 int dataElementCount = SyncStatusHelper.dataElementCount();
@@ -204,6 +234,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int indicatorListCount = SyncStatusHelper.indicatorCount();
         int optionListCount = SyncStatusHelper.optionCount();
         int programIndicatorListCount = SyncStatusHelper.programIndicatorCount();
+        int optionSetListCount = SyncStatusHelper.optionSetCount();
+        int optionGroupListCount = SyncStatusHelper.optionGroupCount();
 
         boolean shouldEnablePossibleButtons = programCount + dataSetCount + indicatorListCount > 0;
 
@@ -214,6 +246,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView downloadedDataElementsText = findViewById(R.id.dataElementListCount);
         TextView downloadedIndicatorsText = findViewById(R.id.indicatorListCount);
         TextView downloadedOptionsText = findViewById(R.id.optionListCount);
+        TextView downloadedOptionSetsText = findViewById(R.id.optionSetListCount);
+        TextView downloadedOptionGroupsText = findViewById(R.id.optionGroupListCount);
         TextView downloadedProgramIndicatorsText = findViewById(R.id.programIndicatorListCount);
 
         downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
@@ -221,11 +255,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         downloadedDataElementsText.setText(MessageFormat.format("{0}", dataElementCount));
         downloadedOptionsText.setText(MessageFormat.format("{0}", optionListCount));
         downloadedIndicatorsText.setText(MessageFormat.format("{0}", indicatorListCount));
+        downloadedOptionGroupsText.setText(MessageFormat.format("{0}", optionGroupListCount));
+        downloadedOptionSetsText.setText(MessageFormat.format("{0}", optionSetListCount));
         downloadedProgramIndicatorsText.setText(MessageFormat.format("{0}", programIndicatorListCount));
     }
 
     private void startMetadataSync() {
-        syncStatusText = findViewById(R.id.notificator);
         syncStatusText.setText(R.string.syncing_metadata);
         setSyncing();
         syncMetadata();
@@ -233,15 +268,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setSyncing() {
         isSyncing = true;
-        progressBar.setVisibility(View.VISIBLE);
-        syncStatusText.setVisibility(View.VISIBLE);
+        syncContainer.setVisibility(View.VISIBLE);
         updateSyncDataAndButtons();
     }
 
     private void setSyncingFinished() {
         isSyncing = false;
-        progressBar.setVisibility(View.INVISIBLE);
-        syncStatusText.setVisibility(View.INVISIBLE);
+        syncContainer.setVisibility(View.GONE);
         updateSyncDataAndButtons();
     }
 

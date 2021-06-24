@@ -13,8 +13,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="112dp">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/syncContainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/syncProgressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/notificator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/lorem_ipsum"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -36,7 +58,6 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,277 +67,7 @@
             android:textAlignment="center"
             android:textSize="24sp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/programListCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:focusable="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="50dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/programs"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/programListCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/zero"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/dataSetListCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:focusable="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="50dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/data_sets"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/dataSetListCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/zero"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/dataElementListCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:focusable="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:paddingTop="3dp"
-                    android:text="Data Elements"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/dataElementListCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/zero"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/optionListCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:focusable="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:paddingTop="3dp"
-                    android:text="Options"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/optionListCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/zero"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/programIndicatorListCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:focusable="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:paddingTop="3dp"
-                    android:text="Program indicators"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/programIndicatorListCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/zero"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/indicatorListCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:elevation="10dp"
-            android:focusable="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:paddingTop="3dp"
-                    android:text="Indicators"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/indicatorListCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/zero"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <ProgressBar
-                android:id="@+id/syncProgressBar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/notificator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/lorem_ipsum"
-                android:textSize="20sp"
-                android:visibility="invisible" />
-        </RelativeLayout>
+        <include layout="@layout/content_main_metadata_list"></include>
     </LinearLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -336,7 +87,7 @@
             android:layout_marginBottom="@dimen/fab_margin_with_text"
             android:tint="@color/colorWhite"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:fabSize="normal"
+            app:fabSize="auto"
             app:srcCompat="@drawable/ic_sync_icon" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

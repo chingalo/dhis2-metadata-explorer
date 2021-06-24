@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.programIndicator.ProgramIndicatorHomeActivity"></activity>
+        <activity
+            android:name=".ui.programIndicator.ProgramIndicatorHomeActivity"
+            android:label="Program indicator list" />
         <activity
             android:name=".ui.options.pages.OptionInfoActivity"
             android:label="Option Info" />
