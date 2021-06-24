@@ -36,11 +36,7 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
 
     @Override
     public void onProgramStageDataElementSelected(String programStageDataElementId) {
-        try {
-            ActivityStarter.startActivity(this, ProgramProgramStageDataElementActivity.getActivityIntent(this, programStageDataElementId), false);
-        } catch (Exception d) {
-            System.out.println(d.toString());
-        }
+        ActivityStarter.startActivity(this, ProgramProgramStageDataElementActivity.getActivityIntent(this, programStageDataElementId), false);
     }
 
     @Override

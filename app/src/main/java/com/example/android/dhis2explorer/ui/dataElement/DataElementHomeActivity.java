@@ -9,9 +9,12 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.dataElement.adapters.DataElementListAdapter;
 import com.example.android.dhis2explorer.ui.dataElement.listeners.OnDataElementSelectionListener;
+import com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementInfoActivity;
+import com.example.android.dhis2explorer.ui.program.pages.ProgramProgramStageDataElementActivity;
 
 import org.hisp.dhis.android.core.dataelement.DataElement;
 
@@ -20,10 +23,12 @@ public class DataElementHomeActivity extends ListActivity implements OnDataEleme
     @Override
     public void onDataElementSelection(String dataElementId) {
         DataElement dataElement = getDataElement(dataElementId);
-
-
-
-        System.out.println(dataElementId + "  "+ dataElement.domainType());
+        if(dataElement.domainType().equals("TRACKER")){
+            String programStageDataElementId = Sdk.d2().programModule().programStageDataElements().byDataElement().eq(dataElementId).blockingGetUids().get(0);
+            ActivityStarter.startActivity(this, ProgramProgramStageDataElementActivity.getActivityIntent(this, programStageDataElementId), false);
+        }else{
+            ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this, dataElementId), false);
+        }
     }
 
     private DataElement getDataElement(String dataElementId) {
