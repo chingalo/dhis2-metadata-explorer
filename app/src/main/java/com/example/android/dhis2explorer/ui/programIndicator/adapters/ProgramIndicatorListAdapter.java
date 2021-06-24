@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.program.adapters;
+package com.example.android.dhis2explorer.ui.programIndicator.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.paging.PagedListAdapter;
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
-import com.example.android.dhis2explorer.ui.program.listeners.OnProgramIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.programIndicator.listeners.OnProgramIndicatorSelectionListener;
 
 import org.hisp.dhis.android.core.program.ProgramIndicator;
 

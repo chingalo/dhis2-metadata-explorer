@@ -13,8 +13,9 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.program.adapters.ProgramIndicatorListAdapter;
-import com.example.android.dhis2explorer.ui.program.listeners.OnProgramIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.programIndicator.adapters.ProgramIndicatorListAdapter;
+import com.example.android.dhis2explorer.ui.programIndicator.listeners.OnProgramIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.programIndicator.pages.ProgramProgramIndicatorInfoActivity;
 
 import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.program.Program;

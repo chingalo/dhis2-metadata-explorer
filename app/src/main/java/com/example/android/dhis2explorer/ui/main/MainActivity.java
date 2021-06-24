@@ -24,6 +24,7 @@ import com.example.android.dhis2explorer.ui.dataSet.DataSetHomeActivity;
 import com.example.android.dhis2explorer.ui.indicator.IndicatorHomeActivity;
 import com.example.android.dhis2explorer.ui.options.OptionHomeActivity;
 import com.example.android.dhis2explorer.ui.program.ProgramHomeActivity;
+import com.example.android.dhis2explorer.ui.programIndicator.ProgramIndicatorHomeActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         CardView dataElementListCard = findViewById(R.id.dataElementListCard);
         CardView indicatorListCard = findViewById(R.id.indicatorListCard);
         CardView optionListCard = findViewById(R.id.optionListCard);
+        CardView programIndicatorListCard = findViewById(R.id.programIndicatorListCard);
 
         programCardView.setOnClickListener(view -> {
             if (!isSyncing) {
@@ -122,13 +124,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+
+        programIndicatorListCard.setOnClickListener(view -> {
+            if (!isSyncing) {
+                int programIndicatorListCount = SyncStatusHelper.programIndicatorCount();
+                if (programIndicatorListCount > 0) {
+                    ActivityStarter.startActivity(this, ProgramIndicatorHomeActivity.getActivityIntent(this), false);
+                } else {
+                    Snackbar.make(view, "You have no program indicators at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+
+            }
+        });
         indicatorListCard.setOnClickListener(view -> {
             if (!isSyncing) {
                 int indicatorListCount = SyncStatusHelper.indicatorCount();
                 if (indicatorListCount > 0) {
                     ActivityStarter.startActivity(this, IndicatorHomeActivity.getActivityIntent(this), false);
                 } else {
-                    Snackbar.make(view, "You have no data element at moment try to sync first", Snackbar.LENGTH_SHORT)
+                    Snackbar.make(view, "You have no indicators at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }
 
@@ -140,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (optionListCount > 0) {
                     ActivityStarter.startActivity(this, OptionHomeActivity.getActivityIntent(this), false);
                 } else {
-                    Snackbar.make(view, "You have no data element at moment try to sync first", Snackbar.LENGTH_SHORT)
+                    Snackbar.make(view, "You have no options at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }
 
@@ -188,6 +203,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int dataElementCount = SyncStatusHelper.dataElementCount();
         int indicatorListCount = SyncStatusHelper.indicatorCount();
         int optionListCount = SyncStatusHelper.optionCount();
+        int programIndicatorListCount = SyncStatusHelper.programIndicatorCount();
 
         boolean shouldEnablePossibleButtons = programCount + dataSetCount + indicatorListCount > 0;
 
@@ -198,12 +214,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView downloadedDataElementsText = findViewById(R.id.dataElementListCount);
         TextView downloadedIndicatorsText = findViewById(R.id.indicatorListCount);
         TextView downloadedOptionsText = findViewById(R.id.optionListCount);
+        TextView downloadedProgramIndicatorsText = findViewById(R.id.programIndicatorListCount);
 
         downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
         downloadedDataSetsText.setText(MessageFormat.format("{0}", dataSetCount));
         downloadedDataElementsText.setText(MessageFormat.format("{0}", dataElementCount));
         downloadedOptionsText.setText(MessageFormat.format("{0}", optionListCount));
         downloadedIndicatorsText.setText(MessageFormat.format("{0}", indicatorListCount));
+        downloadedProgramIndicatorsText.setText(MessageFormat.format("{0}", programIndicatorListCount));
     }
 
     private void startMetadataSync() {

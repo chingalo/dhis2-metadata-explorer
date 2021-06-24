@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.options.pages.OptionInfoActivity" android:label="Option Info"/>
+        <activity android:name=".ui.programIndicator.ProgramIndicatorHomeActivity"></activity>
+        <activity
+            android:name=".ui.options.pages.OptionInfoActivity"
+            android:label="Option Info" />
         <activity
             android:name=".ui.options.OptionHomeActivity"
             android:label="Option list" />
@@ -76,7 +79,7 @@
             android:label="@string/program_stage_list"
             android:parentActivityName=".ui.program.pages.ProgramWithRegistrationActivity" />
         <activity
-            android:name=".ui.program.pages.ProgramProgramIndicatorInfoActivity"
+            android:name=".ui.programIndicator.pages.ProgramProgramIndicatorInfoActivity"
             android:label="@string/program_indicator_info"
             android:parentActivityName=".ui.program.pages.ProgramProgramIndicatorListActivity" />
         <activity

@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.program.pages;
+package com.example.android.dhis2explorer.ui.programIndicator.pages;
 
 import android.content.Context;
 import android.content.Intent;
