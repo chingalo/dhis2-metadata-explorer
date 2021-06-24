@@ -11,6 +11,7 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.program.adapters.ProgramIndicatorListAdapter;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramIndicatorSelectionListener;
@@ -27,7 +28,7 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
 
     @Override
     public void onProgramIndicatorSelection(String programIndicatorId) {
-        System.out.println("programIndicatorId : " + programIndicatorId);
+        ActivityStarter.startActivity(this, ProgramProgramIndicatorInfoActivity.getActivityIntent(this, programIndicatorId), false);
     }
 
     private enum IntentExtra {
