@@ -20,12 +20,12 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:orientation="vertical">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -33,193 +33,201 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="UID"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="UID" />
 
                     <TextView
                         android:id="@+id/programAttributeId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="@string/program_attribute_name"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="@string/program_attribute_name" />
 
                     <TextView
                         android:id="@+id/programAttributeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Form name"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Form name" />
 
                     <TextView
                         android:id="@+id/programAttributeFormName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Description"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Description" />
 
                     <TextView
                         android:id="@+id/programAttributeDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Value Type"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Value Type" />
 
                     <TextView
                         android:id="@+id/programAttributeValueType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Is mandatory"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Is mandatory" />
 
                     <TextView
                         android:id="@+id/programAttributeIsMandatory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Is unique"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Is unique" />
 
                     <TextView
                         android:id="@+id/programAttributeIsUnique"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Is auto generated"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Is auto generated" />
 
                     <TextView
                         android:id="@+id/programAttributeIsAutoGenerated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Is searchable"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Is searchable" />
 
                     <TextView
                         android:id="@+id/programAttributeIsSearchable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:id="@+id/programAttributeOptionSetCard"
-            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <TextView
-                android:paddingVertical="10dp"
-                android:textAlignment="center"
-                android:text="@string/option_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:text="@string/option_list"
+                android:textAlignment="center" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/programAttributeOptionSetListView"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/content_list_item_card"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/content_list_item_card" />
 
         </LinearLayout>
     </LinearLayout>

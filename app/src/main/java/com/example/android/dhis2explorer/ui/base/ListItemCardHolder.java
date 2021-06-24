@@ -13,10 +13,10 @@ import com.example.android.dhis2explorer.R;
 
 public class ListItemCardHolder extends RecyclerView.ViewHolder {
 
-    public CardView cardView;
-    public ImageView icon;
     public final TextView title;
     public final TextView subtitle;
+    public CardView cardView;
+    public ImageView icon;
 
     public ListItemCardHolder(@NonNull View itemView) {
         super(itemView);

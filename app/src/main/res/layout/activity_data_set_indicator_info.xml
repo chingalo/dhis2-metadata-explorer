@@ -20,12 +20,12 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:orientation="vertical">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -33,154 +33,154 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_uid"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorUid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_name"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_description"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_numerator_description"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorNumeratorDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_numerator"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorNumerator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_denominator_description"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorDenominatorDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
                     <TextView
-                        android:textSize="15sp"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/indicator_denominator"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:textSize="15sp"
                         android:id="@+id/indicatorDenominator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="180dp"
                         android:text="Name"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

@@ -18,10 +18,6 @@ public class ProgramProgramIndicatorInfoActivity extends DefaultActivity {
     private ProgramIndicator selectedProgramIndicator;
     private String selectedProgramIndicatorId;
 
-    private enum IntentExtra {
-        PROGRAM_INDICATOR
-    }
-
     public static Intent getActivityIntent(Context context, String programIndicatorId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(programIndicatorId))
@@ -54,7 +50,7 @@ public class ProgramProgramIndicatorInfoActivity extends DefaultActivity {
         ProgramProgramIndicatorInfoDescription.setText(selectedProgramIndicator.displayDescription());
         ProgramProgramIndicatorInfoExpression.setText(selectedProgramIndicator.expression());
         ProgramProgramIndicatorInfoFilter.setText(selectedProgramIndicator.filter());
-        ProgramProgramIndicatorInfoDisplayInForm.setText(selectedProgramIndicator.displayInForm()?"Yes":"No");
+        ProgramProgramIndicatorInfoDisplayInForm.setText(selectedProgramIndicator.displayInForm() ? "Yes" : "No");
     }
 
     ProgramIndicator getSelectedProgramIndicator() {
@@ -62,5 +58,9 @@ public class ProgramProgramIndicatorInfoActivity extends DefaultActivity {
                 .programIndicators()
                 .byUid().eq(selectedProgramIndicatorId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM_INDICATOR
     }
 }

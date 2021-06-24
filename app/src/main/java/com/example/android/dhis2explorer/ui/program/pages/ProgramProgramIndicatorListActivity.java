@@ -26,15 +26,6 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
     private String selectedProgramId;
     private Program selectedProgram;
 
-    @Override
-    public void onProgramIndicatorSelection(String programIndicatorId) {
-        ActivityStarter.startActivity(this, ProgramProgramIndicatorInfoActivity.getActivityIntent(this, programIndicatorId), false);
-    }
-
-    private enum IntentExtra {
-        PROGRAM
-    }
-
     public static Intent getActivityIntent(Context context, String programId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(programId))
@@ -42,6 +33,11 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
         Intent intent = new Intent(context, ProgramProgramIndicatorListActivity.class);
         intent.putExtras(bundle);
         return intent;
+    }
+
+    @Override
+    public void onProgramIndicatorSelection(String programIndicatorId) {
+        ActivityStarter.startActivity(this, ProgramProgramIndicatorInfoActivity.getActivityIntent(this, programIndicatorId), false);
     }
 
     @Override
@@ -92,5 +88,9 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
                 .byUid().eq(selectedProgramId)
                 .blockingGet()
                 .get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM
     }
 }

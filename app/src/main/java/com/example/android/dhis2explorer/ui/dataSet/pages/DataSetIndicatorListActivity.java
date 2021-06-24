@@ -27,15 +27,6 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
 
     private String selectedDataSetId;
 
-    @Override
-    public void onIndicatorSelection(String indicatorId) {
-        ActivityStarter.startActivity(this, DataSetIndicatorInfoActivity.getActivityIntent(this, indicatorId), false);
-    }
-
-    private enum IntentExtra {
-        DATA_SET
-    }
-
     public static Intent getActivityIntent(Context context, String dataSetId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(dataSetId))
@@ -43,6 +34,11 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
         Intent intent = new Intent(context, DataSetIndicatorListActivity.class);
         intent.putExtras(bundle);
         return intent;
+    }
+
+    @Override
+    public void onIndicatorSelection(String indicatorId) {
+        ActivityStarter.startActivity(this, DataSetIndicatorInfoActivity.getActivityIntent(this, indicatorId), false);
     }
 
     @Override
@@ -79,5 +75,9 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
                 .withIndicators()
                 .withDataSetElements()
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        DATA_SET
     }
 }

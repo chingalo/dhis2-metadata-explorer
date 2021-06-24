@@ -25,10 +25,6 @@ public class DataSetInfoActivity extends DefaultActivity {
 
     private String selectedDataSetId;
 
-    private enum IntentExtra {
-        DATA_SET
-    }
-
     public static Intent getActivityIntent(Context context, String dataSetId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(dataSetId))
@@ -97,5 +93,9 @@ public class DataSetInfoActivity extends DefaultActivity {
                 .withIndicators()
                 .withDataSetElements()
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        DATA_SET
     }
 }

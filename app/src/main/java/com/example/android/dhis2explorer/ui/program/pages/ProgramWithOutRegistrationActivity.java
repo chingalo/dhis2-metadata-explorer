@@ -27,10 +27,6 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
     private Program selectedProgram;
     private String selectedProgramId;
 
-    private enum IntentExtra {
-        PROGRAM
-    }
-
     public static Intent getActivityIntent(Context context, String programId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(programId))
@@ -129,5 +125,9 @@ public class ProgramWithOutRegistrationActivity extends DefaultActivity {
                 .byUid().eq(selectedProgramId)
                 .blockingGet()
                 .get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM
     }
 }

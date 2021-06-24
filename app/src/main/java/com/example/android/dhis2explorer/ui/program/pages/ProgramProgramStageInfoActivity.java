@@ -26,6 +26,14 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
     private ProgramStage selectedProgramStage;
     private String selectedProgramStageId;
 
+    public static Intent getActivityIntent(Context context, String programStageId) {
+        Bundle bundle = new Bundle();
+        if (!isEmpty(programStageId))
+            bundle.putString(ProgramProgramStageInfoActivity.IntentExtra.PROGRAM_STAGE.name(), programStageId);
+        Intent intent = new Intent(context, ProgramProgramStageInfoActivity.class);
+        intent.putExtras(bundle);
+        return intent;
+    }
 
     @Override
     public void onProgramStageDataElementSelected(String programStageDataElementId) {
@@ -34,19 +42,6 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
         } catch (Exception d) {
             System.out.println(d.toString());
         }
-    }
-
-    private enum IntentExtra {
-        PROGRAM_STAGE
-    }
-
-    public static Intent getActivityIntent(Context context, String programStageId) {
-        Bundle bundle = new Bundle();
-        if (!isEmpty(programStageId))
-            bundle.putString(ProgramProgramStageInfoActivity.IntentExtra.PROGRAM_STAGE.name(), programStageId);
-        Intent intent = new Intent(context, ProgramProgramStageInfoActivity.class);
-        intent.putExtras(bundle);
-        return intent;
     }
 
     @Override
@@ -97,5 +92,9 @@ public class ProgramProgramStageInfoActivity extends ListActivity implements OnP
                 .programStages()
                 .byUid().eq(selectedProgramStageId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM_STAGE
     }
 }

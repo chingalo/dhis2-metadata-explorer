@@ -19,10 +19,6 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
 
     private String selectedIndicatorId;
 
-    private enum IntentExtra {
-        INDICATOR
-    }
-
     public static Intent getActivityIntent(Context context, String indicatorId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(indicatorId))
@@ -63,5 +59,9 @@ public class DataSetIndicatorInfoActivity extends DefaultActivity {
         return Sdk.d2().indicatorModule().indicators()
                 .byUid().eq(selectedIndicatorId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        INDICATOR
     }
 }

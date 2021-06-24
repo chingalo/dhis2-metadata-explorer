@@ -25,15 +25,6 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
     private String selectedProgramId;
     private Program selectedProgram;
 
-    private enum IntentExtra {
-        PROGRAM
-    }
-
-    @Override
-    public void onProgramAttributeSelected(String programTrackedEntityAttributeId) {
-        ActivityStarter.startActivity(this, ProgramAttributeInfoActivity.getActivityIntent(this, programTrackedEntityAttributeId), false);
-    }
-
     public static Intent getActivityIntent(Context context, String programId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(programId))
@@ -41,6 +32,11 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
         Intent intent = new Intent(context, ProgramAttributeListActivity.class);
         intent.putExtras(bundle);
         return intent;
+    }
+
+    @Override
+    public void onProgramAttributeSelected(String programTrackedEntityAttributeId) {
+        ActivityStarter.startActivity(this, ProgramAttributeInfoActivity.getActivityIntent(this, programTrackedEntityAttributeId), false);
     }
 
     @Override
@@ -74,7 +70,6 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
         liveData.observe(this, programTrackedEntityAttributes -> adapter.submitList(programTrackedEntityAttributes));
     }
 
-
     private int getProgramAttributeListCount() {
         return Sdk.d2().programModule()
                 .programTrackedEntityAttributes()
@@ -87,5 +82,9 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
                 .programs()
                 .byUid().eq(selectedProgramId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM
     }
 }

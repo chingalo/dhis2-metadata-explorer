@@ -25,10 +25,6 @@ public class ProgramProgramStageListActivity extends ListActivity implements OnP
     private String selectedProgramId;
     private Program selectedProgram;
 
-    private enum IntentExtra {
-        PROGRAM
-    }
-
     public static Intent getActivityIntent(Context context, String programId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(programId))
@@ -88,6 +84,10 @@ public class ProgramProgramStageListActivity extends ListActivity implements OnP
                 .programs()
                 .byUid().eq(selectedProgramId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        PROGRAM
     }
 
 

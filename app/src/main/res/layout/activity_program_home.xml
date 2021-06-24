@@ -20,16 +20,16 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/programListRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
             android:clipToPadding="false"
+            android:padding="10dp"
             tools:listitem="@layout/content_list_item_card"></androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 

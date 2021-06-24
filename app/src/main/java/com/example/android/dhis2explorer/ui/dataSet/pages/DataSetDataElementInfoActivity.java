@@ -26,10 +26,6 @@ public class DataSetDataElementInfoActivity extends ListActivity {
 
     private String selectedDataElementId;
 
-    private enum IntentExtra {
-        DATA_ELEMENT
-    }
-
     public static Intent getActivityIntent(Context context, String dataElementId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(dataElementId))
@@ -85,5 +81,9 @@ public class DataSetDataElementInfoActivity extends ListActivity {
         return Sdk.d2().dataElementModule().dataElements()
                 .byUid().eq(selectedDataElementId)
                 .blockingGet().get(0);
+    }
+
+    private enum IntentExtra {
+        DATA_ELEMENT
     }
 }

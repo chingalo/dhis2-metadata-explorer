@@ -20,12 +20,12 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:orientation="vertical">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -33,44 +33,45 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Program Name"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Program Name" />
 
                     <TextView
                         android:id="@+id/programProgramIndicatorProgramName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:padding="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Indicator count"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Indicator count" />
 
                     <TextView
                         android:id="@+id/programProgramIndicatorCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:paddingStart="140dp"
                         android:text="Name"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -79,18 +80,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
-                android:paddingVertical="10dp"
-                android:textAlignment="center"
-                android:text="List of program indicators"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:text="List of program indicators"
+                android:textAlignment="center" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/programProgramIndicatorListView"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/content_list_item_card"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/content_list_item_card" />
 
         </LinearLayout>
 

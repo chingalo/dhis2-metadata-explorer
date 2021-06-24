@@ -30,15 +30,6 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
 
     private String selectedDataSetId;
 
-    @Override
-    public void onDataElementSelection(String dataElementId) {
-        ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this, dataElementId), false);
-    }
-
-    private enum IntentExtra {
-        DATA_SET
-    }
-
     public static Intent getActivityIntent(Context context, String dataSetId) {
         Bundle bundle = new Bundle();
         if (!isEmpty(dataSetId))
@@ -46,6 +37,11 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
         Intent intent = new Intent(context, DataSetDataElementListActivity.class);
         intent.putExtras(bundle);
         return intent;
+    }
+
+    @Override
+    public void onDataElementSelection(String dataElementId) {
+        ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this, dataElementId), false);
     }
 
     @Override
@@ -87,12 +83,16 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
         return dataElementIds;
     }
 
-
     private DataSet getSelectedDataSet() {
         return Sdk.d2().dataSetModule().dataSets()
                 .byUid().eq(selectedDataSetId)
                 .withIndicators()
                 .withDataSetElements()
                 .blockingGet().get(0);
+    }
+
+
+    private enum IntentExtra {
+        DATA_SET
     }
 }
