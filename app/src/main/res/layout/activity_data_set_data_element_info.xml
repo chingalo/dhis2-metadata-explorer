@@ -182,6 +182,26 @@
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp" />
                 </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data_element_category_combo_name"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/dataSetDataElementCategoryComboName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="140dp"
+                        android:text="Name"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+                </RelativeLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

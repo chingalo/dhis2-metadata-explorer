@@ -78,6 +78,7 @@
     <string name="data_element_aggregation_type">Aggregation type</string>
     <string name="data_element_value_type">Value type</string>
     <string name="data_element_category_combo_uid">Category Combo Uid</string>
+    <string name="data_element_category_combo_name">Category Combo Name</string>
     <string name="data_element_description">Description</string>
     <string name="indicator_uid">UID</string>
     <string name="indicator_description">Description</string>

@@ -15,6 +15,7 @@ import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.common.adapters.OptionListAdapter;
 
+import org.hisp.dhis.android.core.category.CategoryCombo;
 import org.hisp.dhis.android.core.dataelement.DataElement;
 import org.hisp.dhis.android.core.option.Option;
 
@@ -44,13 +45,16 @@ public class DataSetDataElementInfoActivity extends ListActivity {
     private void setUpView() {
         DataElement selectedDataElement = getSelectedDataElement();
         String optionSetId = selectedDataElement.optionSetUid();
-
+        String categoryComboUid = selectedDataElement.categoryComboUid();
+        CategoryCombo categoryCombo = getCategoryCombo(categoryComboUid);
+        
         TextView dataSetDataElementName = findViewById(R.id.dataSetDataElementName);
         TextView dataSetDataElementUid = findViewById(R.id.dataSetDataElementUid);
         TextView dataSetDataElementFormName = findViewById(R.id.dataSetDataElementFormName);
         TextView dataSetDataElementAggregationType = findViewById(R.id.dataSetDataElementAggregationType);
         TextView dataSetDataElementValueType = findViewById(R.id.dataSetDataElementValueType);
         TextView dataSetDataElementCategoryComboUid = findViewById(R.id.dataSetDataElementCategoryComboUid);
+        TextView dataSetDataElementCategoryComboName = findViewById(R.id.dataSetDataElementCategoryComboName);
         TextView dataSetDataElementDescription = findViewById(R.id.dataSetDataElementDescription);
         LinearLayout dataElementOptionSetCard = findViewById(R.id.dataElementOptionSetCard);
 
@@ -61,6 +65,7 @@ public class DataSetDataElementInfoActivity extends ListActivity {
         dataSetDataElementValueType.setText(selectedDataElement.valueType().name());
         dataSetDataElementCategoryComboUid.setText(selectedDataElement.categoryComboUid());
         dataSetDataElementDescription.setText(selectedDataElement.displayDescription());
+        dataSetDataElementCategoryComboName.setText(categoryCombo.displayName());
 
         if (optionSetId != null) {
             dataElementOptionSetCard.setVisibility(View.VISIBLE);
@@ -73,6 +78,14 @@ public class DataSetDataElementInfoActivity extends ListActivity {
         } else {
             dataElementOptionSetCard.setVisibility(View.GONE);
         }
+    }
+
+    private CategoryCombo getCategoryCombo(String categoryComboUid) {
+        return Sdk.d2().categoryModule()
+                .categoryCombos()
+                .withCategoryOptionCombos()
+                .byUid().eq(categoryComboUid)
+                .blockingGet().get(0);
     }
 
     DataElement getSelectedDataElement() {
