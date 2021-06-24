@@ -16,6 +16,7 @@ import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.program.adapters.ProgramIndicatorListAdapter;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramIndicatorSelectionListener;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramIndicator;
 
@@ -67,6 +68,7 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
 
         LiveData<PagedList<ProgramIndicator>> liveData = Sdk.d2().programModule()
                 .programIndicators()
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .byProgramUid().eq(selectedProgramId)
                 .getPaged(10);
 

@@ -15,6 +15,7 @@ import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.program.adapters.ProgramAttributeListAdapter;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramAttributeSelectionListener;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramTrackedEntityAttribute;
 
@@ -64,6 +65,7 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
         recyclerView.setAdapter(adapter);
         LiveData<PagedList<ProgramTrackedEntityAttribute>> liveData = Sdk.d2().programModule()
                 .programTrackedEntityAttributes()
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .byProgram().eq(selectedProgramId)
                 .getPaged(10);
         liveData.observe(this, programTrackedEntityAttributes -> adapter.submitList(programTrackedEntityAttributes));

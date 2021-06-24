@@ -13,8 +13,8 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
 import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.dataSet.adapters.DataSetIndicatorAdapter;
-import com.example.android.dhis2explorer.ui.dataSet.listeners.OnIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.indicator.adapters.IndicatorAdapter;
+import com.example.android.dhis2explorer.ui.indicator.listeners.OnIndicatorSelectionListener;
 
 import org.hisp.dhis.android.core.dataset.DataSet;
 import org.hisp.dhis.android.core.indicator.Indicator;
@@ -61,7 +61,7 @@ public class DataSetIndicatorListActivity extends ListActivity implements OnIndi
     }
 
     private void setIndicatorListAdaptor() {
-        DataSetIndicatorAdapter adapter = new DataSetIndicatorAdapter(this);
+        IndicatorAdapter adapter = new IndicatorAdapter(this);
         recyclerView.setAdapter(adapter);
         LiveData<PagedList<Indicator>> liveData = Sdk.d2().indicatorModule().indicators().byDataSetUid(selectedDataSetId).getPaged(5);
         liveData.observe(this, indicators -> adapter.submitList(indicators));

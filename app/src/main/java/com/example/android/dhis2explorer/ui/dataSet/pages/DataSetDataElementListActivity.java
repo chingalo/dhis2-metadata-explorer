@@ -16,6 +16,7 @@ import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.dataElement.adapters.DataElementListAdapter;
 import com.example.android.dhis2explorer.ui.dataElement.listeners.OnDataElementSelectionListener;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.dataelement.DataElement;
 import org.hisp.dhis.android.core.dataset.DataSet;
 import org.hisp.dhis.android.core.dataset.DataSetElement;
@@ -74,6 +75,7 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
         LiveData<PagedList<DataElement>> liveData = Sdk.d2().dataElementModule()
                 .dataElements()
                 .byUid().in(dataElementIds)
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .getPaged(5);
         liveData.observe(this, dataElements -> adapter.submitList(dataElements));
     }

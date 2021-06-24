@@ -15,6 +15,7 @@ import com.example.android.dhis2explorer.ui.dataSet.adapters.DataSetHomeAdapter;
 import com.example.android.dhis2explorer.ui.dataSet.listeners.OnDataSetSelectionListener;
 import com.example.android.dhis2explorer.ui.dataSet.pages.DataSetInfoActivity;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.dataset.DataSet;
 
 public class DataSetHomeActivity extends ListActivity implements OnDataSetSelectionListener {
@@ -34,7 +35,9 @@ public class DataSetHomeActivity extends ListActivity implements OnDataSetSelect
         DataSetHomeAdapter adapter = new DataSetHomeAdapter(this);
         recyclerView.setAdapter(adapter);
 
-        LiveData<PagedList<DataSet>> liveData = Sdk.d2().dataSetModule().dataSets()
+        LiveData<PagedList<DataSet>> liveData = Sdk.d2().dataSetModule()
+                .dataSets()
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .getPaged(5);
         liveData.observe(this, dataSetPagedList -> adapter.submitList(dataSetPagedList));
 

@@ -16,6 +16,7 @@ import com.example.android.dhis2explorer.ui.dataElement.listeners.OnDataElementS
 import com.example.android.dhis2explorer.ui.dataSet.pages.DataSetDataElementInfoActivity;
 import com.example.android.dhis2explorer.ui.program.pages.ProgramProgramStageDataElementActivity;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.dataelement.DataElement;
 
 public class DataElementHomeActivity extends ListActivity implements OnDataElementSelectionListener {
@@ -31,12 +32,6 @@ public class DataElementHomeActivity extends ListActivity implements OnDataEleme
         }
     }
 
-    private DataElement getDataElement(String dataElementId) {
-        return Sdk.d2().dataElementModule()
-                .dataElements()
-                .byUid().eq(dataElementId)
-                .blockingGet().get(0);
-    }
 
     public static Intent getActivityIntent(Context context) {
         return new Intent(context, DataElementHomeActivity.class);
@@ -54,9 +49,16 @@ public class DataElementHomeActivity extends ListActivity implements OnDataEleme
         recyclerView.setAdapter(adapter);
         LiveData<PagedList<DataElement>> liveData = Sdk.d2().dataElementModule()
                 .dataElements()
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .getPaged(5);
         liveData.observe(this, dataElements -> adapter.submitList(dataElements));
     }
 
+    private DataElement getDataElement(String dataElementId) {
+        return Sdk.d2().dataElementModule()
+                .dataElements()
+                .byUid().eq(dataElementId)
+                .blockingGet().get(0);
+    }
 
 }

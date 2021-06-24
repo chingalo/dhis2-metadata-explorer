@@ -16,6 +16,7 @@ import com.example.android.dhis2explorer.ui.program.listeners.OnProgramSelection
 import com.example.android.dhis2explorer.ui.program.pages.ProgramWithOutRegistrationActivity;
 import com.example.android.dhis2explorer.ui.program.pages.ProgramWithRegistrationActivity;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramType;
 
@@ -35,7 +36,9 @@ public class ProgramHomeActivity extends ListActivity implements OnProgramSelect
     private void discoveringProgram() {
         ProgramHomeAdapter adapter = new ProgramHomeAdapter(this);
         recyclerView.setAdapter(adapter);
-        LiveData<PagedList<Program>> liveData = Sdk.d2().programModule().programs()
+        LiveData<PagedList<Program>> liveData = Sdk.d2().programModule()
+                .programs()
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .getPaged(10);
         liveData.observe(this, programPagedList -> adapter.submitList(programPagedList));
 

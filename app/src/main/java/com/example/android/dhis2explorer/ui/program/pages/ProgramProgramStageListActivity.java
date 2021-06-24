@@ -15,6 +15,7 @@ import com.example.android.dhis2explorer.ui.base.ListActivity;
 import com.example.android.dhis2explorer.ui.program.adapters.ProgramStageListAdapter;
 import com.example.android.dhis2explorer.ui.program.listeners.OnProgramStageSelectionListener;
 
+import org.hisp.dhis.android.core.arch.repositories.scope.RepositoryScope;
 import org.hisp.dhis.android.core.program.Program;
 import org.hisp.dhis.android.core.program.ProgramStage;
 
@@ -63,9 +64,11 @@ public class ProgramProgramStageListActivity extends ListActivity implements OnP
         ProgramStageListAdapter adapter = new ProgramStageListAdapter(this);
         recyclerView.setAdapter(adapter);
 
-        LiveData<PagedList<ProgramStage>> liveData = Sdk.d2().programModule().programStages()
+        LiveData<PagedList<ProgramStage>> liveData = Sdk.d2().programModule()
+                .programStages()
                 .byProgramUid()
                 .eq(selectedProgramId)
+                .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .getPaged(10);
         liveData.observe(this, programStages -> adapter.submitList(programStages));
     }
