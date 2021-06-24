@@ -35,13 +35,18 @@ public class ProgramStageDataElementListAdapter extends PagedListAdapter<Program
     @Override
     public void onBindViewHolder(@NonNull ListItemCardHolder holder, int position) {
         ProgramStageDataElement programStageDataElement = getItem(position);
-        DataElement dataElement = Sdk.d2().dataElementModule()
-                .dataElements()
-                .byUid().eq(programStageDataElement.dataElement().uid())
-                .blockingGet().get(0);
+        DataElement dataElement = getDataElement(programStageDataElement);
         holder.title.setText(dataElement.displayName());
         holder.subtitle.setText(dataElement.valueType().name());
         StyleBinderHelper.bindStyle(holder, programStageDataElement.dataElement().style());
         holder.cardView.setOnClickListener(view -> programStageDataElementListener.onProgramStageDataElementSelected(programStageDataElement.uid()));
+    }
+
+    private DataElement getDataElement(ProgramStageDataElement programStageDataElement) {
+        return Sdk.d2().dataElementModule()
+                .dataElements()
+                .byUid().eq(programStageDataElement.dataElement().uid())
+                .one()
+                .blockingGet();
     }
 }

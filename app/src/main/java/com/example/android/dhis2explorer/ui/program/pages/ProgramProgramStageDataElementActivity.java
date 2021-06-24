@@ -12,8 +12,11 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.common.adapters.OptionListAdapter;
+import com.example.android.dhis2explorer.ui.options.adapters.OptionListAdapter;
+import com.example.android.dhis2explorer.ui.options.listeners.OnOptionSelectionListener;
+import com.example.android.dhis2explorer.ui.options.pages.OptionInfoActivity;
 
 import org.hisp.dhis.android.core.dataelement.DataElement;
 import org.hisp.dhis.android.core.option.Option;
@@ -21,7 +24,7 @@ import org.hisp.dhis.android.core.program.ProgramStageDataElement;
 
 import static android.text.TextUtils.isEmpty;
 
-public class ProgramProgramStageDataElementActivity extends ListActivity {
+public class ProgramProgramStageDataElementActivity extends ListActivity implements OnOptionSelectionListener {
 
     private String selectedProgramStageDataElementId;
 
@@ -32,6 +35,11 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
         Intent intent = new Intent(context, ProgramProgramStageDataElementActivity.class);
         intent.putExtras(bundle);
         return intent;
+    }
+
+    @Override
+    public void onOptionSelection(String optionId) {
+        ActivityStarter.startActivity(this, OptionInfoActivity.getActivityIntent(this, optionId), false);
     }
 
     @Override
@@ -79,7 +87,7 @@ public class ProgramProgramStageDataElementActivity extends ListActivity {
     }
 
     private void setOptionListAdapter(String optionSetId) {
-        OptionListAdapter adapter = new OptionListAdapter();
+        OptionListAdapter adapter = new OptionListAdapter(this);
         recyclerView.setAdapter(adapter);
         LiveData<PagedList<Option>> liveData = Sdk.d2().optionModule().options()
                 .byOptionSetUid().eq(optionSetId)

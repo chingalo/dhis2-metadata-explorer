@@ -47,6 +47,7 @@ public class ProgramAttributeListAdapter extends PagedListAdapter<ProgramTracked
         return Sdk.d2().trackedEntityModule()
                 .trackedEntityAttributes()
                 .byUid().eq(attributeId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 }

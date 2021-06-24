@@ -82,7 +82,8 @@ public class ProgramAttributeListActivity extends ListActivity implements OnProg
         return Sdk.d2().programModule()
                 .programs()
                 .byUid().eq(selectedProgramId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {

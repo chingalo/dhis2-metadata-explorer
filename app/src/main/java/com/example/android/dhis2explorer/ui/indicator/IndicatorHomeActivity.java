@@ -1,11 +1,11 @@
 package com.example.android.dhis2explorer.ui.indicator;
 
-import androidx.lifecycle.LiveData;
-import androidx.paging.PagedList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
@@ -26,7 +26,7 @@ public class IndicatorHomeActivity extends ListActivity implements OnIndicatorSe
 
     @Override
     public void onIndicatorSelection(String indicatorId) {
-        ActivityStarter.startActivity(this, IndicatorInfoActivity.getActivityIntent(this,indicatorId), false);
+        ActivityStarter.startActivity(this, IndicatorInfoActivity.getActivityIntent(this, indicatorId), false);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class IndicatorHomeActivity extends ListActivity implements OnIndicatorSe
                 .indicators()
                 .orderByDisplayName(RepositoryScope.OrderByDirection.ASC)
                 .getPaged(5);
-        liveData.observe(this,indicators -> adapter.submitList(indicators));
+        liveData.observe(this, indicators -> adapter.submitList(indicators));
     }
 }

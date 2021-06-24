@@ -22,6 +22,7 @@ import com.example.android.dhis2explorer.data.service.SyncStatusHelper;
 import com.example.android.dhis2explorer.ui.dataElement.DataElementHomeActivity;
 import com.example.android.dhis2explorer.ui.dataSet.DataSetHomeActivity;
 import com.example.android.dhis2explorer.ui.indicator.IndicatorHomeActivity;
+import com.example.android.dhis2explorer.ui.options.OptionHomeActivity;
 import com.example.android.dhis2explorer.ui.program.ProgramHomeActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         CardView programCardView = findViewById(R.id.programListCard);
         CardView dataElementListCard = findViewById(R.id.dataElementListCard);
         CardView indicatorListCard = findViewById(R.id.indicatorListCard);
+        CardView optionListCard = findViewById(R.id.optionListCard);
 
         programCardView.setOnClickListener(view -> {
             if (!isSyncing) {
@@ -125,6 +127,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int indicatorListCount = SyncStatusHelper.indicatorCount();
                 if (indicatorListCount > 0) {
                     ActivityStarter.startActivity(this, IndicatorHomeActivity.getActivityIntent(this), false);
+                } else {
+                    Snackbar.make(view, "You have no data element at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+
+            }
+        });
+        optionListCard.setOnClickListener(view -> {
+            if (!isSyncing) {
+                int optionListCount = SyncStatusHelper.optionCount();
+                if (optionListCount > 0) {
+                    ActivityStarter.startActivity(this, OptionHomeActivity.getActivityIntent(this), false);
                 } else {
                     Snackbar.make(view, "You have no data element at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
@@ -173,6 +187,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int dataSetCount = SyncStatusHelper.dataSetCount();
         int dataElementCount = SyncStatusHelper.dataElementCount();
         int indicatorListCount = SyncStatusHelper.indicatorCount();
+        int optionListCount = SyncStatusHelper.optionCount();
 
         boolean shouldEnablePossibleButtons = programCount + dataSetCount + indicatorListCount > 0;
 
@@ -182,9 +197,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView downloadedDataSetsText = findViewById(R.id.dataSetListCount);
         TextView downloadedDataElementsText = findViewById(R.id.dataElementListCount);
         TextView downloadedIndicatorsText = findViewById(R.id.indicatorListCount);
+        TextView downloadedOptionsText = findViewById(R.id.optionListCount);
+
         downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
         downloadedDataSetsText.setText(MessageFormat.format("{0}", dataSetCount));
         downloadedDataElementsText.setText(MessageFormat.format("{0}", dataElementCount));
+        downloadedOptionsText.setText(MessageFormat.format("{0}", optionListCount));
         downloadedIndicatorsText.setText(MessageFormat.format("{0}", indicatorListCount));
     }
 
@@ -223,7 +241,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         floatingActionButton.setEnabled(enabled);
         floatingActionButton.setAlpha(enabled ? 1.0f : 0.3f);
     }
-
 
 
     private void createNavigationView(User user) {

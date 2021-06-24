@@ -132,8 +132,8 @@ public class ProgramWithRegistrationActivity extends DefaultActivity {
                 .programs()
                 .withTrackedEntityType()
                 .byUid().eq(selectedProgramId)
-                .blockingGet()
-                .get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {

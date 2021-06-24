@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.common.adapters;
+package com.example.android.dhis2explorer.ui.options.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +11,17 @@ import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.service.StyleBinderHelper;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
+import com.example.android.dhis2explorer.ui.options.listeners.OnOptionSelectionListener;
 
 import org.hisp.dhis.android.core.option.Option;
 
 public class OptionListAdapter extends PagedListAdapter<Option, ListItemCardHolder> {
-    public OptionListAdapter() {
+
+    final OnOptionSelectionListener optionSelectionListener;
+
+    public OptionListAdapter(OnOptionSelectionListener optionSelectionListener) {
         super(new DiffByIdItemCallback<>());
+        this.optionSelectionListener = optionSelectionListener;
     }
 
     @NonNull
@@ -32,5 +37,6 @@ public class OptionListAdapter extends PagedListAdapter<Option, ListItemCardHold
         holder.title.setText(option.displayName());
         holder.subtitle.setText(option.code());
         StyleBinderHelper.bindStyle(holder, option.style());
+        holder.cardView.setOnClickListener(view -> optionSelectionListener.onOptionSelection(option.uid()));
     }
 }

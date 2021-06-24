@@ -56,10 +56,13 @@ public class IndicatorInfoActivity extends DefaultActivity {
     Indicator getSelectedIndicator() {
         return Sdk.d2().indicatorModule().indicators()
                 .byUid().eq(selectedIndicatorId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {
         INDICATOR
     }
+
+
 }

@@ -56,7 +56,8 @@ public class ProgramProgramIndicatorInfoActivity extends DefaultActivity {
         return Sdk.d2().programModule()
                 .programIndicators()
                 .byUid().eq(selectedProgramIndicatorId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {

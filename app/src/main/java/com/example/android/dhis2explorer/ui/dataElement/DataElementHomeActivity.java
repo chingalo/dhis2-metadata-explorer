@@ -21,20 +21,19 @@ import org.hisp.dhis.android.core.dataelement.DataElement;
 
 public class DataElementHomeActivity extends ListActivity implements OnDataElementSelectionListener {
 
+    public static Intent getActivityIntent(Context context) {
+        return new Intent(context, DataElementHomeActivity.class);
+    }
+
     @Override
     public void onDataElementSelection(String dataElementId) {
         DataElement dataElement = getDataElement(dataElementId);
-        if(dataElement.domainType().equals("TRACKER")){
+        if (dataElement.domainType().equals("TRACKER")) {
             String programStageDataElementId = Sdk.d2().programModule().programStageDataElements().byDataElement().eq(dataElementId).blockingGetUids().get(0);
             ActivityStarter.startActivity(this, ProgramProgramStageDataElementActivity.getActivityIntent(this, programStageDataElementId), false);
-        }else{
+        } else {
             ActivityStarter.startActivity(this, DataSetDataElementInfoActivity.getActivityIntent(this, dataElementId), false);
         }
-    }
-
-
-    public static Intent getActivityIntent(Context context) {
-        return new Intent(context, DataElementHomeActivity.class);
     }
 
     @Override
@@ -58,7 +57,8 @@ public class DataElementHomeActivity extends ListActivity implements OnDataEleme
         return Sdk.d2().dataElementModule()
                 .dataElements()
                 .byUid().eq(dataElementId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
 }

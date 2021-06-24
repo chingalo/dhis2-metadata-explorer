@@ -87,8 +87,8 @@ public class ProgramProgramIndicatorListActivity extends ListActivity implements
                 .programs()
                 .withTrackedEntityType()
                 .byUid().eq(selectedProgramId)
-                .blockingGet()
-                .get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {

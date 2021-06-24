@@ -85,7 +85,8 @@ public class ProgramProgramStageListActivity extends ListActivity implements OnP
         return Sdk.d2().programModule()
                 .programs()
                 .byUid().eq(selectedProgramId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {

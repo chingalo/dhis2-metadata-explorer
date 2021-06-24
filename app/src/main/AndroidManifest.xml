@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.indicator.IndicatorHomeActivity"></activity>
+        <activity android:name=".ui.options.pages.OptionInfoActivity" android:label="Option Info"/>
+        <activity
+            android:name=".ui.options.OptionHomeActivity"
+            android:label="Option list" />
+        <activity
+            android:name=".ui.indicator.IndicatorHomeActivity"
+            android:label="Indicator list" />
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

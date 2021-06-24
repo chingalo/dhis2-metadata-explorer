@@ -93,7 +93,8 @@ public class DataSetDataElementListActivity extends ListActivity implements OnDa
                 .byUid().eq(selectedDataSetId)
                 .withIndicators()
                 .withDataSetElements()
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
 

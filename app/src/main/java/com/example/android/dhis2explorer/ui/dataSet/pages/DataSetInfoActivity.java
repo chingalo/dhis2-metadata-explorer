@@ -92,7 +92,8 @@ public class DataSetInfoActivity extends DefaultActivity {
                 .byUid().eq(selectedDataSetId)
                 .withIndicators()
                 .withDataSetElements()
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {

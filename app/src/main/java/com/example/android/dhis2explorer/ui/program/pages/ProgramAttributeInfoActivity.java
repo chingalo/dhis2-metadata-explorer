@@ -12,8 +12,11 @@ import androidx.paging.PagedList;
 
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.data.Sdk;
+import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.ui.base.ListActivity;
-import com.example.android.dhis2explorer.ui.common.adapters.OptionListAdapter;
+import com.example.android.dhis2explorer.ui.options.adapters.OptionListAdapter;
+import com.example.android.dhis2explorer.ui.options.listeners.OnOptionSelectionListener;
+import com.example.android.dhis2explorer.ui.options.pages.OptionInfoActivity;
 
 import org.hisp.dhis.android.core.option.Option;
 import org.hisp.dhis.android.core.program.ProgramTrackedEntityAttribute;
@@ -21,7 +24,7 @@ import org.hisp.dhis.android.core.trackedentity.TrackedEntityAttribute;
 
 import static android.text.TextUtils.isEmpty;
 
-public class ProgramAttributeInfoActivity extends ListActivity {
+public class ProgramAttributeInfoActivity extends ListActivity implements OnOptionSelectionListener {
 
     private String selectedProgramTrackedEntityAttributeId;
 
@@ -32,6 +35,11 @@ public class ProgramAttributeInfoActivity extends ListActivity {
         Intent intent = new Intent(context, ProgramAttributeInfoActivity.class);
         intent.putExtras(bundle);
         return intent;
+    }
+
+    @Override
+    public void onOptionSelection(String optionId) {
+        ActivityStarter.startActivity(this, OptionInfoActivity.getActivityIntent(this, optionId), false);
     }
 
     @Override
@@ -78,7 +86,7 @@ public class ProgramAttributeInfoActivity extends ListActivity {
     }
 
     private void setOptionSetListAdapter(String optionSetId) {
-        OptionListAdapter adapter = new OptionListAdapter();
+        OptionListAdapter adapter = new OptionListAdapter(this);
         recyclerView.setAdapter(adapter);
 
         LiveData<PagedList<Option>> liveData = Sdk.d2().optionModule().options()
@@ -91,18 +99,21 @@ public class ProgramAttributeInfoActivity extends ListActivity {
         return Sdk.d2().trackedEntityModule()
                 .trackedEntityAttributes()
                 .byUid().eq(attributeId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     ProgramTrackedEntityAttribute getSelectedProgramTrackedEntityAttribute() {
         return Sdk.d2().programModule()
                 .programTrackedEntityAttributes()
                 .byUid().eq(selectedProgramTrackedEntityAttributeId)
-                .blockingGet().get(0);
+                .one()
+                .blockingGet();
     }
 
     private enum IntentExtra {
         PROGRAM_TRACKED_ENTITY_ATTRIBUTE
     }
+
 
 }
