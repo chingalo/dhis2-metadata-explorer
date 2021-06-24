@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".ui.indicator.IndicatorHomeActivity"></activity>
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,9 +39,9 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.dataElement.DataElementHomeActivity"
-            android:label="Data element list"
-            />
+        <activity
+            android:name=".ui.dataElement.DataElementHomeActivity"
+            android:label="Data element list" />
         <activity
             android:name=".ui.dataSet.DataSetHomeActivity"
             android:label="@string/title_activity_data_set_home"

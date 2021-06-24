@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.dataSet.adapters;
+package com.example.android.dhis2explorer.ui.indicator.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +10,15 @@ import androidx.paging.PagedListAdapter;
 import com.example.android.dhis2explorer.R;
 import com.example.android.dhis2explorer.ui.base.DiffByIdItemCallback;
 import com.example.android.dhis2explorer.ui.base.ListItemCardHolder;
-import com.example.android.dhis2explorer.ui.dataSet.listeners.OnIndicatorSelectionListener;
+import com.example.android.dhis2explorer.ui.indicator.listeners.OnIndicatorSelectionListener;
 
 import org.hisp.dhis.android.core.indicator.Indicator;
 
-public class DataSetIndicatorAdapter extends PagedListAdapter<Indicator, ListItemCardHolder> {
+public class IndicatorAdapter extends PagedListAdapter<Indicator, ListItemCardHolder> {
 
     private final OnIndicatorSelectionListener indicatorSelectionListener;
 
-    public DataSetIndicatorAdapter(OnIndicatorSelectionListener indicatorSelectionListener) {
+    public IndicatorAdapter(OnIndicatorSelectionListener indicatorSelectionListener) {
         super(new DiffByIdItemCallback<>());
         this.indicatorSelectionListener = indicatorSelectionListener;
     }

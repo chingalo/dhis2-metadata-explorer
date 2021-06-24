@@ -15,4 +15,7 @@ public class SyncStatusHelper {
     public static int dataElementCount() {
         return Sdk.d2().dataElementModule().dataElements().blockingCount();
     }
+    public static int indicatorCount() {
+        return Sdk.d2().indicatorModule().indicators().blockingCount();
+    }
 }

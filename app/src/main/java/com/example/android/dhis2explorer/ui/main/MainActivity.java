@@ -21,6 +21,7 @@ import com.example.android.dhis2explorer.data.service.ActivityStarter;
 import com.example.android.dhis2explorer.data.service.SyncStatusHelper;
 import com.example.android.dhis2explorer.ui.dataElement.DataElementHomeActivity;
 import com.example.android.dhis2explorer.ui.dataSet.DataSetHomeActivity;
+import com.example.android.dhis2explorer.ui.indicator.IndicatorHomeActivity;
 import com.example.android.dhis2explorer.ui.program.ProgramHomeActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         CardView dataSetCardView = findViewById(R.id.dataSetListCard);
         CardView programCardView = findViewById(R.id.programListCard);
         CardView dataElementListCard = findViewById(R.id.dataElementListCard);
+        CardView indicatorListCard = findViewById(R.id.indicatorListCard);
 
         programCardView.setOnClickListener(view -> {
             if (!isSyncing) {
@@ -113,6 +115,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     ActivityStarter.startActivity(this, ProgramHomeActivity.getActivityIntent(this), false);
                 } else {
                     Snackbar.make(view, "You have no program at moment try to sync first", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+
+            }
+        });
+        indicatorListCard.setOnClickListener(view -> {
+            if (!isSyncing) {
+                int indicatorListCount = SyncStatusHelper.indicatorCount();
+                if (indicatorListCount > 0) {
+                    ActivityStarter.startActivity(this, IndicatorHomeActivity.getActivityIntent(this), false);
+                } else {
+                    Snackbar.make(view, "You have no data element at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }
 
@@ -151,6 +165,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    private void updateSyncDataAndButtons() {
+        disableAllButtons();
+
+        //@TODO add more metadata
+        int programCount = SyncStatusHelper.programCount();
+        int dataSetCount = SyncStatusHelper.dataSetCount();
+        int dataElementCount = SyncStatusHelper.dataElementCount();
+        int indicatorListCount = SyncStatusHelper.indicatorCount();
+
+        boolean shouldEnablePossibleButtons = programCount + dataSetCount + indicatorListCount > 0;
+
+        enablePossibleButtons(shouldEnablePossibleButtons);
+
+        TextView downloadedProgramsText = findViewById(R.id.programListCount);
+        TextView downloadedDataSetsText = findViewById(R.id.dataSetListCount);
+        TextView downloadedDataElementsText = findViewById(R.id.dataElementListCount);
+        TextView downloadedIndicatorsText = findViewById(R.id.indicatorListCount);
+        downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
+        downloadedDataSetsText.setText(MessageFormat.format("{0}", dataSetCount));
+        downloadedDataElementsText.setText(MessageFormat.format("{0}", dataElementCount));
+        downloadedIndicatorsText.setText(MessageFormat.format("{0}", indicatorListCount));
+    }
+
     private void startMetadataSync() {
         syncStatusText = findViewById(R.id.notificator);
         syncStatusText.setText(R.string.syncing_metadata);
@@ -187,25 +224,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         floatingActionButton.setAlpha(enabled ? 1.0f : 0.3f);
     }
 
-    private void updateSyncDataAndButtons() {
-        disableAllButtons();
 
-        //@TODO add more metadata
-        int programCount = SyncStatusHelper.programCount();
-        int dataSetCount = SyncStatusHelper.dataSetCount();
-        int dataElementCount = SyncStatusHelper.dataElementCount();
-
-        boolean shouldEnablePossibleButtons = programCount + dataSetCount > 0;
-
-        enablePossibleButtons(shouldEnablePossibleButtons);
-
-        TextView downloadedProgramsText = findViewById(R.id.programListCount);
-        TextView downloadedDataSetsText = findViewById(R.id.dataSetListCount);
-        TextView downloadedDataElementsText = findViewById(R.id.dataElementListCount);
-        downloadedProgramsText.setText(MessageFormat.format("{0}", programCount));
-        downloadedDataSetsText.setText(MessageFormat.format("{0}", dataSetCount));
-        downloadedDataElementsText.setText(MessageFormat.format("{0}", dataElementCount));
-    }
 
     private void createNavigationView(User user) {
         Toolbar toolbar = findViewById(R.id.toolbar);

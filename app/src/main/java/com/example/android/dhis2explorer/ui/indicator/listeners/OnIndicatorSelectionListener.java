@@ -1,4 +1,4 @@
-package com.example.android.dhis2explorer.ui.dataSet.listeners;
+package com.example.android.dhis2explorer.ui.indicator.listeners;
 
 public interface OnIndicatorSelectionListener {
     void onIndicatorSelection(String indicatorId);
