@@ -13,6 +13,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.optionSet.pages.OptionSetInfoActivity"
+            android:label="Option Set info" />
+        <activity
+            android:name=".ui.optionSet.OptionSetHomeActivity"
+            android:label="Option set list" />
+        <activity
             android:name=".ui.programIndicator.ProgramIndicatorHomeActivity"
             android:label="Program indicator list" />
         <activity

@@ -22,6 +22,7 @@ import com.example.android.dhis2explorer.data.service.SyncStatusHelper;
 import com.example.android.dhis2explorer.ui.dataElement.DataElementHomeActivity;
 import com.example.android.dhis2explorer.ui.dataSet.DataSetHomeActivity;
 import com.example.android.dhis2explorer.ui.indicator.IndicatorHomeActivity;
+import com.example.android.dhis2explorer.ui.optionSet.OptionSetHomeActivity;
 import com.example.android.dhis2explorer.ui.options.OptionHomeActivity;
 import com.example.android.dhis2explorer.ui.program.ProgramHomeActivity;
 import com.example.android.dhis2explorer.ui.programIndicator.ProgramIndicatorHomeActivity;
@@ -169,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (!isSyncing) {
                 int optionSetListCount = SyncStatusHelper.optionSetCount();
                 if (optionSetListCount > 0) {
-                    // ActivityStarter.startActivity(this, OptionHomeActivity.getActivityIntent(this), false);
+                     ActivityStarter.startActivity(this, OptionSetHomeActivity.getActivityIntent(this), false);
                 } else {
                     Snackbar.make(view, "You have no option sets at moment try to sync first", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
